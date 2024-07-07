@@ -1,0 +1,14 @@
+.page-content{
+    width: 100%;    
+    padding: 20px 24px 0px 24px;
+    background-color:#DDDDDD	;
+
+}
+.page-content-son{
+    position: fixed;  
+    width: calc(100vw - 296px);
+    height: calc(100vh - 170px); 
+    padding: 20px 24px 0px 24px;
+    background-color:white	;
+
+}

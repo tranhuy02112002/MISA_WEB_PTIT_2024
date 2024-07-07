@@ -1,0 +1,43 @@
+.m-icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    filter: invert(1) grayscale(1) brightness(2);
+}
+.m-icon2 {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.m-icon-dashboard {
+    background-image: url(../../assets/icon/dashboard.png);
+}
+
+.m-icon-employee {
+    background-image: url(../../assets/icon/dic-employee.png);
+}
+
+.m-icon-document {
+    background-image: url(../../assets/icon/document-online.png);
+}
+
+.m-icon-setting {
+    background-image: url(../../assets/icon/setting.png);
+}
+.m-icon-down{
+    background-image: url(../../assets/icon/dropdown1.png);
+}
+.m-icon-dot2{
+    background-image: url(../../assets/icon/threedots.png);
+}
+
+.m-icon16{
+    width: 16px;
+    height: 16px;
+
+}
+
+.m-icon-search{
+    background-image: url(../../assets/icon/search.png);
+}

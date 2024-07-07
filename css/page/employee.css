@@ -1,0 +1,71 @@
+.m-page-header{
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    height: 48px;
+    width: 100%;
+}
+
+.m-page-header .m-page-title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.m-page-header .m-page-button{
+    position: absolute;
+    right: 0;
+}
+
+.m-page-toolbar{
+    position: relative;
+    display: flex;
+    height: 48px;
+    width: 100%;
+    align-items: center;
+}
+.m-page-grid{
+    width: 100%;
+    height: calc(100% - 96px);
+
+}
+.m-page-toolbar .m-toolbar-right{
+    position: absolute;
+    text-align: right;
+    right: 0;
+
+}
+.m-page-toolbar .m-toolbar-right .m-btn-refresh{
+    width: 44px;
+    height: 44px;
+    background-image: url(../../assets//icon//refresh.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    right: 0;
+
+}
+.m-page-toolbar .m-toolbar-right .m-btn-refresh:hover{
+    border: 1px solid #bbbb;
+    background-color: #fff;
+    color: #000;
+}
+.m-page-toolbar .m-toolbar-right .m-btn-export{
+    margin-right: 10px;
+    width: 44px;
+    height: 44px;
+    background-image: url(../../assets//icon/export-excel-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    background-size: contain;}
+
+    .m-page-toolbar .m-toolbar-right .m-btn-export:hover{
+        border: 1px solid #bbbb;
+        background-color: #fff;
+        color: #000;
+    }

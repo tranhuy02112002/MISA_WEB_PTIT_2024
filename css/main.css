@@ -1,0 +1,42 @@
+@import url(./layout/navbar.css);
+@import url(./layout/header.css);
+@import url(./layout/content.css);
+@import url(./components/icon.css);
+@import url(./components/button.css);
+@import url(./components/input.css);
+@import url(./components/table.css);
+@import url(./components/paging.css);
+@import url(./components/dialog.css);
+
+body{
+    margin: 0px;
+    font-family: GoogleSands;
+    font-size: 13px;
+
+}
+
+@font-face {
+    font-family: GoogleSands;
+    src: url("../assets/font/GoogleSans-Regular.otf");
+}
+
+@font-face {
+    font-family: GoogleSands Bold;
+    src: url("../assets/font/GoogleSans-Bold.otf");
+}
+
+@font-face {
+    font-family: GoogleSands Italic;
+    src: url("../assets/font/GoogleSans-Italic.otf");
+}
+
+.main{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 48px);
+}
+
+.m-row{
+    width: 100%;
+    margin-top: 4px;
+}

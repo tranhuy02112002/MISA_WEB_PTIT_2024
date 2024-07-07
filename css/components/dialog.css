@@ -1,0 +1,20 @@
+.m-dialog{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #1b191986
+}
+
+.m-dialog .m-dialog-content{
+    position: absolute;
+    width: 1000px;
+    height: 650px;
+    background-color: white;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%,-50%);
+    border-radius: 4px;
+}

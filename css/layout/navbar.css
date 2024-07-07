@@ -1,0 +1,38 @@
+.navbar{
+    width: 200px;
+    height: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    border-right: 1px solid #bbb;
+    background-color: #001833;
+}
+
+
+.menu-item{
+    margin-top: 18px ;
+    margin-left: 12px;
+    color: #fff;
+    display: flex;
+    height: 44px;
+    width: 176px;
+    border-radius: 4px;
+    /*border-bottom: 1px solid #ccc;*/
+    box-sizing: border-box;
+    align-items: center;
+    cursor: pointer;
+}
+.menu-item:hover{
+    background-color: #003166;
+}
+
+.menu-item.menu-item-focus{
+    /* background-color: #019160; */
+    color: #fff;
+}
+.menu-item .menu-icon{
+    margin-left: 16px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
