@@ -86,7 +86,7 @@
                                 <td class="text-align-left">Nam</td>
                                 <td class="text-align-center">02/11/2002</td>
                                 <td class="text-align-left">haonv@gmail.com</td>
-                                <td class="text-align-left" style="display: flex; border-style: none;">
+                                <td class="text-align-left" style="display: flex; border-style: none; ">
                                     <div style="margin-top: 9px; width: 150px;">Hà Nội</div>  
                                     <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button class="m-delete m-all"></button> 
                                 </td>
@@ -201,90 +201,106 @@
                         <div class="m-dialog-content">
                             <div class="m-dialog-header">
                                 <h2>Thông tin nhân viên</h2>
-                                <button class="close-btn" onclick="closeDialog()">X</button>
+                                <button class="m-dialog-close" onclick="closeDialog()"></button>
                             </div>
                             <div class="m-dialog-body">
                                 <form id="employeeForm">
-                                    <div class="form-group">
-                                        <label for="employeeId">Mã nhân viên *</label>
-                                        <input type="text" id="employeeId" name="employeeId" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="fullName">Họ và tên *</label>
-                                        <input type="text" id="fullName" name="fullName" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="dob">Ngày sinh</label>
-                                        <input type="date" id="dob" name="dob">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Giới tính</label>
-                                        <div class="gender-options">
-                                            <input type="radio" id="male" name="gender" value="male">
-                                            <label for="male">Nam</label>
-                                            <input type="radio" id="female" name="gender" value="female">
-                                            <label for="female">Nữ</label>
-                                            <input type="radio" id="other" name="gender" value="other">
-                                            <label for="other">Khác</label>
+                                    <div class="employeerow1">
+                                        <div class="form-group">
+                                            <label for="employeeId" class="lable" style="display: flex;">Mã nhân viên 
+                                                <div style="color: red; margin-left: 5px;">*</div>
+                                            </label>
+                                            <input  class="m-input A" type="text" id="employeeId" name="employeeId" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" for="fullName" style="display: flex;"> Họ và tên
+                                                <div style="color: red; margin-left: 5px;">*</div>
+                                            </label>
+                                            <input class="m-input B" type="text" id="fullName" name="fullName" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" for="dob">Ngày sinh</label>
+                                            <input class="m-input C" type="date" id="dob" name="dob" style="color: black;">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" >Giới tính</label>
+                                            <div class="gender-options">
+                                                <input type="radio" id="male" name="gender" value="male">
+                                                <label for="male">Nam</label>
+                                                <input type="radio" id="female" name="gender" value="female">
+                                                <label for="female">Nữ</label>
+                                                <input type="radio" id="other" name="gender" value="other">
+                                                <label for="other">Khác</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="idNumber">Số CMTND</label>
-                                        <input type="text" id="idNumber" name="idNumber">
+                                    <div class="employeerow1">
+                                        <div class="form-group">
+                                            <label class="lable" for="position">Vị trí</label>
+                                            <input class="m-input D" type="text" id="idNumber" name="idNumber">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" for="idNumber">Số CMTND</label>
+                                            <input class="m-input E" type="text" id="idNumber" name="idNumber">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" for="issueDate">Ngày cấp</label>
+                                            <input class="m-input F" type="date" id="issueDate" name="issueDate" style="color: black;">
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="issueDate">Ngày cấp</label>
-                                        <input type="date" id="issueDate" name="issueDate">
+                                   
+                                    <div class="employeerow1">
+                                        <div class="form-group">
+                                            <label class="lable" for="department">Phòng ban</label>
+                                            <input class="m-input G" type="text" id="issuePhongban" name="issuePhongban" style="color: black;">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" for="issuePlace">Nơi cấp</label>
+                                            <input class="m-input H" type="text" id="issuePlace" name="issuePlace">
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="issuePlace">Nơi cấp</label>
-                                        <input type="text" id="issuePlace" name="issuePlace">
+
+                                    <div class="employeerow1">
+                                        <div class="form-group">
+                                            <label class="lable" for="address">Địa chỉ</label>
+                                            <input class="m-input U" type="text" id="address" name="address">
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="position">Vị trí</label>
-                                        <select id="position" name="position">
-                                            <option value="" disabled selected>Chọn vị trí</option>
-                                        </select>
+
+                                    <div class="employeerow1">
+                                        <div class="form-group">
+                                            <label class="lable" for="mobilePhone">ĐT Di động</label>
+                                            <input class="m-input I" type="text" id="mobilePhone" name="mobilePhone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" for="landlinePhone">ĐT Cố định</label>
+                                            <input class="m-input J" type="text" id="landlinePhone" name="landlinePhone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" for="email">Email</label>
+                                            <input class="m-input K" type="email" id="email" name="email">
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="department">Phòng ban</label>
-                                        <select id="department" name="department">
-                                            <option value="" disabled selected>Chọn phòng ban</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="address">Địa chỉ</label>
-                                        <input type="text" id="address" name="address">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="mobilePhone">ĐT Di động</label>
-                                        <input type="text" id="mobilePhone" name="mobilePhone">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="landlinePhone">ĐT Cố định</label>
-                                        <input type="text" id="landlinePhone" name="landlinePhone">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" id="email" name="email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="bankAccount">Tài khoản ngân hàng</label>
-                                        <input type="text" id="bankAccount" name="bankAccount">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="bankName">Tên ngân hàng</label>
-                                        <input type="text" id="bankName" name="bankName">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="branch">Chi nhánh</label>
-                                        <input type="text" id="branch" name="branch">
+                                    
+                                    <div class="employeerow1">
+                                        <div class="form-group">
+                                            <label class="lable" for="bankAccount">Tài khoản ngân hàng</label>
+                                            <input class="m-input L" type="text" id="bankAccount" name="bankAccount">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" for="bankName">Tên ngân hàng</label>
+                                            <input class="m-input M" type="text" id="bankName" name="bankName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="lable" for="branch">Chi nhánh</label>
+                                            <input class="m-input N" type="text" id="branch" name="branch">
+                                        </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="m-dialog-footer">
-                                <button class="cancel-btn" onclick="closeDialog()">Hủy</button>
-                                <button class="save-btn" type="submit" form="employeeForm">Cất</button>
+                                <button class="m-btn m-dialog-huy" onclick="closeDialog()">Hủy</button>
+                                <button class="m-btn m-dialog-luu" type="submit" form="employeeForm">Cất</button>
                             </div>
                         </div>
                     </div>

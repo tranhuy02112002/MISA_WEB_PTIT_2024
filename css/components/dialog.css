@@ -5,16 +5,155 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: #1b191986
+    background-color: #1b191986;
 }
 
 .m-dialog .m-dialog-content{
+    border-radius: 4px;
     position: absolute;
-    width: 1000px;
-    height: 650px;
+    width: 1200px;
+    height: 760px;
     background-color: white;
     top: 50%;
     left: 55%;
     transform: translate(-50%,-50%);
-    border-radius: 4px;
 }
+
+.m-dialog .m-dialog-header{
+    width: 100%;
+    padding: 24px;
+}
+.m-dialog .m-dialog-header .m-dialog-close{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-image: url(../../assets/icon/close-48.png);
+    top: 10px;
+    right: 24px;
+    border: none;
+    background-color: white;
+    background-size: contain;
+    cursor: pointer;
+}
+
+
+.m-dialog .m-dialog-body{
+    padding: 24px;
+}
+.m-dialog .m-dialog-body .employeerow1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    display: flex;
+
+}
+.m-dialog .m-dialog-header .m-dialog-close:hover{
+    background-color: #ccc;
+}
+
+.m-dialog .m-dialog-footer .m-dialog-huy{
+    position: absolute;
+    background-color: white;
+    color: black;
+    right: 105px;
+}
+
+.m-dialog .m-dialog-footer .m-dialog-huy:hover {
+    background-color: #ccc;
+   
+}
+.m-dialog .m-dialog-footer .m-dialog-luu{
+    position: absolute;
+    right: 24px;
+}
+
+.m-dialog .m-dialog-footer{
+    border-radius: 0 0 4px 4px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 62px;
+    background-color: #EEEEEE;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.form-group .m-input{
+    color: black;
+}
+
+.lable{
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: black;
+}
+.A{
+    width: 200px;
+    margin-right: 6px;
+}
+.B{
+    width: 294px;
+    margin-right: 15px;
+
+}
+.C{
+    margin-right: 15px;
+
+}
+.D{
+    width: 533px;
+    margin-right: 17px;
+}
+.E{
+    width: 300px;
+    margin-right: 6px;
+}
+.F{
+    width: 194px;
+}
+.G{
+    width: 533px;
+    margin-right: 17px;
+}
+.H{
+    width: 533px;
+
+}
+.U{
+    width: 1117px;
+    
+}
+
+.I{
+    width: 345px;
+    margin-right: 7px;
+
+}
+.J{
+    width: 345px;
+    margin-right: 7px;
+}
+.K{
+    width: 345px;
+
+}
+.L{
+    width: 345px;
+    margin-right: 7px;
+
+}
+.M{
+    width: 345px;
+    margin-right: 7px;
+}
+.N{
+    width: 345px;
+
+}
+/* 1083 */

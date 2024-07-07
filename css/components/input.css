@@ -12,6 +12,7 @@
 
 }
 
+
 .m-input:focus{
     border-color: #001833;;
 }
@@ -30,4 +31,3 @@
     padding-left: 40px;
     padding-right: 16px;
 }
-
