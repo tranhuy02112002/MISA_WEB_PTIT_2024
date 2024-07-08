@@ -1,4 +1,9 @@
+:root {
+    --navbar-width-expanded: 200px; /* Chiều rộng khi navbar mở rộng */
+    --navbar-width-collapsed: 130px; /* Chiều rộng khi navbar thu hẹp */
+}
 .navbar{
+    position: relative;
     width: 200px;
     height: 100%;
     flex-shrink: 0;
@@ -6,7 +11,10 @@
     border-right: 1px solid #bbb;
     background-color: #001833;
 }
+.navbar.collapsed {
+    width: var(--navbar-width-collapsed);
 
+}
 
 .menu-item{
     margin-top: 18px ;
@@ -36,3 +44,21 @@
     height: 20px;
     flex-shrink: 0;
 }
+
+.toggle-button {
+    font-size: 14px;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+    color: #fff;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.2); /* Đường line cực nhạt và cực nhỏ bên trên chữ "Thu gọn" */
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.navbar.collapsed .menu-text {
+    display: none; /* Ẩn text khi navbar thu hẹp */
+}
+

@@ -83,6 +83,18 @@
     background-color: transparent; /* Đặt nền trong suốt nếu cần */
 }
 
+.m-btn-prev{
+    background-image: url(../../assets/icon/left.png);
+    margin-top: 9px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    border: none; /* Xóa viền */
+    padding: 0; /* Xóa khoảng cách bên trong */
+    width: 32px; /* Đặt kích thước icon */
+    height: 32px; /* Đặt kích thước icon */
+    background-color: transparent; /* Đặt nền trong suốt nếu cần */
+}
+
 .m-paging .m-btn-next{
     background-image: url(../../assets/icon/right.png);
     margin-top: 9px;

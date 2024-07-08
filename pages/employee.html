@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh muc nhan vien</title>
+    <title>XAY DUNG PHAN HE QƯAN LY NHAN VIEN _ CUKCUK.VN</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/page/employee.css">
 </head>
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="main">
-        <div class="navbar">
+        <!-- <div class="navbar">
             <div class="menu-item menu-item-focus">
                 <div class="menu-icon m-icon m-icon-dashboard"></div>
                 <div class="menu-text">Trang chủ</div>
@@ -47,7 +47,33 @@
                 <div class="menu-icon m-icon m-icon-setting"></div>
                 <div class="menu-text">Cài đặt</div>
             </div>
+        </div> -->
+        <div class="navbar">
+            <div class="menu-item menu-item-focus">
+                <div class="menu-icon m-icon m-icon-dashboard"></div>
+                <div class="menu-text">Trang chủ</div>
+            </div>
+        
+            <div class="menu-item">
+                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-text">Báo cáo</div>
+            </div>
+        
+            <div class="menu-item">
+                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-text">Nhân viên</div>
+            </div>
+        
+            <div class="menu-item">
+                <div class="menu-icon m-icon m-icon-setting"></div>
+                <div class="menu-text">Cài đặt</div>
+            </div>
+            <div class="toggle-button" onclick="toggleNavbar()">
+                <span style="margin-left: 30px;" > 
+                    Thu gọn</span>
+            </div>
         </div>
+        
         <div class="page-content">
             <div class="m-page-header">
                 <div class="m-page-title">Quản lý nhân viên</div>
@@ -428,6 +454,20 @@
         document.getElementById("btnShowDialog").addEventListener('click', function() {
             document.getElementById("dlgDialog").style.display = 'block';
         });
+
+        function toggleNavbar() {
+            var navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('collapsed');
+            
+            // Thay đổi nội dung nút
+            var toggleButton = document.querySelector('.toggle-button span');
+            if (navbar.classList.contains('collapsed')) {
+                toggleButton.textContent = 'Mở rộng';
+            } else {
+                toggleButton.textContent = 'Thu gọn';
+            }
+        }
+
     </script>
 </body>
 </html>
