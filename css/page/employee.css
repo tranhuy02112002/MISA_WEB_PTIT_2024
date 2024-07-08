@@ -69,3 +69,17 @@
         background-color: #fff;
         color: #000;
     }
+
+    .m-table-all {
+        max-height: 655px; /* Bạn có thể điều chỉnh chiều cao phù hợp */
+        overflow-y: auto;
+        margin-top: 20px;
+    }
+    
+    thead th {
+        position: sticky;
+        top: 0;
+        background-color: #f1f1f1; /* Màu nền cho phần đầu bảng */
+        z-index: 1; /* Đảm bảo phần đầu bảng nằm trên các hàng khác */
+    }
+    
