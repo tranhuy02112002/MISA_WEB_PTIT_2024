@@ -1,6 +1,6 @@
 :root {
     --navbar-width-expanded: 200px; /* Chiều rộng khi navbar mở rộng */
-    --navbar-width-collapsed: 170px; /* Chiều rộng khi navbar thu hẹp */
+    --navbar-width-collapsed: 130px; /* Chiều rộng khi navbar thu hẹp */
 }
 .navbar{
     position: relative;
