@@ -68,28 +68,7 @@
     width: 32px; /* Đặt kích thước icon */
     height: 32px; /* Đặt kích thước icon */
     background-color: transparent; /* Đặt nền trong suốt nếu cần */
-    transition: filter 0.3s; /* Optional: smooth transition */
 }
-
-.m-paging .m-btn-first::after {
-    content: ''; /* Thêm pseudo-element ::after */
-    display: block; /* Hiển thị pseudo-element */
-    position: absolute; /* Định vị absolute */
-    top: 0; /* Căn chỉnh top */
-    left: 0; /* Căn chỉnh left */
-    width: 100%; /* Chiều rộng bằng 100% */
-    height: 100%; /* Chiều cao bằng 100% */
-    background-image: url(../../assets/icon/dbleft.png); /* Giữ nguyên background image */
-    background-size: 20px 20px; /* Giữ nguyên background size */
-    background-repeat: no-repeat; /* Giữ nguyên background repeat */
-    filter: invert(100%); /* Chuyển đổi màu icon sang màu đỏ */
-    opacity: 1; /* Đặt opacity mặc định là 1 */
-    transition: opacity 0.3s; /* Optional: smooth transition */
-  }
-  
-  .m-paging .m-btn-first:hover::after {
-    opacity: 0.5; /* Giảm opacity khi hover */
-  }
 
 
 .m-paging .m-btn-prev{
