@@ -77,11 +77,11 @@ class EmployeePage{
     toggleNavbar(){
         try {
 
-            var navbar = document.querySelector('.navbar');
+            var navbar = document.getElementById('navbar');
             navbar.classList.toggle('collapsed');
             
             // Thay đổi nội dung nút
-            var toggleButton = document.querySelector('.toggle-button span');
+            var toggleButton = document.getElementById("toggleNavbar");
             if (navbar.classList.contains('collapsed')) {
                 toggleButton.textContent = 'Mở rộng';
             } else {

@@ -48,7 +48,7 @@
                 <div class="menu-text">Cài đặt</div>
             </div>
         </div> -->
-        <div class="navbar">
+        <div id="navbar" class="navbar">
             <div class="menu-item menu-item-focus">
                 <div class="menu-icon m-icon m-icon-dashboard"></div>
                 <div class="menu-text">Trang chủ</div>
@@ -68,8 +68,8 @@
                 <div class="menu-icon m-icon m-icon-setting"></div>
                 <div class="menu-text">Cài đặt</div>
             </div>
-            <div id="toggleNavbar" class="toggle-button" onclick="toggleNavbar()">
-                <span style="margin-left: 30px;" > 
+            <div  class="toggle-button" onclick="toggleNavbar()">
+                <span id="toggleNavbar" style="margin-left: 30px;" > 
                     Thu gọn</span>
             </div>
         </div>
@@ -334,7 +334,7 @@
                         <div class="m-dialog-content">
                             <div class="m-dialog-header">
                                 <h2>Thông tin nhân viên</h2>
-                                <button class="m-dialog-close" onclick="closeDialog()"></button>
+                                <button class="m-dialog-close" id="btnCloseDialog"></button>
                             </div>
                             <div class="m-dialog-body">
                                 <form id="employeeForm">
