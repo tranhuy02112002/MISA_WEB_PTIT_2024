@@ -68,7 +68,7 @@
                 <div class="menu-icon m-icon m-icon-setting"></div>
                 <div class="menu-text">Cài đặt</div>
             </div>
-            <div class="toggle-button" onclick="toggleNavbar()">
+            <div id="toggleNavbar" class="toggle-button" onclick="toggleNavbar()">
                 <span style="margin-left: 30px;" > 
                     Thu gọn</span>
             </div>
@@ -78,7 +78,7 @@
             <div class="m-page-header">
                 <div class="m-page-title">Quản lý nhân viên</div>
                 <div class="m-page-button">
-                    <button id="btnShowDialog" class="m-btn m-btn-icon m-btn-icon-add">Thêm mới</button>
+                    <button id="btnShowDialog" class="m-btn m-btn-icon m-btn-icon-add" >Thêm mới</button>
                 </div>
             </div>
             <div class="page-content-son">
@@ -432,42 +432,24 @@
                                 </form>
                             </div>
                             <div class="m-dialog-footer">
-                                <button class="m-btn m-dialog-huy" onclick="closeDialog()">Hủy</button>
-                                <button class="m-btn m-dialog-luu" type="submit" form="employeeForm">Cất</button>
+                                <button id="btnCloseDialog" class="m-btn m-dialog-huy" >Hủy</button>
+                                <button class="m-btn m-dialog-luu" type="submit" form="employeeForm"> Cất</button>
                             </div>
                         </div>
                     </div>
-                    
-                    <script>
-                        function closeDialog() {
-                            document.getElementById('dlgDialog').style.display = 'none';
-                        }
-                    </script>
                     
                 </div>
             </div>
             
         </div>
     </div>
+    <!-- Thư viện js -->
+    <script src="/js/employee/employee.js"></script>
+    <script src="/js/jquery-3.7.1.js"></script>
 
-    <script>
-        document.getElementById("btnShowDialog").addEventListener('click', function() {
-            document.getElementById("dlgDialog").style.display = 'block';
-        });
+    <!-- JaveScrip sử dụng chung -->
 
-        function toggleNavbar() {
-            var navbar = document.querySelector('.navbar');
-            navbar.classList.toggle('collapsed');
-            
-            // Thay đổi nội dung nút
-            var toggleButton = document.querySelector('.toggle-button span');
-            if (navbar.classList.contains('collapsed')) {
-                toggleButton.textContent = 'Mở rộng';
-            } else {
-                toggleButton.textContent = 'Thu gọn';
-            }
-        }
+    <!-- js dành riêng cho Page -->
 
-    </script>
 </body>
 </html>
