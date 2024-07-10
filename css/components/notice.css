@@ -1,0 +1,57 @@
+
+ .m-dialog-notice{
+    position: relative;
+    border-radius: 4px;
+    position: absolute;
+    width: 375px;
+    height: 170px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 24px;
+}
+.m-dialog-notice .m-dialog-notice-header{
+    height: 60px;
+    width: 100%;
+}
+.m-dialog-notice .m-dialog-notice-header .m-dialog-close{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-image: url(../../assets/icon/close-48.png);
+    top: 45px;
+    right: 24px;
+    border: none;
+    background-color: white;
+    background-size: contain;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+.m-dialog-notice .m-dialog-notice-header .m-dialog-close:hover{
+    background-color: aliceblue;
+}
+
+.m-dialog-notice .m-dialog-notice-content{
+    position: relative;
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+}
+.m-dialog-notice .m-dialog-notice-content .m-icon-notice{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-image: url(../../assets/icon/question-48.png);
+    border: none;
+    background-color: white;
+    background-size: contain;
+    left: 0;
+    margin-right: 40px;
+}
+
+.m-dialog-notice .m-dialog-notice-footer{
+    position: absolute;
+    bottom:24px;
+    right: 24px;
+}

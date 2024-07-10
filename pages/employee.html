@@ -115,7 +115,7 @@
                                     <td class="text-align-left">haonv@gmail.com</td>
                                     <td class="text-align-left" style="display: flex; border-style: none; ">
                                         <div style="margin-top: 9px; width: 250px;">Hà Nội</div>  
-                                        <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button class="m-delete m-all"></button> 
+                                        <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button id="btnDeleteEmployee" class="m-delete m-all"></button> 
                                     </td>
         
                                 </tr>
@@ -273,7 +273,7 @@
                                     <td class="text-align-left">haonv@gmail.com</td>
                                     <td class="text-align-left" style="display: flex; border-style: none;">
                                         <div style="margin-top: 9px; width: 250px;">Hà Nội</div>  
-                                        <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button class="m-delete m-all"></button> 
+                                        <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button id="btnDelteEmployee" class="m-delete m-all"></button> 
                                     </td>
                                 </tr>
     
@@ -319,17 +319,10 @@
                         </div>
                     </div>
 
-                    <!-- Dialog -->
+                
 
-                    <!-- <div id="dlgDialog" class="m-dialog">
-                        <div class="m-dialog-content">
-                            <div class="m-dialog-header"></div>
-                            <div class="m-dialog-body"></div>
-                            <div class="m-dialog-footer"></div>
-                        </div>
 
-                    </div> -->
-
+                    <!-- Dialog form nhân viên -->
                     <div id="dlgDialog" class="m-dialog">
                         <div class="m-dialog-content">
                             <div class="m-dialog-header">
@@ -436,6 +429,27 @@
                                 <button class="m-btn m-dialog-luu" type="submit" form="employeeForm"> Cất</button>
                             </div>
                         </div>
+                    </div>
+
+
+
+                    <!-- Thông báo notice -->
+                    <div id="dlgNotice"class="m-dialog">
+                        <div class="m-dialog-notice">
+                            <div class="m-dialog-notice-header">
+                                <h1>Thông báo</h1>
+                                <button class="m-dialog-close" onclick="CloseNotice()"></button>
+                            </div>
+                            <div class="m-dialog-notice-content">
+                                <div class="m-icon-notice"></div>
+                                <div class="" style="margin-left: 40px;">Bạn có chắc chắn muốn xóa nhân viên không?</div>
+                            </div>
+                            <div class="m-dialog-notice-footer">
+                                <button class="m-btn">Đồng ý</button>
+                            </div>
+
+                        </div> 
+                    
                     </div>
                     
                 </div>

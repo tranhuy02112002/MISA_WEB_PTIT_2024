@@ -23,7 +23,7 @@ class EmployeePage{
         document.querySelector("#btnRefresh").addEventListener('click', this.btnRefreshOnclick)
         //Refresh dữ liệu:
 
-        //Xóa nhiều bản ghỉ:
+        //Xóa 1 nhân viên:
 
         //Close dialog
         document.querySelector("#btnCloseDialog").addEventListener('click', this.btnCloseDialog)
@@ -33,6 +33,10 @@ class EmployeePage{
         //Đóng mở Navbar
         document.querySelector("#toggleNavbar").addEventListener('click', this.toggleNavbar)
 
+        // Thông báo có xáo hay không
+        document.querySelector("#btnDeleteEmployee").addEventListener('click', this.showNotice )
+
+
         
         } catch (error) {
             console.error(erro);
@@ -40,6 +44,8 @@ class EmployeePage{
         }
       
     }
+
+    //Show ra bảng thêm nhân viên
     showDialog() {
         try {
             // Hiển thị form thêm mới
@@ -53,7 +59,7 @@ class EmployeePage{
             console.error("Không thêm được ...");
         }   
     }
-
+    //Refresh lại bảng nhân viên
     btnRefreshOnclick(){
         try {
 
@@ -62,7 +68,7 @@ class EmployeePage{
         }
     }
 
-
+    // Close form thêm mới nhân viên
     btnCloseDialog(){
         try {
             const dialog = document.getElementById("dlgDialog");
@@ -73,7 +79,7 @@ class EmployeePage{
         }
     }
 
-
+    // To nhỏ navbar
     toggleNavbar(){
         try {
 
@@ -93,7 +99,32 @@ class EmployeePage{
         }
     }
 
+    //Hiển thị thông báo
+    showNotice() {
+        try {
+            // Hiển thị form thêm mới
+            // 1. Lấy ra elêmnt của form thêm mới
+            const dialog = document.getElementById("dlgNotice");
+            dialog.style.visibility="visible";
+            // 2. Set hiển thị form
+
+ 
+        } catch (error) {
+            console.error("Không hiện thông báo được ...");
+        }   
+    }
 }
+
+    function CloseNotice(){
+        try {
+            const dialog = document.getElementById("dlgNotice");
+            dialog.style.visibility="hidden";
+            
+        } catch (error) {
+            console.error(erro);
+        }
+    }
+
 
 // document.getElementById("btnShowDialog").addEventListener('click', function() {
         //     document.getElementById("dlgDialog").style.display = 'block';
