@@ -1,5 +1,5 @@
 
- .m-dialog-notice{
+ .m-dialog .m-dialog-container{
     position: relative;
     border-radius: 4px;
     position: absolute;
@@ -11,11 +11,11 @@
     transform: translate(-50%,-50%);
     padding: 24px;
 }
-.m-dialog-notice .m-dialog-notice-header{
+.m-dialog-container .m-dialog-notice-header{
     height: 60px;
     width: 100%;
 }
-.m-dialog-notice .m-dialog-notice-header .m-dialog-close{
+.m-dialog-container .m-dialog-notice-header .m-dialog-close{
     width: 30px;
     height: 30px;
     position: absolute;
@@ -28,17 +28,17 @@
     cursor: pointer;
     background-repeat: no-repeat;
 }
-.m-dialog-notice .m-dialog-notice-header .m-dialog-close:hover{
+.m-dialog-container .m-dialog-notice-header .m-dialog-close:hover{
     background-color: aliceblue;
 }
 
-.m-dialog-notice .m-dialog-notice-content{
+.m-dialog-container .m-dialog-notice-content{
     position: relative;
     display: flex;
     font-size: 16px;
     align-items: center;
 }
-.m-dialog-notice .m-dialog-notice-content .m-icon-notice{
+.m-dialog-container .m-dialog-notice-content .m-icon-notice{
     width: 30px;
     height: 30px;
     position: absolute;
@@ -50,7 +50,7 @@
     margin-right: 40px;
 }
 
-.m-dialog-notice .m-dialog-notice-footer{
+.m-dialog-container .m-dialog-notice-footer{
     position: absolute;
     bottom:24px;
     right: 24px;

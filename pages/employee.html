@@ -323,11 +323,11 @@
 
 
                     <!-- Dialog form nhân viên -->
-                    <div id="dlgDialog" class="m-dialog">
+                    <div id="dlgDialog" class="m-dialog" mdialog>
                         <div class="m-dialog-content">
                             <div class="m-dialog-header">
                                 <h2>Thông tin nhân viên</h2>
-                                <button class="m-dialog-close" id="btnCloseDialog"></button>
+                                <button class="btn-dialog--close m-dialog-close" id="btnCloseDialog"></button>
                             </div>
                             <div class="m-dialog-body">
                                 <form id="employeeForm">
@@ -336,13 +336,13 @@
                                             <label for="employeeId" class="lable" style="display: flex;">Mã nhân viên 
                                                 <div style="color: red; margin-left: 5px;">*</div>
                                             </label>
-                                            <input  class="m-input A" type="text" id="employeeId" name="employeeId" required>
+                                            <input  class="m-input A" type="text" id="employeeId" name="employeeId" >
                                         </div>
                                         <div class="form-group">
                                             <label class="lable" for="fullName" style="display: flex;"> Họ và tên
                                                 <div style="color: red; margin-left: 5px;">*</div>
                                             </label>
-                                            <input class="m-input B" type="text" id="fullName" name="fullName" required>
+                                            <input class="m-input B" type="text" id="fullName" name="fullName" >
                                         </div>
                                         <div class="form-group">
                                             <label class="lable" for="dob">Ngày sinh</label>
@@ -425,31 +425,31 @@
                                 </form>
                             </div>
                             <div class="m-dialog-footer">
-                                <button id="btnCloseDialog" class="m-btn m-dialog-huy" >Hủy</button>
-                                <button class="m-btn m-dialog-luu" type="submit" form="employeeForm"> Cất</button>
+                                <button id="btnCloseDialog" class="btn-dialog--close m-btn m-dialog-huy">Hủy</button>
+                                <button id="btnAddEmployee" class="m-btn m-dialog-luu">Cất</button>
                             </div>
                         </div>
                     </div>
 
+              
+
 
 
                     <!-- Thông báo notice -->
-                    <div id="dlgNotice"class="m-dialog">
-                        <div class="m-dialog-notice">
+                    <div id="dlgNotice" class="m-dialog m-dialog-notice" mdialog>
+                        <div class="m-dialog-container">
                             <div class="m-dialog-notice-header">
-                                <h1>Thông báo</h1>
-                                <button class="m-dialog-close" onclick="CloseNotice()"></button>
+                                <h1 class="m-dialog-title">Thông báo</h1>
+                                <button class="btn-dialog--close m-dialog-close" ></button>
                             </div>
                             <div class="m-dialog-notice-content">
                                 <div class="m-icon-notice"></div>
-                                <div class="" style="margin-left: 40px;">Bạn có chắc chắn muốn xóa nhân viên không?</div>
+                                <div class="m-dialog-notice-text" style="margin-left: 40px;">Bạn có chắc chắn muốn xóa nhân viên không?</div>
                             </div>
                             <div class="m-dialog-notice-footer">
                                 <button class="m-btn">Đồng ý</button>
                             </div>
-
                         </div> 
-                    
                     </div>
                     
                 </div>
