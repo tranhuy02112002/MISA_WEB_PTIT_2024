@@ -267,11 +267,10 @@ class EmployeePage{
     }
     
 }
-
+//Hiển thị thông báo
 function  showNotice() {
     try {
-        // Hiển thị form thêm mới
-        // 1. Lấy ra elêmnt của form thêm mới
+        // 1. Lấy ra element của form thông báo
         const dialog = document.getElementById("dlgNotice");
         dialog.style.visibility="visible";
         // 2. Set hiển thị form
