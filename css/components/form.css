@@ -1,0 +1,9 @@
+.control_text--error{
+    margin-top: 5px;
+    color: #ff0000;
+}
+
+.label-text{
+    font-size: 14px;
+    margin-bottom: 8px;
+}

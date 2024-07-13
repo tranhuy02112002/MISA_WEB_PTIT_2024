@@ -5,9 +5,11 @@ window.onload = function(){
 
 class EmployeePage{
     pageTitle = "Quản lý nhân viên";
+    inputInvalids = []; 
     constructor(){
         console.log("Constuctor...");
         this.initEvens();
+        this.laodData();
     }
 
    /* Khới tạo các sự kiện trong page 4
@@ -15,6 +17,7 @@ class EmployeePage{
 
     initEvens(){
         try {
+        var me = this;
         //Click button add hiển thị form nhân viên
         document.querySelector("#btnShowDialog").addEventListener('click', this.showDialog )
 
@@ -36,13 +39,18 @@ class EmployeePage{
             })
         }
 
+        document.querySelector("[mdialog] .m-dialog-notice-button-confirm").addEventListener('click',function(){
+            this.parentElement.parentElement.parentElement.style.visibility="hidden";
+            me.inputInvalids[0].focus();
+        })
+
         //Lưu nhân viên
 
         //Đóng mở Navbar
         document.querySelector("#toggleNavbar").addEventListener('click', this.toggleNavbar)
 
         // Thông báo có xáo hay không
-        document.querySelector("#btnDeleteEmployee").addEventListener('click', this.showNotice )
+        // document.querySelector("#btnDeleteEmployee").addEventListener('click', this.showNotice )
 
         // document.querySelector(".m-dialog-notice-header .m-dialog-close").addEventListener('click',()=>{
         //     document.querySelector(".m-dialog.m-dialog-notice").style.visibility="hidden";
@@ -115,30 +123,14 @@ class EmployeePage{
     }
 
     //Hiển thị thông báo
-    showNotice() {
-        try {
-            // Hiển thị form thêm mới
-            // 1. Lấy ra elêmnt của form thêm mới
-            const dialog = document.getElementById("dlgNotice");
-            dialog.style.visibility="visible";
-            // 2. Set hiển thị form
-
- 
-        } catch (error) {
-            console.error("Không hiện thông báo được ...");
-        }   
-    }
-
+   
 
     //Thêm mới nhần viên
     addEmployee(){
         try {
-
             //Thực hiện Validda đữ liệu
-            const error= this.validateData();
-
-            //Hiển thị thông báo nếu dữ liệu chưa hợp lệ
-            if(error.IsValid===false){
+            const validateRequired = this.checkRequiredInput();
+            if(validateRequired.errors.length > 0){
                 let dialogNotice = document.querySelector(".m-dialog.m-dialog-notice");
                 //Hiển thị thông báo lên
                 dialogNotice.style.visibility="visible";
@@ -148,60 +140,150 @@ class EmployeePage{
                 document.querySelector(".m-dialog-title").innerHTML="Dữ liệu không hợp lệ";
                 //Thay đổi nội dung của thông báo
 
-
                 let errorElement = document.querySelector(".m-dialog-notice-text");
                 //Xóa nội dung cũ trước khi thay mới
                 errorElement.innerHTML="";
 
 
                 //Duyệt từng nội dung thông báo để ta append vào
-                for(const Msg of error.Msg){
+                for(const Msg of validateRequired.errors){
                     let li = document.createElement("li");
                     li.textContent=Msg;
                     errorElement.append(li);
-
                 }
-
+                this.inputInvalids   = validateRequired.inputInvalid;
             }else{
-            //Nếu dữ liệu hợp lệ thì gọi API để thực hiện thêm mới
-
+                //...Call api
             }
             
         } catch (error) {
-            console.error("Không thêm mới được nhân viên");
+            console.error(error);
             
         }
     }
     validateData() {
         let error = {
-            IsValid: false,
-            Msg: []
+
+            inputInvalid:[],
+             errors:[]
+            
         };
 
-        // Kiểm tra có mã nhân viên chưa
-        const customerCode = document.querySelector(".A").value;
-        const fullName = document.querySelector(".B").value;
-    
-        if (customerCode == "" || customerCode == null || customerCode == undefined) {
-            // Lưu thông tin lỗi:
-            error.Msg.push("Mã nhân viên không được phép để trống");
-        }
-    
-        if (fullName == "" || fullName == null || fullName == undefined) {
-            // Kiểm tra có họ tên chưa
-            error.Msg.push("Họ và tên không được phép để trống");
-        }
-    
-        if (error.Msg.length === 0) {
-            error.IsValid = true;
-        }
+        //check required
+        error = this.checkRequiredInput();
     
         console.log(error.IsValid);
     
         return error;
     }
+
+    checkRequiredInput(){
+        try {
+            let result = {
+                inputInvalid:[],
+                errors:[]
+            };
+            //  Lấy ra tát cả các  input bắt buộc phải nhập
+            let inputs = document.querySelectorAll("#dlgDialog input[required]");
+            for(const input of inputs){
+                const value = input.value;
+                if(value === "" || value===null || value === undefined){
+                    const label = input.previousElementSibling.querySelector(".label-text");;
+                    input.classList.add("input--invalid")
+                    this.addErrorElementToInputNotValid(input);
+                    result.inputInvalid.push(input);
+                    result.errors.push(`${label.textContent} không được phép để trống`);
+                }else{
+                    input.classList.remove("input--invalid");
+                    input.style.borderColor = ""; // Đặt lại màu viền mặc định
+
+                    // Kiểm tra xem thông báo lỗi có tồn tại trước khi cố gắng xóa nó
+                    const nextSibling = input.nextElementSibling;
+                    if (nextSibling && nextSibling.classList.contains("control_text--error")) {
+                        nextSibling.remove();
+                    }
+                }
+            }
+            return result;
+            
+        } catch (error) {
+
+            console.log(error)
+            
+        }
+    }
+
+    addErrorElementToInputNotValid(input) {
+        try {
+            input.style.borderColor = "red";
+    
+            // Kiểm tra xem đã có thông báo lỗi nào chưa
+            const nextSibling = input.nextElementSibling;
+            if (nextSibling && nextSibling.classList.contains("control_text--error")) {
+                return;
+            }
+    
+            // Bổ sung thông tin lỗi dưới input không hợp lệ
+            let elError = document.createElement("div");
+            elError.classList.add("control_text--error");
+            elError.textContent = "Không được phép để trống.";
+            input.after(elError);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    laodData(){
+        try {
+            // Goi API lấy dữ liệu:
+            fetch("https://cukcuk.manhnv.net/api/v1/Employees")
+            .then(res=>res.json())
+            .then(data =>{
+                console.log(data);
+                // Lấy ra table
+                const table = document.querySelector("#tblEmployees");
+                //duyệt từng phần tử trong data
+                for(const item of data){
+                    let tr = document.createElement("tr");
+                    tr.innerHTML = `
+                                    <td class="text-align-left">${item.Gender}</td>
+                                    <td class="text-align-left">${item.EmployeeCode}</td>
+                                    <td class="text-align-left">${item.FullName}</td>
+                                    <td class="text-align-left">${item.GenderName}</td>
+                                    <td class="text-align-center">${item.DateOfBirth}</td>
+                                    <td class="text-align-left">${item.Email}</td>
+                                    <td class="text-align-left" style="display: flex; border-style: none;">
+                                        <div style="margin-top: 9px; width: 250px;">${item.Address}</div>  
+                                        <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button class="m-delete m-all" onclick="showNotice()"></button> 
+                                    </td>`;   
+                        table.querySelector("tbody").append(tr);          
+                }
+            }
+            )
+            
+        } catch (error) {
+            console.error(error);
+        }
+    }
     
 }
+
+function  showNotice() {
+    try {
+        // Hiển thị form thêm mới
+        // 1. Lấy ra elêmnt của form thêm mới
+        const dialog = document.getElementById("dlgNotice");
+        dialog.style.visibility="visible";
+        // 2. Set hiển thị form
+
+
+    } catch (error) {
+        console.error("Không hiện thông báo được ...");
+    }   
+}
+
+
+
 
 
 
