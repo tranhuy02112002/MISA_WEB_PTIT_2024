@@ -245,18 +245,38 @@ class EmployeePage{
                 //duyệt từng phần tử trong data
                 for(const item of data){
                     let tr = document.createElement("tr");
+                    let Gender = item.Gender;
+                    let EmployeeCode = item.EmployeeCode;
+                    let FullName = item.FullName;
+                    let GenderName = item.GenderName;
+                    let DateOfBirth = item["DateOfBirth"];
+                    let Email = item.Email;
+                    let Address = item.Address;
+                    debugger;
+                    if (DateOfBirth){
+                        DateOfBirth = new Date(DateOfBirth);
+                        let date = DateOfBirth.getDate();
+                        date = date < 10 ? `0${date}`:date;
+                        let month = DateOfBirth.getMonth()+1;
+                        month = month < 10 ? `0${month}`:month;
+                        let year = DateOfBirth.getFullYear();
+                        DateOfBirth = `${date}/${month}/${year}`;
+                    }else{
+                        DateOfBirth = "";
+                    }
+                    debugger
                     tr.innerHTML = `
-                                    <td class="text-align-left">${item.Gender}</td>
-                                    <td class="text-align-left">${item.EmployeeCode}</td>
-                                    <td class="text-align-left">${item.FullName}</td>
-                                    <td class="text-align-left">${item.GenderName}</td>
-                                    <td class="text-align-center">${item.DateOfBirth}</td>
-                                    <td class="text-align-left">${item.Email}</td>
+                                    <td class="text-align-left">${Gender}</td>
+                                    <td class="text-align-left">${EmployeeCode}</td>
+                                    <td class="text-align-left">${FullName}</td>
+                                    <td class="text-align-left">${GenderName}</td>
+                                    <td class="text-align-center">${DateOfBirth}</td>
+                                    <td class="text-align-left">${Email}</td>
                                     <td class="text-align-left" style="display: flex; border-style: none;">
-                                        <div style="margin-top: 9px; width: 250px;">${item.Address}</div>  
-                                        <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button class="m-delete m-all" onclick="showNotice()"></button> 
+                                    <div style="margin-top: 9px; width: 250px;">${Address}</div>  
+                                    <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button class="m-delete m-all" onclick="showNotice()"></button> 
                                     </td>`;   
-                        table.querySelector("tbody").append(tr);          
+                        table.querySelector("tbody").appendChild(tr);          
                 }
             }
             )

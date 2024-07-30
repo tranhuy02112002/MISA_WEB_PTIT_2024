@@ -327,12 +327,12 @@
                     <div id="dlgNotice" class="m-dialog m-dialog-notice" mdialog>
                         <div class="m-dialog-container">
                             <div class="m-dialog-notice-header">
-                                <h1 class="m-dialog-title">Thông báo</h1>
-                                <button class="btn-dialog--close m-dialog-close" ></button>
+                                <h1 id="noticeContent1" class="m-dialog-title">Thông báo</h1>
+                                <button class="btn-dialog--close m-dialog-close" id="btnCloseNoticeDialog"></button>
                             </div>
                             <div class="m-dialog-notice-content">
                                 <div class="m-icon-notice"></div>
-                                <div class="m-dialog-notice-text" style="margin-left: 40px;">Bạn có chắc chắn muốn xóa nhân viên không?</div>
+                                <div  id="noticeContent" class="m-dialog-notice-text" style="margin-left: 40px;">Bạn có chắc chắn muốn xóa nhân viên không?</div>
                             </div>
                             <div class="m-dialog-notice-footer">
                                 <button class="m-btn m-dialog-notice-button-confirm">Đồng ý</button>
@@ -345,9 +345,10 @@
             
         </div>
     </div>
+    <div class="m-loading"></div>
     <!-- Thư viện js -->
-    <script src="/js/employee/employee.js"></script>
     <script src="/js/jquery-3.7.1.js"></script>
+    <script src="/js/employee/employee2.js"></script>
 
     <!-- JaveScrip sử dụng chung -->
 
