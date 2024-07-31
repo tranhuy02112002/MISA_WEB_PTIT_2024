@@ -1,326 +1,465 @@
-window.onload = function(){
+
+$(document).ready(function() {
     new EmployeePage();
-}
+    
+});
+let int ="0";
+let employeeIDForDelete = null; 
+var initialNoticeContent = $("#noticeContent").html();
+var initialNoticeContent1 = $("#noticeContent1").html();
+
+var formMode = ""; // Khai báo biến
+var employeeIDForUpdate = null; 
 
 
-class EmployeePage{
+
+class EmployeePage {
     pageTitle = "Quản lý nhân viên";
-    inputInvalids = []; 
-    constructor(){
-        console.log("Constuctor...");
-        this.initEvens();
-        this.laodData();
+    inputInvalids = [];
+    constructor() {
+        console.log("Constructor...");
+        this.initEvents();
+        this.loadData();
     }
-
-   /* Khới tạo các sự kiện trong page 4
+    
+    /* Khởi tạo các sự kiện trong page 
     *Author: TQHuy (10/7/2024) */
+    initEvents() {
+        try {   
+            console.log(int);
+            var me = this;
+            // Click button add hiển thị form nhân viên
+            $("#btnShowDialog").on('click', function() {
+                formMode ="add";
+                me.showDialog();
+            });
+            $(document).on('click', ".m-fix", function() {
+                formMode = "edit";
+                // Tìm phần tử <tr> gần nhất (cha của nút)
+                let $tr = $(this).closest('tr');
+                // Lấy dữ liệu từ <tr> (nếu có gán dữ liệu vào data-attribute)
+                let employee = $tr.data("entity");
+                employeeIDForUpdate = employee.EmployeeId;
+                $("#txtEmployeeCode").val(employee.EmployeeCode);
+                $("#txtfullName").val(employee.FullName);
 
-    initEvens(){
-        try {
-        var me = this;
-        //Click button add hiển thị form nhân viên
-        document.querySelector("#btnShowDialog").addEventListener('click', this.showDialog )
+                let dob = new Date(employee.DateOfBirth);
+                let year = dob.getFullYear();
+                let month = (dob.getMonth() + 1).toString().padStart(2, '0'); // Tháng bắt đầu từ 0, nên cộng 1
+                let day = dob.getDate().toString().padStart(2, '0'); // Đảm bảo ngày luôn có 2 chữ số
+
+                let dobFormatted = `${year}-${month}-${day}`;
+                $("#txtDob").val(dobFormatted);
+                const employeeGender = employee.Gender;
+                if (employeeGender === 1) {
+                    $('#male').prop('checked', true);
+                } else if (employeeGender === 0) {
+                    $('#female').prop('checked', true);
+                } else if (employeeGender === 2) {
+                    $('#other').prop('checked', true);
+                }
+                let selectedGender = $('input[name="gender"]:checked').val();
+                $("#txtPosition").val(employee.PositionName);
+                $("#txtPersonalTaxCode").val(employee.PersonalTaxCode);
+
+                let createdDate = new Date(employee.CreatedDate);
+                let yearCreated = createdDate.getFullYear();
+                let monthCreated = (createdDate.getMonth() + 1).toString().padStart(2, '0');
+                let dayCreated = createdDate.getDate().toString().padStart(2, '0');
+                
+                $("#txtCreatedDate").val(`${yearCreated}-${monthCreated}-${dayCreated}`);
+                $("#txtDepartmentName").val(employee.DepartmentName);
+                $("#txtCreatedBy").val(employee.CreatedBy);
+                $("#txtAddress").val(employee.Address);
+                $("#txtPhoneNumber").val(employee.PhoneNumber);
+                $("#txtIdentityNumber").val(employee.IdentityNumber);
+                $("#txtEmail").val(employee.Email);
+                $("#txtBankAccount").val(employee.QualificationName);
+                $("#txtBankName").val(employee.ModifiedBy);
+                $("#txtBranch").val(employee.MartialStatusName);
+
+                // Log dữ liệu để kiểm tra
+                console.log('Employee Data:', employee);
+            
+                // Gọi phương thức showDialog của instance EmployeePage
+                me.showDialog();
+            });
+            
+            // Refresh dữ liệu
+            $("#btnRefresh").on('click', this.btnRefreshOnclick);
+
+            // Close dialog
+            $("[mdialog] .btn-dialog--close").on('click', function() {
+                $(this).closest("[mdialog]").css("visibility", "hidden");
+            });
+
+            //Tắt notice hoặc xóa nhân viên
+            $(document).on('click',".m-dialog-notice-button-confirm", function() {
+                console.log("oke");
+                if (int === "1") {
+                    me.deleteEmployee(); // Gọi hàm deleteEmployee nếu int bằng 1
+                } else {
+                    $(this).closest("[mdialog]").css("visibility", "hidden");
+                    me.inputInvalids[0].focus(); // Đóng dialog nếu int không bằng 1
+                }
+            });
+
+            $(document).on('click', ".m-delete", function() {
+                try {
+                    int = "1";
+                    console.log(int);
+                    let $tr = $(this).closest('tr');
+                    let employee = $tr.data("entity");
+                    employeeIDForDelete = employee.EmployeeId;
+                    // Đặt lại nội dung của dòng thông báo về trạng thái ban đầu
+                    $("#noticeContent").html(initialNoticeContent);
+                    $("#noticeContent1").html(initialNoticeContent1);
+                    // Hiển thị form thông báo
+                    $("#dlgNotice").css("visibility", "visible");
+                    console.log('Employee Data:', employee);
+                } catch (error) {
+                    console.error("Không hiện thông báo được ...");
+                }
+            });
 
 
-        // Refresh dữ liệu 
-        document.querySelector("#btnRefresh").addEventListener('click', this.btnRefreshOnclick)
-        //Refresh dữ liệu:
+            
 
-        //Xóa 1 nhân viên:
+            // Đóng mở Navbar
+            $("#toggleNavbar").on('click', this.toggleNavbar);
 
-        //Close dialog
-        // document.querySelector("#btnCloseDialog").addEventListener('click', this.btnCloseDialog)
+            // Thêm mới dữ liệu
+            $('#btnAddEmployee').on('click', this.addEmployee.bind(this));
 
-        const buttons = document.querySelectorAll("[mdialog] .btn-dialog--close");
-        for(const button of buttons){
-            button.addEventListener('click',function(){
-                console.log(this);
-                this.parentElement.parentElement.parentElement.style.visibility="hidden";
-            })
-        }
-
-        document.querySelector("[mdialog] .m-dialog-notice-button-confirm").addEventListener('click',function(){
-            this.parentElement.parentElement.parentElement.style.visibility="hidden";
-            me.inputInvalids[0].focus();
-        })
-
-        //Lưu nhân viên
-
-        //Đóng mở Navbar
-        document.querySelector("#toggleNavbar").addEventListener('click', this.toggleNavbar)
-
-        // Thông báo có xáo hay không
-        // document.querySelector("#btnDeleteEmployee").addEventListener('click', this.showNotice )
-
-        // document.querySelector(".m-dialog-notice-header .m-dialog-close").addEventListener('click',()=>{
-        //     document.querySelector(".m-dialog.m-dialog-notice").style.visibility="hidden";
-        // })
-
-
-        //Thêm mới dữ liệu
-
-        document.querySelector('#btnAddEmployee').addEventListener('click',this.addEmployee.bind(this))
+        
 
         } catch (error) {
-            console.error(erro);
-            
+            console.error(error);
         }
-      
     }
+    //deleteEmpoyee
+    deleteEmployee() {
+        $.ajax({
+            type: "DELETE",
+            url: `https://cukcuk.manhnv.net/api/v1/Employees/${employeeIDForDelete}`,
+            contentType: "application/json",
+            success: function(response){
+                console.log("Xóa nhân viên thành công:", response);
+                $(".m-dialog[mdialog]").css("visibility", "hidden");
+                this.loadData(); // Tải lại dữ liệu sau khi xóa thành công
+                alert("Xóa nhân viên thành công")
+            }.bind(this),
+            error: function(xhr, status, error){
+                console.error("Lỗi khi xóa nhân viên:", xhr.responseText, status, error);
+                alert("Lỗi khi xóa nhân viên");
+            }.bind(this)
+        });
+    }
+    
 
-    //Show ra bảng thêm nhân viên
+    // Show ra bảng thêm nhân viên
     showDialog() {
         try {
             // Hiển thị form thêm mới
-            // 1. Lấy ra elêmnt của form thêm mới
-            const dialog = document.getElementById("dlgDialog");
-            dialog.style.visibility="visible";
+            // 1. Lấy ra element của form thêm mới
+            $("#dlgDialog").css("visibility", "visible");
             // 2. Set hiển thị form
-
- 
         } catch (error) {
             console.error("Không thêm được ...");
-        }   
-    }
-    //Refresh lại bảng nhân viên
-    btnRefreshOnclick(){
-        try {
-
-        } catch (error) {
-            console.error(erro);
         }
     }
 
-    // Close form thêm mới nhân viên
-    // btnCloseDialog(){
-    //     try {
-    //         const dialog = document.getElementById("dlgDialog");
-    //         dialog.style.visibility="hidden";
-            
-    //     } catch (error) {
-    //         console.error(erro);
-    //     }
-    // }
-
-    // To nhỏ navbar
-    toggleNavbar(){
+    // Refresh lại bảng nhân viên
+    btnRefreshOnclick() {
         try {
-
-            var navbar = document.getElementById('navbar');
-            navbar.classList.toggle('collapsed');
-            
-            // Thay đổi nội dung nút
-            var toggleButton = document.getElementById("toggleNavbar");
-            if (navbar.classList.contains('collapsed')) {
-                toggleButton.textContent = 'Mở rộng';
-            } else {
-                toggleButton.textContent = 'Thu gọn';
-            }
-            
-        } catch (error) {
-            console.error(erro);
-        }
-    }
-
-    //Hiển thị thông báo
-   
-
-    //Thêm mới nhần viên
-    addEmployee(){
-        try {
-            //Thực hiện Validda đữ liệu
-            const validateRequired = this.checkRequiredInput();
-            if(validateRequired.errors.length > 0){
-                let dialogNotice = document.querySelector(".m-dialog.m-dialog-notice");
-                //Hiển thị thông báo lên
-                dialogNotice.style.visibility="visible";
-
-
-                //Thay đổi tiều đề của thông báo
-                document.querySelector(".m-dialog-title").innerHTML="Dữ liệu không hợp lệ";
-                //Thay đổi nội dung của thông báo
-
-                let errorElement = document.querySelector(".m-dialog-notice-text");
-                //Xóa nội dung cũ trước khi thay mới
-                errorElement.innerHTML="";
-
-
-                //Duyệt từng nội dung thông báo để ta append vào
-                for(const Msg of validateRequired.errors){
-                    let li = document.createElement("li");
-                    li.textContent=Msg;
-                    errorElement.append(li);
-                }
-                this.inputInvalids   = validateRequired.inputInvalid;
-            }else{
-                //...Call api
-            }
-            
+            // Xử lý refresh dữ liệu
         } catch (error) {
             console.error(error);
-            
         }
     }
-    validateData() {
-        let error = {
 
-            inputInvalid:[],
-             errors:[]
-            
-        };
+    // To nhỏ navbar
+    toggleNavbar() {
+        try {
+            var navbar = $('#navbar');
+            navbar.toggleClass('collapsed');
 
-        //check required
-        error = this.checkRequiredInput();
-    
-        console.log(error.IsValid);
-    
-        return error;
+            // Thay đổi nội dung nút
+            var toggleButton = $("#toggleNavbar");
+            if (navbar.hasClass('collapsed')) {
+                toggleButton.text('Mở rộng');
+            } else {
+                toggleButton.text('Thu gọn');
+            }
+
+        } catch (error) {
+            console.error(error);
+        }
     }
 
-    checkRequiredInput(){
+    // Thêm mới nhân viên và Sửa nhân viên
+    addEmployee() {
+        try {
+
+            int = "0";
+            console.log(int);
+            // Thực hiện validate dữ liệu
+            const validateRequired = this.checkRequiredInput();
+            if (validateRequired.errors.length > 0) {
+                let dialogNotice = $(".m-dialog.m-dialog-notice");
+                dialogNotice.css("visibility", "visible");
+                $(".m-dialog-title").html("Dữ liệu không hợp lệ");
+                let errorElement = $(".m-dialog-notice-text");
+                errorElement.html("");
+                $.each(validateRequired.errors, function(index, Msg) {
+                    let li = $("<li></li>").text(Msg);
+                    errorElement.append(li);
+                });
+                this.inputInvalids = validateRequired.inputInvalid;
+            } else {
+                let employeeCode = $("#txtEmployeeCode").val();
+                let fullName = $("#txtfullName").val();
+                let dob = $("#txtDob").val();
+                let selectedGender = $('input[name="gender"]:checked').val();
+                let position = $("#txtPosition").val();
+                let personalTaxCode = $("#txtPersonalTaxCode").val();
+                let createdDate = $("#txtCreatedDate").val();
+                let departmentName = $("#txtDepartmentName").val();
+                let createdBy = $("#txtCreatedBy").val();
+                let address = $("#txtAddress").val();
+                let phoneNumber = $("#txtPhoneNumber").val();
+                let identityNumber = $("#txtIdentityNumber").val();
+                let email = $("#txtEmail").val();
+                let bankAccount = $("#txtBankAccount").val();
+                let bankName = $("#txtBankName").val();
+                let branch = $("#txtBranch").val();
+
+                if (createdDate) {
+                    createdDate = new Date(createdDate);
+                }
+                if (dob) {
+                    dob = new Date(dob);
+                }
+                if (dob > new Date()) {
+                    alert("Ngày sinh không được phép lớn hơn ngày hiện tại");
+                    return;
+                }
+                let employee = {
+                    "EmployeeCode": employeeCode,
+                    "FullName": fullName,
+                    "Gender": selectedGender,
+                    "DateOfBirth": dob,
+                    "PhoneNumber": phoneNumber,
+                    "PersonalTaxCode": personalTaxCode,
+                    "Email": email,
+                    "Address": address,
+                    "IdentityNumber": identityNumber,
+                    "PositionName": position,
+                    "DepartmentName": departmentName,
+                    "CreatedDate": createdDate,
+                    "CreatedBy": createdBy,
+                    "QualificationName": bankAccount,
+                    "ModifiedBy": bankName,
+                    "MartialStatusName": branch
+                    // "EmployeeCode": "00e0dd30fsf4",
+                    // "FirstName": "Nguyễn Văn",
+                    // "LastName": "Huệ",
+                    // "FullName": "Nguyễn Văn Huệ",
+                    // "Gender": 2,
+                    // "DateOfBirth": "1996-01-03T00:00:00",
+                    // "PhoneNumber": "0931051539",
+                    // "Email": "AngeloMorin@example.com",
+                    // "Address": "60 Thạnh Lộc 31",
+                    // "IdentityNumber": "0756728920",
+                    // "IdentityDate": "2005-06-07T00:00:00",
+                    // "IdentityPlace": "Lào Cai",
+                    // "JoinDate": "2019-01-02T00:00:00",
+                    // "MartialStatus": 2,
+                    // "EducationalBackground": 1,
+                    // "QualificationId": "3541ff76-58f0-6d1a-e836-63d5d5eff719",
+                    // "DepartmentId": "45ac3d26-18f2-18a9-3031-644313fbb055",
+                    // "PositionId": "68992ee8-5906-72d0-55d1-35c781481818",
+                    // "NationalityId": "b5cf83af-f756-11ec-9b48-00163e06abee",
+                    // "WorkStatus": 2,
+                    // "PersonalTaxCode": "0296069618",
+                    // "Salary": 27105203.0,
+                    // "PositionCode": null,
+                    // "PositionName": null,
+                    // "DepartmentCode": null,
+                    // "DepartmentName": null,
+                    // "QualificationName": null,
+                    // "NationalityName": null,
+                    // "GenderName": "(Chưa xác định)",
+                    // "EducationalBackgroundName": "Trung học cơ sở",
+                    // "MartialStatusName": "Sống chung chưa kết hôn",
+                    // "CreatedDate": "2008-04-16T09:24:16",
+                    // "CreatedBy": "Ashely Ackerman",
+                    // "ModifiedDate": "1970-05-19T14:38:02",
+                    // "ModifiedBy": "Adan Baumgartner"
+                }
+                if(formMode === "add"){
+
+                    $.ajax({
+                        type: "POST",
+                        url: "https://cukcuk.manhnv.net/api/v1/Employees",
+                        data: JSON.stringify(employee),
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function(response){
+                            console.log("Thêm nhân viên thành công:", response);
+                            $(".m-dialog[mdialog]").css("visibility", "hidden");
+                            this.loadData();
+                            alert("Thêm nhân viên thành công")
+                        }.bind(this),
+                        error: function(xhr, status, error){
+                            console.error("Lỗi khi thêm nhân viên:", xhr.responseText, status, error);
+                            alert("Lỗi khi thêm nhân viên")
+                        }.bind(this)
+                    });
+                }else{
+                    $.ajax({
+                        type:"PUT",
+                        url: `https://cukcuk.manhnv.net/api/v1/Employees/${employeeIDForUpdate}`,
+                        data: JSON.stringify(employee),
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function(response){
+                            console.log("Sửa nhân viên thành công:", response);
+                            $(".m-dialog[mdialog]").css("visibility", "hidden");
+                            this.loadData();
+                            alert("Sửa nhân viên thành công")
+                        }.bind(this),
+                        error: function(xhr, status, error){
+                            console.error("Lỗi khi thêm nhân viên:", xhr.responseText, status, error);
+                            alert("Lỗi khi thêm nhân viên")
+                        }.bind(this)
+                    });
+
+                }
+               
+            }
+        } catch (error) {
+            console.error("Lỗi trong hàm addEmployee:", error);
+        }
+    }
+    
+    checkRequiredInput() {
         try {
             let result = {
-                inputInvalid:[],
-                errors:[]
+                inputInvalid: [],
+                errors: []
             };
-            //  Lấy ra tát cả các  input bắt buộc phải nhập
-            let inputs = document.querySelectorAll("#dlgDialog input[required]");
-            for(const input of inputs){
-                const value = input.value;
-                if(value === "" || value===null || value === undefined){
-                    const label = input.previousElementSibling.querySelector(".label-text");;
-                    input.classList.add("input--invalid")
-                    this.addErrorElementToInputNotValid(input);
-                    result.inputInvalid.push(input);
-                    result.errors.push(`${label.textContent} không được phép để trống`);
-                }else{
-                    input.classList.remove("input--invalid");
-                    input.style.borderColor = ""; // Đặt lại màu viền mặc định
 
-                    // Kiểm tra xem thông báo lỗi có tồn tại trước khi cố gắng xóa nó
-                    const nextSibling = input.nextElementSibling;
-                    if (nextSibling && nextSibling.classList.contains("control_text--error")) {
-                        nextSibling.remove();
+            // Lấy ra tất cả các input bắt buộc phải nhập
+            let inputs = $("#dlgDialog input[required]");
+            inputs.each(function() {
+                const value = $(this).val();
+                if (value === "" || value === null || value === undefined) {
+                    const label = $(this).prev().find(".label-text").text();
+                    $(this).addClass("input--invalid");
+                    result.inputInvalid.push(this);
+                    result.errors.push(`${label} không được phép để trống`);
+                } else {
+                    $(this).removeClass("input--invalid");
+                    $(this).css("border-color", ""); // Đặt lại màu viền mặc định
+
+                    // Kiểm tra và xóa thông báo lỗi nếu có
+                    if ($(this).next(".control_text--error").length) {
+                        $(this).next(".control_text--error").remove();
                     }
                 }
-            }
+            });
             return result;
-            
-        } catch (error) {
-
-            console.log(error)
-            
-        }
-    }
-
-    addErrorElementToInputNotValid(input) {
-        try {
-            input.style.borderColor = "red";
-    
-            // Kiểm tra xem đã có thông báo lỗi nào chưa
-            const nextSibling = input.nextElementSibling;
-            if (nextSibling && nextSibling.classList.contains("control_text--error")) {
-                return;
-            }
-    
-            // Bổ sung thông tin lỗi dưới input không hợp lệ
-            let elError = document.createElement("div");
-            elError.classList.add("control_text--error");
-            elError.textContent = "Không được phép để trống.";
-            input.after(elError);
         } catch (error) {
             console.log(error);
         }
     }
 
-    laodData(){
+    addErrorElementToInputNotValid(input) {
         try {
-            // Goi API lấy dữ liệu:
-            fetch("https://cukcuk.manhnv.net/api/v1/Employees")
-            .then(res=>res.json())
-            .then(data =>{
-                console.log(data);
-                // Lấy ra table
-                const table = document.querySelector("#tblEmployees");
-                //duyệt từng phần tử trong data
-                for(const item of data){
-                    let tr = document.createElement("tr");
-                    let Gender = item.Gender;
-                    let EmployeeCode = item.EmployeeCode;
-                    let FullName = item.FullName;
-                    let GenderName = item.GenderName;
-                    let DateOfBirth = item["DateOfBirth"];
-                    let Email = item.Email;
-                    let Address = item.Address;
-                    debugger;
-                    if (DateOfBirth){
-                        DateOfBirth = new Date(DateOfBirth);
-                        let date = DateOfBirth.getDate();
-                        date = date < 10 ? `0${date}`:date;
-                        let month = DateOfBirth.getMonth()+1;
-                        month = month < 10 ? `0${month}`:month;
-                        let year = DateOfBirth.getFullYear();
-                        DateOfBirth = `${date}/${month}/${year}`;
-                    }else{
-                        DateOfBirth = "";
-                    }
-                    debugger
-                    tr.innerHTML = `
-                                    <td class="text-align-left">${Gender}</td>
-                                    <td class="text-align-left">${EmployeeCode}</td>
-                                    <td class="text-align-left">${FullName}</td>
-                                    <td class="text-align-left">${GenderName}</td>
-                                    <td class="text-align-center">${DateOfBirth}</td>
-                                    <td class="text-align-left">${Email}</td>
-                                    <td class="text-align-left" style="display: flex; border-style: none;">
-                                    <div style="margin-top: 9px; width: 250px;">${Address}</div>  
-                                    <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button class="m-delete m-all" onclick="showNotice()"></button> 
-                                    </td>`;   
-                        table.querySelector("tbody").appendChild(tr);          
-                }
+            $(input).css("border-color", "red");
+
+            // Kiểm tra xem đã có thông báo lỗi nào chưa
+            if ($(input).next(".control_text--error").length) {
+                return;
             }
-            )
-            
+
+            // Bổ sung thông tin lỗi dưới input không hợp lệ
+            let elError = $("<div></div>").addClass("control_text--error").text("Không được phép để trống.");
+            $(input).after(elError);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    loadData() {
+        try {
+            $(`.m-loading`).show();
+            // Gọi API lấy dữ liệu:
+            fetch("https://cukcuk.manhnv.net/api/v1/Employees")
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    // Lấy ra table
+                    const $table = $("#tblEmployees tbody");
+                    $table.empty(); // Xóa các hàng cũ nếu có
+
+                    // Duyệt từng phần tử trong data
+                    let i=1;
+                    $.each(data, function(index, item) {
+                        let DateOfBirth = item.DateOfBirth ? new Date(item.DateOfBirth) : "";
+                        if (DateOfBirth) {
+                            let date = DateOfBirth.getDate();
+                            date = date < 10 ? `0${date}` : date;
+                            let month = DateOfBirth.getMonth() + 1;
+                            month = month < 10 ? `0${month}` : month;
+                            let year = DateOfBirth.getFullYear();
+                            DateOfBirth = `${date}/${month}/${year}`;
+                        } else {
+                            DateOfBirth = "";
+                        }
+
+                        let el = $(`
+                            <tr>
+                                <td class="text-align-left">${i}</td>
+                                <td class="text-align-left">${item.EmployeeCode}</td>
+                                <td class="text-align-left">${item.FullName}</td>
+                                <td class="text-align-left">${item.GenderName}</td>
+                                <td class="text-align-center">${DateOfBirth}</td>
+                                <td class="text-align-left">${item.Email}</td>
+                                <td class="text-align-left" style="display: flex; border-style: none;">
+                                    <div style="margin-top: 9px; width: 250px;">${item.Address}</div>
+                                    <button class="m-fix m-all"></button>
+                                    <button class="m-add m-all"></button>
+                                    <button class="m-delete m-all"></button>
+                                </td>
+                            </tr>
+                        `);
+                        el.data("entity",item);
+                        $table.append(el);
+                        i=i+1;
+                    });
+                    $(`.m-loading`).hide();
+                });
         } catch (error) {
             console.error(error);
         }
     }
-    
 }
-//Hiển thị thông báo
-function  showNotice() {
+
+
+
+function showNotice() {
     try {
-        // 1. Lấy ra element của form thông báo
-        const dialog = document.getElementById("dlgNotice");
-        dialog.style.visibility="visible";
-        // 2. Set hiển thị form
-
-
+        int ="1";
+        console.log(int);
+        // Đặt lại nội dung của dòng thông báo về trạng thái ban đầu
+        $("#noticeContent").html(initialNoticeContent);
+        $("#noticeContent1").html(initialNoticeContent1);
+        // Hiển thị form thông báo
+        $("#dlgNotice").css("visibility", "visible");
     } catch (error) {
         console.error("Không hiện thông báo được ...");
-    }   
+    }
 }
 
-
-
-
-
-
-// document.getElementById("btnShowDialog").addEventListener('click', function() {
-        //     document.getElementById("dlgDialog").style.display = 'block';
-        // });
-
-  
-
-// function toggleNavbar() {
-//     var navbar = document.querySelector('.navbar');
-//     navbar.classList.toggle('collapsed');
-    
-//     // Thay đổi nội dung nút
-//     var toggleButton = document.querySelector('.toggle-button span');
-//     if (navbar.classList.contains('collapsed')) {
-//         toggleButton.textContent = 'Mở rộng';
-//     } else {
-//         toggleButton.textContent = 'Thu gọn';
-//     }
-// }
