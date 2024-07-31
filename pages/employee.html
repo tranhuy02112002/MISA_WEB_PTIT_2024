@@ -73,7 +73,7 @@
                 </div>
                 <div class="m-page-grid" style="width: 100%;">
                     <div class="m-table-all">
-                        <table id="tblEmployees" class="m-table" style="position: relative;">
+                        <table id="tblEmployees" class="m-table" style="position: relative;" >
                             <thead >
                                 <tr>
                                     <th class="text-align-left" style="width: 50px">STT</th>
@@ -85,34 +85,37 @@
                                     <th class="text-align-left" >Địa chỉ</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-align-left">1</td>
-                                    <td class="text-align-left">NV001</td>
-                                    <td class="text-align-left">Nguyễn Văn Hào</td>
-                                    <td class="text-align-left">Nam</td>
-                                    <td class="text-align-center">02/11/2002</td>
-                                    <td class="text-align-left">haonv@gmail.com</td>
-                                    <td class="text-align-left" style="display: flex; border-style: none; ">
-                                        <div style="margin-top: 9px; width: 250px;">Hà Nội</div>  
-                                        <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button id="btnDeleteEmployee" class="m-delete m-all" onclick="showNotice()"></button> 
-                                    </td>
+                            <tbody >
+                                <div fix>
+                                    <tr>
+                                        <td class="text-align-left">1</td>
+                                        <td class="text-align-left">NV001</td>
+                                        <td class="text-align-left">Nguyễn Văn Hào</td>
+                                        <td class="text-align-left">Nam</td>
+                                        <td class="text-align-center">02/11/2002</td>
+                                        <td class="text-align-left">haonv@gmail.com</td>
+                                        <td class="text-align-left" style="display: flex; border-style: none; ">
+                                            <div style="margin-top: 9px; width: 250px;">Hà Nội</div>  
+                                            <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button id="btnDeleteEmployee" class="m-delete m-all" onclick="showNotice()"></button> 
+                                        </td>
+    
+                                    </tr>
         
-                                </tr>
-    
-                                <tr >
-                                    <td class="text-align-left">2</td>
-                                    <td class="text-align-left">NV001</td>
-                                    <td class="text-align-left">Nguyễn Văn Hào</td>
-                                    <td class="text-align-left">Nam</td>
-                                    <td class="text-align-center">02/11/2002</td>
-                                    <td class="text-align-left">haonv@gmail.com</td>
-                                    <td class="text-align-left" style="display: flex; border-style: none;">
-                                        <div style="margin-top: 9px; width: 250px;">Hà Nội</div>  
-                                        <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button class="m-delete m-all" onclick="showNotice()"></button> 
-                                    </td>
-                                </tr>
-    
+                                    <tr >
+                                        <td class="text-align-left">2</td>
+                                        <td class="text-align-left">NV001</td>
+                                        <td class="text-align-left">Nguyễn Văn Hào</td>
+                                        <td class="text-align-left">Nam</td>
+                                        <td class="text-align-center">02/11/2002</td>
+                                        <td class="text-align-left">haonv@gmail.com</td>
+                                        <td class="text-align-left" style="display: flex; border-style: none;">
+                                            <div style="margin-top: 9px; width: 250px;">Hà Nội</div>  
+                                            <button class="m-fix m-all"></button><button class="m-add m-all"></button> <button class="m-delete m-all" onclick="showNotice()"></button> 
+                                        </td>
+                                    </tr>
+        
+                                </div>
+                               
                                 
                             </tbody>
                             
@@ -159,12 +162,12 @@
                                     <div class="employeerow1">
                                         <div class="form-group">
                                             <div style="display: flex;">
-                                                <label for="employeeId" class="label" style="display: flex;">
-                                                    <span class="label-text">Mã nhân viên</span>
+                                                <label  for="employeeId" class="label" style="display: flex;">
+                                                    <span  class="label-text">Mã nhân viên</span>
                                                 </label>
                                                 <div style="color: red; margin-left: 5px;">*</div>
                                             </div>
-                                            <input class="m-input A" type="text" id="employeeId" name="employeeId" required>
+                                            <input class="m-input A" type="text" id ="txtEmployeeCode" name="employeeId" required>
                                         </div>
                                         
                                         <div class="form-group">
@@ -174,7 +177,7 @@
                                                 </label>
                                                 <div style="color: red; margin-left: 5px;">*</div>
                                             </div>
-                                            <input class="m-input B" type="text" id="fullName" name="fullName" required>
+                                            <input class="m-input B" type="text" id="txtfullName" name="fullName" required>
                                         </div>
                                         <div class="form-group">
                                             <div style="display: flex;">
@@ -182,7 +185,7 @@
                                                     <span class="label-text">Ngày sinh</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input C" type="date" id="dob" name="dob" style="color: black;">
+                                            <input class="m-input C" type="date" id="txtDob" name="dob" style="color: black;">
                                         </div>
                                         <div class="form-group">
                                             <div style="display: flex;">
@@ -190,12 +193,12 @@
                                                     <span class="label-text">Giới tính</span>
                                                 </label>
                                             </div>
-                                            <div class="gender-options">
-                                                <input type="radio" id="male" name="gender" value="male">
-                                                <label for="male">Nam</label>
-                                                <input type="radio" id="female" name="gender" value="female">
+                                            <div class="gender-options" >
+                                                <input type="radio" id="male" name="gender" value="1">
+                                                <label for="male" >Nam</label>
+                                                <input type="radio" id="female" name="gender" value="0">
                                                 <label for="female">Nữ</label>
-                                                <input type="radio" id="other" name="gender" value="other">
+                                                <input type="radio" id="other" name="gender" value="2">
                                                 <label for="other">Khác</label>
                                             </div>
                                         </div>
@@ -204,10 +207,10 @@
                                         <div class="form-group">
                                               <div style="display: flex;">
                                                 <label for="employeeId" class="label" style="display: flex;">
-                                                    <span class="label-text">Vị trí</span>
+                                                    <span  class="label-text">Vị trí</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input D" type="text" id="idNumber" name="idNumber">
+                                            <input id ="txtPosition" class="m-input D" type="text" id="idNumber" name="idNumber">
                                         </div>
                                         <div class="form-group">
                                             <div style="display: flex;">
@@ -215,7 +218,7 @@
                                                     <span class="label-text">Số CMTND</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input E" type="text" id="idNumber" name="idNumber">
+                                            <input id="txtPersonalTaxCode" class="m-input E" type="text" id="idNumber" name="idNumber">
                                         </div>
                                         <div class="form-group">
                                             <div style="display: flex;">
@@ -223,7 +226,7 @@
                                                     <span class="label-text">Ngày cấp</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input F" type="date" id="issueDate" name="issueDate" style="color: black;">
+                                            <input class="m-input F" type="date" id="txtCreatedDate" name="issueDate" style="color: black;">
                                         </div>
                                     </div>
                                    
@@ -234,7 +237,7 @@
                                                     <span class="label-text">Phòng ban</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input G" type="text" id="issuePhongban" name="issuePhongban" style="color: black;">
+                                            <input id="txtDepartmentName" class="m-input G" type="text" id="issuePhongban" name="issuePhongban" style="color: black;">
                                         </div>
                                         <div class="form-group">
                                             <div style="display: flex;">
@@ -242,7 +245,7 @@
                                                     <span class="label-text">Nơi cấp</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input H" type="text" id="issuePlace" name="issuePlace">
+                                            <input id="txtCreatedBy" class="m-input H" type="text" id="issuePlace" name="issuePlace">
                                         </div>
                                     </div>
 
@@ -253,7 +256,7 @@
                                                     <span class="label-text">Địa chỉ</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input U" type="text" id="address" name="address">
+                                            <input id="txtAddress" class="m-input U" type="text" name="address">
                                         </div>
                                     </div>
 
@@ -264,7 +267,7 @@
                                                     <span class="label-text">ĐT di động</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input I" type="text" id="mobilePhone" name="mobilePhone" >
+                                            <input id="txtPhoneNumber" class="m-input I" type="text" name="mobilePhone" >
                                         </div>
                                         <div class="form-group">
                                             <div style="display: flex;">
@@ -272,7 +275,7 @@
                                                     <span class="label-text">ĐT cố định</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input J" type="text" id="landlinePhone" name="landlinePhone">
+                                            <input id="txtIdentityNumber" class="m-input J" type="text"  name="landlinePhone">
                                         </div>
                                         <div class="form-group">
                                             <div style="display: flex;">
@@ -280,7 +283,7 @@
                                                     <span class="label-text">Email</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input K" type="email" id="email" name="email">
+                                            <input id="txtEmail" class="m-input K" type="email"  name="email">
                                         </div>
                                     </div>
                                     
@@ -291,7 +294,7 @@
                                                     <span class="label-text">Tài khoản ngân hàng</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input L" type="text" id="bankAccount" name="bankAccount">
+                                            <input id="txtBankAccount" class="m-input L" type="text"  name="bankAccount">
                                         </div>
                                         <div class="form-group">
                                             <div style="display: flex;">
@@ -299,7 +302,7 @@
                                                     <span class="label-text">Tên ngân hàng</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input M" type="text" id="bankName" name="bankName">
+                                            <input class="m-input M" type="text" id="txtBankName" name="bankName">
                                         </div>
                                         <div class="form-group">
                                             <div style="display: flex;">
@@ -307,7 +310,7 @@
                                                     <span class="label-text">Chi nhánh</span>
                                                 </label>
                                             </div>
-                                            <input class="m-input N" type="text" id="branch" name="branch">
+                                            <input class="m-input N" type="text" id="txtBranch" name="branch">
                                         </div>
                                     </div>
                                 </form>
@@ -345,9 +348,11 @@
             
         </div>
     </div>
-    <div class="m-loading"></div>
+    <div class="m-loading">
+        <div class="m-loading-icon"></div>
+    </div>
     <!-- Thư viện js -->
-    <script src="/js/jquery-3.7.1.js"></script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="/js/employee/employee2.js"></script>
 
     <!-- JaveScrip sử dụng chung -->
