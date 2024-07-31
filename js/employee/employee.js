@@ -51,9 +51,9 @@ class EmployeePage {
                 let dobFormatted = `${year}-${month}-${day}`;
                 $("#txtDob").val(dobFormatted);
                 const employeeGender = employee.Gender;
-                if (employeeGender === 1) {
+                if (employeeGender === 0) {
                     $('#male').prop('checked', true);
-                } else if (employeeGender === 0) {
+                } else if (employeeGender === 1) {
                     $('#female').prop('checked', true);
                 } else if (employeeGender === 2) {
                     $('#other').prop('checked', true);
@@ -261,41 +261,7 @@ class EmployeePage {
                     "QualificationName": bankAccount,
                     "ModifiedBy": bankName,
                     "MartialStatusName": branch
-                    // "EmployeeCode": "00e0dd30fsf4",
-                    // "FirstName": "Nguyễn Văn",
-                    // "LastName": "Huệ",
-                    // "FullName": "Nguyễn Văn Huệ",
-                    // "Gender": 2,
-                    // "DateOfBirth": "1996-01-03T00:00:00",
-                    // "PhoneNumber": "0931051539",
-                    // "Email": "AngeloMorin@example.com",
-                    // "Address": "60 Thạnh Lộc 31",
-                    // "IdentityNumber": "0756728920",
-                    // "IdentityDate": "2005-06-07T00:00:00",
-                    // "IdentityPlace": "Lào Cai",
-                    // "JoinDate": "2019-01-02T00:00:00",
-                    // "MartialStatus": 2,
-                    // "EducationalBackground": 1,
-                    // "QualificationId": "3541ff76-58f0-6d1a-e836-63d5d5eff719",
-                    // "DepartmentId": "45ac3d26-18f2-18a9-3031-644313fbb055",
-                    // "PositionId": "68992ee8-5906-72d0-55d1-35c781481818",
-                    // "NationalityId": "b5cf83af-f756-11ec-9b48-00163e06abee",
-                    // "WorkStatus": 2,
-                    // "PersonalTaxCode": "0296069618",
-                    // "Salary": 27105203.0,
-                    // "PositionCode": null,
-                    // "PositionName": null,
-                    // "DepartmentCode": null,
-                    // "DepartmentName": null,
-                    // "QualificationName": null,
-                    // "NationalityName": null,
-                    // "GenderName": "(Chưa xác định)",
-                    // "EducationalBackgroundName": "Trung học cơ sở",
-                    // "MartialStatusName": "Sống chung chưa kết hôn",
-                    // "CreatedDate": "2008-04-16T09:24:16",
-                    // "CreatedBy": "Ashely Ackerman",
-                    // "ModifiedDate": "1970-05-19T14:38:02",
-                    // "ModifiedBy": "Adan Baumgartner"
+
                 }
                 if(formMode === "add"){
 
@@ -330,8 +296,8 @@ class EmployeePage {
                             alert("Sửa nhân viên thành công")
                         }.bind(this),
                         error: function(xhr, status, error){
-                            console.error("Lỗi khi thêm nhân viên:", xhr.responseText, status, error);
-                            alert("Lỗi khi thêm nhân viên")
+                            console.error("Lỗi khi sửa nhân viên:", xhr.responseText, status, error);
+                            alert("Lỗi khi sửa nhân viên")
                         }.bind(this)
                     });
 
