@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Misaweb2024.Api", "Web.Misaweb2024.Api\Web.Misaweb2024.Api.csproj", "{D1F308C8-2C6E-4C37-A346-A84AC3663710}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1F308C8-2C6E-4C37-A346-A84AC3663710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F308C8-2C6E-4C37-A346-A84AC3663710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F308C8-2C6E-4C37-A346-A84AC3663710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F308C8-2C6E-4C37-A346-A84AC3663710}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1A87992-F8A7-4FF6-B384-50F419FC86DA}
+	EndGlobalSection
+EndGlobal

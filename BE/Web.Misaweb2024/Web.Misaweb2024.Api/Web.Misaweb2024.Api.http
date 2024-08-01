@@ -1,0 +1,6 @@
+@Web.Misaweb2024.Api_HostAddress = http://localhost:5014
+
+GET {{Web.Misaweb2024.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
