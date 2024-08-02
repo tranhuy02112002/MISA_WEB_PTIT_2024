@@ -59,7 +59,17 @@ class EmployeePage {
                     $('#other').prop('checked', true);
                 }
                 let selectedGender = $('input[name="gender"]:checked').val();
-                $("#txtPosition").val(employee.PositionName);
+                // $("#txtPosition").val(employee.PositionName);
+                if (employee.PositionName === "Lập trình viên") {
+                    $("#txtPosition").val("nhanvien");
+                } else if (employee.PositionName === "Nhà thiết kế đồ hoạ") {
+                    $("#txtPosition").val("quanly");
+                } else if (employee.PositionName === "Kỹ sư an ninh mạng") {
+                    $("#txtPosition").val("kysuanninhmang");
+                } else {
+                    $("#txtPosition").val("");
+                }
+                
                 $("#txtPersonalTaxCode").val(employee.PersonalTaxCode);
 
                 let createdDate = new Date(employee.CreatedDate);
@@ -68,7 +78,17 @@ class EmployeePage {
                 let dayCreated = createdDate.getDate().toString().padStart(2, '0');
                 
                 $("#txtCreatedDate").val(`${yearCreated}-${monthCreated}-${dayCreated}`);
-                $("#txtDepartmentName").val(employee.DepartmentName);
+                // $("#txtDepartmentName").val(employee.DepartmentName);
+                if (employee.DepartmentName === "Phòng Kỹ thuật") {
+                    $("#txtDepartmentName").val("phongkythuat");
+                } else if (employee.DepartmentName === "Phòng Thiết kế") {
+                    $("#txtDepartmentName").val("phongthietke");
+                } else if (employee.DepartmentName === "Phòng An ninh mạng") {
+                    $("#txtDepartmentName").val("phonganninhmang");
+                } else {
+                    // Giá trị mặc định hoặc xử lý trường hợp không khớp
+                    $("#txtDepartmentName").val("");
+                }                
                 $("#txtCreatedBy").val(employee.CreatedBy);
                 $("#txtAddress").val(employee.Address);
                 $("#txtPhoneNumber").val(employee.PhoneNumber);
@@ -221,10 +241,11 @@ class EmployeePage {
                 let fullName = $("#txtfullName").val();
                 let dob = $("#txtDob").val();
                 let selectedGender = $('input[name="gender"]:checked').val();
-                let position = $("#txtPosition").val();
+                let position = $("#txtPosition option:selected").text();
+                console.log(position);
                 let personalTaxCode = $("#txtPersonalTaxCode").val();
                 let createdDate = $("#txtCreatedDate").val();
-                let departmentName = $("#txtDepartmentName").val();
+                let departmentName = $("#txtDepartmentName option:selected").text();
                 let createdBy = $("#txtCreatedBy").val();
                 let address = $("#txtAddress").val();
                 let phoneNumber = $("#txtPhoneNumber").val();
