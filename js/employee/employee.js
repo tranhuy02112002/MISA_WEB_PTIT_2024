@@ -9,7 +9,7 @@ var initialNoticeContent = $("#noticeContent").html();
 var initialNoticeContent1 = $("#noticeContent1").html();
 
 var formMode = ""; // Khai báo biến
-var employeeIDForUpdate = null; 
+let employeeIDForUpdate = null; 
 
 
 
@@ -19,7 +19,7 @@ class EmployeePage {
     constructor() {
         console.log("Constructor...");
         this.initEvents();
-        this.loadData2();
+        this.loadData();
     }
     
     /* Khởi tạo các sự kiện trong page 
@@ -58,26 +58,26 @@ class EmployeePage {
                 } else if (employeeGender === 2) {
                     $('#other').prop('checked', true);
                 }
-                let selectedGender = $('input[name="gender"]:checked').val();
+                // let selectedGender = $('input[name="gender"]:checked').val();
                 // $("#txtPosition").val(employee.PositionName);
-                if (employee.PositionName === "Lap trinh vien") {
-                    $("#txtPosition").val("nhanvien");
-                } else if (employee.PositionName === "Nha thiet ke do hoa") {
-                    $("#txtPosition").val("quanly");
+                if (employee.PositionName === "Lap Trinh Vien") {
+                    $("#txtPositionName").val("nhanvien");
+                } else if (employee.PositionName === "Nha Thiet Ke Do Hoa") {
+                    $("#txtPositionName").val("quanly");
                 } else if (employee.PositionName === "Ky su an ninh mang") {
-                    $("#txtPosition").val("kysuanninhmang");
+                    $("#txtPositionName").val("kysuanninhmang");
                 } else {
-                    $("#txtPosition").val("");
+                    $("#txtPositionName").val("");
                 }
                 
-                $("#txtPersonalTaxCode").val(employee.PersonalTaxCode);
+                $("#txtIdentityNumber").val(employee.IdentityNumber);
 
-                let createdDate = new Date(employee.CreatedDate);
+                let createdDate = new Date(employee.IdentityDate);
                 let yearCreated = createdDate.getFullYear();
                 let monthCreated = (createdDate.getMonth() + 1).toString().padStart(2, '0');
                 let dayCreated = createdDate.getDate().toString().padStart(2, '0');
                 
-                $("#txtCreatedDate").val(`${yearCreated}-${monthCreated}-${dayCreated}`);
+                $("#txtIdentityDate").val(`${yearCreated}-${monthCreated}-${dayCreated}`);
                 // $("#txtDepartmentName").val(employee.DepartmentName);
                 if (employee.DepartmentName === "Phong Ky thuat") {
                     $("#txtDepartmentName").val("phongkythuat");
@@ -89,14 +89,14 @@ class EmployeePage {
                     // Giá trị mặc định hoặc xử lý trường hợp không khớp
                     $("#txtDepartmentName").val("");
                 }                
-                $("#txtCreatedBy").val(employee.CreatedBy);
+                $("#txtIdentityPlace").val(employee.IdentityPlace);
                 $("#txtAddress").val(employee.Address);
                 $("#txtPhoneNumber").val(employee.PhoneNumber);
-                $("#txtIdentityNumber").val(employee.IdentityNumber);
+                $("#txtLandlineNumber").val(employee.LandlineNumber);
                 $("#txtEmail").val(employee.Email);
-                $("#txtBankAccount").val(employee.QualificationName);
-                $("#txtBankName").val(employee.ModifiedBy);
-                $("#txtBranch").val(employee.MartialStatusName);
+                $("#txtBankAccount").val(employee.BankAccount);
+                $("#txtBankName").val(employee.BankName);
+                $("#txtBranch").val(employee.Branch);
 
                 // Log dữ liệu để kiểm tra
                 console.log('Employee Data:', employee);
@@ -161,7 +161,7 @@ class EmployeePage {
     deleteEmployee() {
         $.ajax({
             type: "DELETE",
-            url: `https://cukcuk.manhnv.net/api/v1/Employees/${employeeIDForDelete}`,
+            url: `http://localhost:5014/api/v1/Employees/${employeeIDForDelete}`,
             contentType: "application/json",
             success: function(response){
                 console.log("Xóa nhân viên thành công:", response);
@@ -240,23 +240,23 @@ class EmployeePage {
                 let employeeCode = $("#txtEmployeeCode").val();
                 let fullName = $("#txtfullName").val();
                 let dob = $("#txtDob").val();
-                let selectedGender = $('input[name="gender"]:checked').val();
-                let position = $("#txtPosition option:selected").text();
+                let gender = $('input[name="gender"]:checked').val();
+                let position = $("#txtPositionName option:selected").text();
                 console.log(position);
-                let personalTaxCode = $("#txtPersonalTaxCode").val();
-                let createdDate = $("#txtCreatedDate").val();
+                let identityNumber = $("#txtIdentityNumber").val();
+                let identityDate = $("#txtIdentityDate").val();
                 let departmentName = $("#txtDepartmentName option:selected").text();
-                let createdBy = $("#txtCreatedBy").val();
+                let identityPlace = $("#txtIdentityPlace").val();
                 let address = $("#txtAddress").val();
                 let phoneNumber = $("#txtPhoneNumber").val();
-                let identityNumber = $("#txtIdentityNumber").val();
+                let landlineNumber = $("#txtLandlineNumber").val();
                 let email = $("#txtEmail").val();
                 let bankAccount = $("#txtBankAccount").val();
                 let bankName = $("#txtBankName").val();
                 let branch = $("#txtBranch").val();
 
-                if (createdDate) {
-                    createdDate = new Date(createdDate);
+                if (identityDate) {
+                    identityDate = new Date(identityDate);
                 }
                 if (dob) {
                     dob = new Date(dob);
@@ -265,30 +265,53 @@ class EmployeePage {
                     alert("Ngày sinh không được phép lớn hơn ngày hiện tại");
                     return;
                 }
+
                 let employee = {
                     "EmployeeCode": employeeCode,
                     "FullName": fullName,
-                    "Gender": selectedGender,
+                    "Gender": gender,
                     "DateOfBirth": dob,
                     "PhoneNumber": phoneNumber,
-                    "PersonalTaxCode": personalTaxCode,
+                    "LandlineNumber":landlineNumber,
+                    "IdentityNumber": identityNumber,
+                    "IdentityDate": identityDate,
+                    "IdentityPlace": identityPlace,
                     "Email": email,
                     "Address": address,
-                    "IdentityNumber": identityNumber,
                     "PositionName": position,
                     "DepartmentName": departmentName,
-                    "CreatedDate": createdDate,
-                    "CreatedBy": createdBy,
-                    "QualificationName": bankAccount,
-                    "ModifiedBy": bankName,
-                    "MartialStatusName": branch
+                    "BankAccount": bankAccount,
+                    "BankName": bankName,
+                    "Branch": branch
 
+                }
+
+                console.log(employeeIDForUpdate);
+                   
+                let employee2 = {
+                    "EmpoyeeID": employeeIDForUpdate,
+                    "EmployeeCode": employeeCode,
+                    "FullName": fullName,
+                    "Gender": gender,
+                    "DateOfBirth": dob,
+                    "PhoneNumber": phoneNumber,
+                    "LandlineNumber":landlineNumber,
+                    "IdentityNumber": identityNumber,
+                    "IdentityDate": identityDate,
+                    "IdentityPlace": identityPlace,
+                    "Email": email,
+                    "Address": address,
+                    "PositionName": position,
+                    "DepartmentName": departmentName,
+                    "BankAccount": bankAccount,
+                    "BankName": bankName,
+                    "Branch": branch
                 }
                 if(formMode === "add"){
 
                     $.ajax({
                         type: "POST",
-                        url: "https://cukcuk.manhnv.net/api/v1/Employees",
+                        url: "http://localhost:5014/api/v1/Employees",
                         data: JSON.stringify(employee),
                         contentType: "application/json",
                         dataType: "json",
@@ -306,8 +329,8 @@ class EmployeePage {
                 }else{
                     $.ajax({
                         type:"PUT",
-                        url: `https://cukcuk.manhnv.net/api/v1/Employees/${employeeIDForUpdate}`,
-                        data: JSON.stringify(employee),
+                        url: `http://localhost:5014/api/v1/Employees/${employeeIDForUpdate}`,
+                        data: JSON.stringify(employee2),
                         contentType: "application/json",
                         dataType: "json",
                         success: function(response){
@@ -378,61 +401,8 @@ class EmployeePage {
             console.log(error);
         }
     }
+
     loadData() {
-        try {
-            $(`.m-loading`).show();
-            // Gọi API lấy dữ liệu:
-            fetch("https://cukcuk.manhnv.net/api/v1/Employees")
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    // Lấy ra table
-                    const $table = $("#tblEmployees tbody");
-                    $table.empty(); // Xóa các hàng cũ nếu có
-
-                    // Duyệt từng phần tử trong data
-                    let i=1;
-                    $.each(data, function(index, item) {
-                        let DateOfBirth = item.DateOfBirth ? new Date(item.DateOfBirth) : "";
-                        if (DateOfBirth) {
-                            let date = DateOfBirth.getDate();
-                            date = date < 10 ? `0${date}` : date;
-                            let month = DateOfBirth.getMonth() + 1;
-                            month = month < 10 ? `0${month}` : month;
-                            let year = DateOfBirth.getFullYear();
-                            DateOfBirth = `${date}/${month}/${year}`;
-                        } else {
-                            DateOfBirth = "";
-                        }
-
-                        let el = $(`
-                            <tr>
-                                <td class="text-align-left">${i}</td>
-                                <td class="text-align-left">${item.EmployeeCode}</td>
-                                <td class="text-align-left">${item.FullName}</td>
-                                <td class="text-align-left">${item.GenderName}</td>
-                                <td class="text-align-center">${DateOfBirth}</td>
-                                <td class="text-align-left">${item.Email}</td>
-                                <td class="text-align-left" style="display: flex; border-style: none;">
-                                    <div style="margin-top: 9px; width: 250px;">${item.Address}</div>
-                                    <button class="m-fix m-all"></button>
-                                    <button class="m-add m-all"></button>
-                                    <button class="m-delete m-all"></button>
-                                </td>
-                            </tr>
-                        `);
-                        el.data("entity",item);
-                        $table.append(el);
-                        i=i+1;
-                    });
-                    $(`.m-loading`).hide();
-                });
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    loadData2() {
         try {
             $(`.m-loading`).show();
             // Gọi API lấy dữ liệu:
@@ -491,6 +461,7 @@ class EmployeePage {
                                 </td>
                             </tr>
                         `);
+                        el.data("entity",item);
                         $table.append(el);
                         i++;
                     });

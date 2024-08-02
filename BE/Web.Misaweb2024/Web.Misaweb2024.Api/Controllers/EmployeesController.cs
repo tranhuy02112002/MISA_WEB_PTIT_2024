@@ -255,11 +255,7 @@ namespace Web.Misaweb2024.Api.Controllers
         {
             try
             {
-                // Kiểm tra nếu EmployeeId trong URL và trong body không khớp
-                if (id != employee.EmployeeId)
-                {
-                    return BadRequest(new { UserMsg = "EmployeeId không khớp." });
-                }
+
 
                 // Bước 1. Validate dữ liệu (tương tự như trong hàm POST)
                 var error = new ErrorService();
