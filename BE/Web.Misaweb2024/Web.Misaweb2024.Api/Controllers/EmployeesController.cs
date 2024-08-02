@@ -87,6 +87,11 @@ namespace Web.Misaweb2024.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Thêm mới nhân viên
+        /// </summary>
+        /// <param name="newEmployee"></param>
+        /// <returns></returns>
 
 
 
@@ -127,11 +132,7 @@ namespace Web.Misaweb2024.Api.Controllers
             }
         }
 
-        /// <summary>
-        /// Thêm mới nhân viên
-        /// </summary>
-        /// <param name="newEmployee"></param>
-        /// <returns></returns>
+        
        
         
 
