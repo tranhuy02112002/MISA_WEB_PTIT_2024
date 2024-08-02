@@ -33,3 +33,6 @@ C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misa
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\ref\Web.Misaweb2024.Api.dll
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\bin\Debug\net8.0\MySqlConnector.dll
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\bin\Debug\net8.0\Dapper.dll
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\Web.Misaweb2024.Api.Resources.ResourceEN.resources
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\Web.Misaweb2024.Api.Resources.ResourceVN.resources
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\Web.Misaweb2024.Api.csproj.GenerateResource.cache

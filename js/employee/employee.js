@@ -436,7 +436,7 @@ class EmployeePage {
         try {
             $(`.m-loading`).show();
             // Gọi API lấy dữ liệu:
-            fetch("http://localhost:5014/api/Employees")
+            fetch("http://localhost:5014/api/v1/Employees")
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

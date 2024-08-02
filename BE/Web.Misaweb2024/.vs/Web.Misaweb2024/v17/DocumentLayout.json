@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\positons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\positons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\positons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\positons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,15 +40,19 @@
               "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Controllers\\EmployeesController.cs",
               "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Controllers\\EmployeesController.cs",
               "RelativeToolTip": "Web.Misaweb2024.Api\\Controllers\\EmployeesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAA3AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T06:42:28.642Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Positons.cs",
               "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Positons.cs",
               "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Model\\Positons.cs",
@@ -56,12 +60,11 @@
               "RelativeToolTip": "Web.Misaweb2024.Api\\Model\\Positons.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:28:37.616Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T12:28:37.616Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Department.cs",
               "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Department.cs",
               "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Model\\Department.cs",
@@ -69,25 +72,24 @@
               "RelativeToolTip": "Web.Misaweb2024.Api\\Model\\Department.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:28:38.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T12:28:38.197Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Employee.cs",
               "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Model\\Employee.cs",
               "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Employee.cs",
               "RelativeToolTip": "Web.Misaweb2024.Api\\Model\\Employee.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T12:28:32.861Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Program.cs",
               "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Program.cs",
@@ -97,10 +99,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T12:27:15.855Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
