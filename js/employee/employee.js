@@ -289,7 +289,7 @@ class EmployeePage {
                 console.log(employeeIDForUpdate);
                    
                 let employee2 = {
-                    "EmpoyeeID": employeeIDForUpdate,
+                    "EmployeeID": employeeIDForUpdate,
                     "EmployeeCode": employeeCode,
                     "FullName": fullName,
                     "Gender": gender,
@@ -307,6 +307,8 @@ class EmployeePage {
                     "BankName": bankName,
                     "Branch": branch
                 }
+
+                console.log(employee2);
                 if(formMode === "add"){
 
                     $.ajax({
