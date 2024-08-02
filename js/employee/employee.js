@@ -242,7 +242,7 @@ class EmployeePage {
                 let dob = $("#txtDob").val();
                 let selectedGender = $('input[name="gender"]:checked').val();
                 let position = $("#txtPosition option:selected").text();
-                console.log(position);
+                // console.log(position);
                 let personalTaxCode = $("#txtPersonalTaxCode").val();
                 let createdDate = $("#txtCreatedDate").val();
                 let departmentName = $("#txtDepartmentName option:selected").text();
