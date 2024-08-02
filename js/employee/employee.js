@@ -19,7 +19,7 @@ class EmployeePage {
     constructor() {
         console.log("Constructor...");
         this.initEvents();
-        this.loadData();
+        this.loadData2();
     }
     
     /* Khởi tạo các sự kiện trong page 
@@ -60,11 +60,11 @@ class EmployeePage {
                 }
                 let selectedGender = $('input[name="gender"]:checked').val();
                 // $("#txtPosition").val(employee.PositionName);
-                if (employee.PositionName === "Lập trình viên") {
+                if (employee.PositionName === "Lap trinh vien") {
                     $("#txtPosition").val("nhanvien");
-                } else if (employee.PositionName === "Nhà thiết kế đồ hoạ") {
+                } else if (employee.PositionName === "Nha thiet ke do hoa") {
                     $("#txtPosition").val("quanly");
-                } else if (employee.PositionName === "Kỹ sư an ninh mạng") {
+                } else if (employee.PositionName === "Ky su an ninh mang") {
                     $("#txtPosition").val("kysuanninhmang");
                 } else {
                     $("#txtPosition").val("");
@@ -79,11 +79,11 @@ class EmployeePage {
                 
                 $("#txtCreatedDate").val(`${yearCreated}-${monthCreated}-${dayCreated}`);
                 // $("#txtDepartmentName").val(employee.DepartmentName);
-                if (employee.DepartmentName === "Phòng Kỹ thuật") {
+                if (employee.DepartmentName === "Phong Ky thuat") {
                     $("#txtDepartmentName").val("phongkythuat");
-                } else if (employee.DepartmentName === "Phòng Thiết kế") {
+                } else if (employee.DepartmentName === "Phong Thiet ke") {
                     $("#txtDepartmentName").val("phongthietke");
-                } else if (employee.DepartmentName === "Phòng An ninh mạng") {
+                } else if (employee.DepartmentName === "Phong an ninh mang") {
                     $("#txtDepartmentName").val("phonganninhmang");
                 } else {
                     // Giá trị mặc định hoặc xử lý trường hợp không khớp
@@ -242,7 +242,7 @@ class EmployeePage {
                 let dob = $("#txtDob").val();
                 let selectedGender = $('input[name="gender"]:checked').val();
                 let position = $("#txtPosition option:selected").text();
-                // console.log(position);
+                console.log(position);
                 let personalTaxCode = $("#txtPersonalTaxCode").val();
                 let createdDate = $("#txtCreatedDate").val();
                 let departmentName = $("#txtDepartmentName option:selected").text();
@@ -378,7 +378,6 @@ class EmployeePage {
             console.log(error);
         }
     }
-
     loadData() {
         try {
             $(`.m-loading`).show();
@@ -432,6 +431,81 @@ class EmployeePage {
             console.error(error);
         }
     }
+
+    loadData2() {
+        try {
+            $(`.m-loading`).show();
+            // Gọi API lấy dữ liệu:
+            fetch("http://localhost:5014/api/Employees")
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    // Lấy ra table
+                    const $table = $("#tblEmployees tbody");
+                    $table.empty(); // Xóa các hàng cũ nếu có
+    
+                    // Duyệt từng phần tử trong data
+                    let i = 1;
+                    $.each(data, function(index, item) {
+                        let DateOfBirth = item.DateOfBirth ? new Date(item.DateOfBirth) : "";
+                        if (DateOfBirth) {
+                            let date = DateOfBirth.getDate();
+                            date = date < 10 ? `0${date}` : date;
+                            let month = DateOfBirth.getMonth() + 1;
+                            month = month < 10 ? `0${month}` : month;
+                            let year = DateOfBirth.getFullYear();
+                            DateOfBirth = `${date}/${month}/${year}`;
+                        } else {
+                            DateOfBirth = "";
+                        }
+    
+                        // Chuyển đổi giá trị Gender từ số sang chuỗi
+                        let genderText = "";
+                        switch(item.Gender) {
+                            case 0: 
+                                genderText = "Nam";
+                                break;
+                            case 1: 
+                                genderText = "Nữ";
+                                break;
+                            case 2: 
+                                genderText = "Khác";
+                                break;
+                            default:
+                                genderText = "Không xác định";
+                        }
+    
+                        let el = $(`
+                            <tr>
+                                <td class="text-align-left">${i}</td>
+                                <td class="text-align-left">${item.EmployeeCode}</td>
+                                <td class="text-align-left">${item.FullName}</td>
+                                <td class="text-align-left">${genderText}</td>
+                                <td class="text-align-center">${DateOfBirth}</td>
+                                <td class="text-align-left">${item.Email}</td>
+                                <td class="text-align-left" style="display: flex; border-style: none;">
+                                    <div style="margin-top: 9px; width: 250px;">${item.Address}</div>
+                                    <button class="m-fix m-all"></button>
+                                    <button class="m-add m-all"></button>
+                                    <button class="m-delete m-all"></button>
+                                </td>
+                            </tr>
+                        `);
+                        $table.append(el);
+                        i++;
+                    });
+                    $(`.m-loading`).hide();
+                })
+                .catch(error => {
+                    console.error(error);
+                    $(`.m-loading`).hide(); // Ẩn loading khi gặp lỗi
+                });
+        } catch (error) {
+            console.error(error);
+            $(`.m-loading`).hide(); // Ẩn loading khi gặp lỗi
+        }
+    }
+    
 }
 
 

@@ -21,23 +21,29 @@ namespace Web.Misaweb2024.Api.Controllers
         /// </returns>
         /// Crearedby: TQHUY(25/7/2024)
         [HttpGet]
-        public IActionResult Get()
-        {   //Khai báo thông tin database
-            var connectionString = "Host=8.222.228.150; Port=3306; Database = PTIT_B20DCCN329_TranQuangHuy;User Id =manhnv; Password=12345678";
-            //1.1 KHởi tạo kết nói với MariaDB
-            var sqlConnecttion = new MySqlConnection(connectionString);
+        public IActionResult GetAllEmployees()
+        {
+            // Khai báo thông tin kết nối cơ sở dữ liệu
+            var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
 
+            // Khởi tạo kết nối với MariaDB
+            using (var sqlConnection = new MySqlConnection(connectionString))
+            {
+                // Câu lệnh truy vấn để lấy thông tin tất cả nhân viên, cùng tên vị trí và tên phòng ban
+                var sqlCommand = @"
+                SELECT e.*, p.PositionName, d.DepartmentName
+                FROM Employee e
+                LEFT JOIN Positions p ON e.PositionID = p.PositionID
+                LEFT JOIN Department d ON e.DepartmentID = d.DepartmentID";
 
-            //2.Lấy dữ liệu:
-            //2.1 Câu lệnh truy vấn lất dữ liệu
-            var sqlCommand = "SELECT * FROM Employee";
-            //2.2 Thực hiện lấy dữ liệu
-            var employees = sqlConnecttion.Query<Employee>(sql: sqlCommand);
+                // Thực hiện truy vấn và lấy danh sách tất cả nhân viên
+                var employees = sqlConnection.Query<Employee>(sql: sqlCommand).ToList();
 
-
-            //Trả kết quả cho Client
-            return Ok(employees);
+                // Trả kết quả cho Client
+                return Ok(employees);
+            }
         }
+
 
         /// <summary>
         /// Lấy ra nhân viên cụ thể
@@ -46,30 +52,44 @@ namespace Web.Misaweb2024.Api.Controllers
         /// 200-Danh sách khách hàng
         /// 204-KHông có dữ liệu
         /// </returns>
-        /// Crearedby: TQHUY(25/7/2024)
+        /// Crearedby: TQHUY(25/7/2024
         [HttpGet("{employeeId}")]
         public IActionResult GetByID(Guid employeeId)
-        {   //Khai báo thông tin database
-            var connectionString = "Host=8.222.228.150; Port=3306; Database = PTIT_B20DCCN329_TranQuangHuy;User Id =manhnv; Password=12345678";
-            //1.1 KHởi tạo kết nói với MariaDB
-            var sqlConnecttion = new MySqlConnection(connectionString);
+        {
+            // Khai báo thông tin kết nối cơ sở dữ liệu
+            var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
 
+            // Khởi tạo kết nối với MariaDB
+            using (var sqlConnection = new MySqlConnection(connectionString))
+            {
+                // Câu lệnh truy vấn để lấy thông tin nhân viên, tên vị trí và tên phòng ban
+                var sqlCommand = @"
+            SELECT e.*, p.PositionName, d.DepartmentName
+            FROM Employee e
+            LEFT JOIN Positions p ON e.PositionID = p.PositionID
+            LEFT JOIN Department d ON e.DepartmentID = d.DepartmentID
+            WHERE e.EmployeeID = @EmployeeID";
 
-            //2.Lấy dữ liệu:
-            //2.1 Câu lệnh truy vấn lất dữ liệu
-            var sqlCommand = $"SELECT * FROM Employee WHERE EmployeeID=@EmployeeID";
+                // Khởi tạo DynamicParameters và thêm tham số
+                var parameters = new DynamicParameters();
+                parameters.Add("@EmployeeID", employeeId);
 
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@EmployeeID", employeeId);
+                // Thực hiện truy vấn và lấy thông tin nhân viên cụ thể
+                var employee = sqlConnection.QueryFirstOrDefault<Employee>(sql:sqlCommand, param:parameters);
 
-           
-            //2.2 Thực hiện lấy dữ liệu
-            var employee = sqlConnecttion.QueryFirstOrDefault<Employee>(sql: sqlCommand,param:parameters);
+                if (employee == null)
+                {
+                    return NotFound("Employee not found.");
+                }
 
-
-            //Trả kết quả cho Client
-            return Ok(employee);
+                // Trả kết quả cho Client
+                return Ok(employee);
+            }
         }
+
+
+
+
 
         /// <summary>
         /// Xóa nhân viên cụ thể

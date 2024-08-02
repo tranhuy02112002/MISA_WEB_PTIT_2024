@@ -24,7 +24,27 @@
             }
 
         }
-        public DateTime DateOfBirth { get; set; }
-        public DateTime DateOfDeath { get; set; }
+        public DateTime ? DateOfBirth { get; set; }
+        public Guid PositionID { get; set; }
+        public String PositionName { get; set; }
+
+        public Guid DepartmentID { get; set; }
+        public String DepartmentName { get; set; }
+        public String ? IdentityNumber { get; set; }
+
+        public DateTime ? IdentityDate { get; set; }
+
+        public String? IdentityPlace { get; set; }
+
+        public String Email { get; set; }
+
+        public String? PhoneNumber { get; set; }
+
+        public String? LandlineNumber { get; set; }
+        public String? Address { get; set; }
+        public String? BankAccount { get; set; }
+        public String? BankName { get; set; }
+        public String? Branch { get; set; }
+
     }
 }
