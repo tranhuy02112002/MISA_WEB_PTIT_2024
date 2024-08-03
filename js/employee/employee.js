@@ -3,13 +3,17 @@ $(document).ready(function() {
     new EmployeePage();
     
 });
-let int ="0";
-let employeeIDForDelete = null; 
 var initialNoticeContent = $("#noticeContent").html();
 var initialNoticeContent1 = $("#noticeContent1").html();
 
-var formMode = ""; // Khai báo biến
-let employeeIDForUpdate = null; 
+var formMode = ""; // Khai báo biến tạm để check xem là thêm hay xóa nhân viên
+let employeeIDForUpdate = null; // Lấy ra IdEmployee tại row cần sửa
+
+let int ="0";// Khao báo biến để check xem là xóa nhân viên hay lòa tắt thông báo
+let employeeIDForDelete = null; // Lấy ra IdEmployee tại row cần xóa
+
+
+
 
 
 
@@ -26,19 +30,34 @@ class EmployeePage {
     *Author: TQHuy (10/7/2024) */
     initEvents() {
         try {   
-            console.log(int);
             var me = this;
 
-            // 1. Click button add hiển thị form nhân viên
+            ///0. Tabindex nhập liệu chỉ cần bàn phím "ENTER" để chuyển sang trường mới khi THÊM và SỬA
+                // Lấy tất cả các input và select trong form
+                var formElements = $('#employeeForm input, #employeeForm select');
+                formElements.each(function(index) {
+                    $(this).on('keydown', function(event) {
+                        if (event.key === 'Enter') {
+                            event.preventDefault(); // Ngăn chặn hành vi mặc định của phím Enter
+            
+                            // Chuyển focus sang phần tử tiếp theo nếu có
+                            var nextElement = formElements.eq(index + 1);
+                            if (nextElement.length) {
+                                nextElement.focus();
+                            }
+                        }
+                    });
+                });
+        
+            
+            /// 1. Click button add hiển thị form nhân viên
             $("#btnShowDialog").on('click', function() {
                 formMode ="add";
                 me.showDialog();
             });
 
 
-
-
-            //2. Set dữ liệu cho bảng sửa thông tin nhân viên
+            ///2. Set dữ liệu cho bảng sửa thông tin nhân viên
             $(document).on('click', ".m-fix", function() {
                 formMode = "edit";
                 // Tìm phần tử <tr> gần nhất (cha của nút)
@@ -66,11 +85,11 @@ class EmployeePage {
                 }
                 // let selectedGender = $('input[name="gender"]:checked').val();
                 // $("#txtPosition").val(employee.PositionName);
-                if (employee.PositionName === "Lap Trinh Vien") {
+                if (employee.PositionName === "Lập trình viên") {
                     $("#txtPositionName").val("nhanvien");
-                } else if (employee.PositionName === "Nha Thiet Ke Do Hoa") {
+                } else if (employee.PositionName === "Nhà thiết kế đồ họa") {
                     $("#txtPositionName").val("quanly");
-                } else if (employee.PositionName === "Ky su an ninh mang") {
+                } else if (employee.PositionName === "Kỹ sư an ninh mạng") {
                     $("#txtPositionName").val("kysuanninhmang");
                 } else {
                     $("#txtPositionName").val("");
@@ -85,11 +104,11 @@ class EmployeePage {
                 
                 $("#txtIdentityDate").val(`${yearCreated}-${monthCreated}-${dayCreated}`);
                 // $("#txtDepartmentName").val(employee.DepartmentName);
-                if (employee.DepartmentName === "Phong Ky thuat") {
+                if (employee.DepartmentName === "Phòng kỹ thuật") {
                     $("#txtDepartmentName").val("phongkythuat");
-                } else if (employee.DepartmentName === "Phong Thiet ke") {
+                } else if (employee.DepartmentName === "Phòng thiết kế") {
                     $("#txtDepartmentName").val("phongthietke");
-                } else if (employee.DepartmentName === "Phong an ninh mang") {
+                } else if (employee.DepartmentName === "Phòng an ninh mạng") {
                     $("#txtDepartmentName").val("phonganninhmang");
                 } else {
                     // Giá trị mặc định hoặc xử lý trường hợp không khớp
@@ -111,15 +130,15 @@ class EmployeePage {
                 me.showDialog();
             });
             
-            //3. Refresh dữ liệu
+            ///3. Refresh dữ liệu
             $("#btnRefresh").on('click', this.btnRefreshOnclick);
 
-            //4. Close dialog
+            ///4. Close dialog
             $("[mdialog] .btn-dialog--close").on('click', function() {
                 $(this).closest("[mdialog]").css("visibility", "hidden");
             });
 
-            //5. Tắt notice hoặc xóa nhân viên
+            ///5. Tắt notice hoặc xóa nhân viên
             $(document).on('click',".m-dialog-notice-button-confirm", function() {
                 console.log("oke");
                 if (int === "1") {
@@ -153,10 +172,10 @@ class EmployeePage {
 
             
 
-            //7. Đóng mở Navbar
+            ///7. Đóng mở Navbar
             $("#toggleNavbar").on('click', this.toggleNavbar);
 
-            //8. Thêm mới dữ liệu
+            ///8. Thêm mới dữ liệu
             $('#btnAddEmployee').on('click', this.addEmployee.bind(this));
 
         
@@ -168,7 +187,7 @@ class EmployeePage {
 
 
 
-    //A. deleteEmpoyee
+    ///A. deleteEmpoyee
     deleteEmployee() {
         $.ajax({
             type: "DELETE",
@@ -188,7 +207,7 @@ class EmployeePage {
     }
     
 
-    //B. Show ra bảng thêm nhân viên
+    ///B. Show ra bảng thêm nhân viên
     showDialog() {
         try {
             // Hiển thị form thêm mới
@@ -201,7 +220,7 @@ class EmployeePage {
     }
 
 
-    //C. Refresh lại bảng nhân viên
+    ///C. Refresh lại bảng nhân viên
     btnRefreshOnclick() {
         try {
             // Xử lý refresh dữ liệu
@@ -211,7 +230,7 @@ class EmployeePage {
     }
 
 
-    //D. To nhỏ navbar
+    ///D. To nhỏ navbar
     toggleNavbar() {
         try {
             var navbar = $('#navbar');
@@ -232,7 +251,7 @@ class EmployeePage {
 
 
 
-    //E. Thêm mới nhân viên và Sửa nhân viên
+    ///E. Thêm mới nhân viên và Sửa nhân viên
     addEmployee() {
         try {
 
@@ -372,7 +391,7 @@ class EmployeePage {
 
 
 
-    //F. Kiểm tra các trường băt buộc phải nhập
+    ///F. Kiểm tra các trường băt buộc phải nhập
     checkRequiredInput() {
         try {
             let result = {
@@ -407,7 +426,7 @@ class EmployeePage {
 
 
 
-    //G. Thêm lỗi vào notice
+    ///G. Thêm lỗi vào notice
     addErrorElementToInputNotValid(input) {
         try {
             $(input).css("border-color", "red");
@@ -427,7 +446,7 @@ class EmployeePage {
 
 
 
-    //H. Load dữ liệu
+    ///H. Load dữ liệu
     loadData() {
         try {
             $(`.m-loading`).show();
