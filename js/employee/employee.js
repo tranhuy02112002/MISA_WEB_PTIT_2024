@@ -28,11 +28,17 @@ class EmployeePage {
         try {   
             console.log(int);
             var me = this;
-            // Click button add hiển thị form nhân viên
+
+            // 1. Click button add hiển thị form nhân viên
             $("#btnShowDialog").on('click', function() {
                 formMode ="add";
                 me.showDialog();
             });
+
+
+
+
+            //2. Set dữ liệu cho bảng sửa thông tin nhân viên
             $(document).on('click', ".m-fix", function() {
                 formMode = "edit";
                 // Tìm phần tử <tr> gần nhất (cha của nút)
@@ -105,15 +111,15 @@ class EmployeePage {
                 me.showDialog();
             });
             
-            // Refresh dữ liệu
+            //3. Refresh dữ liệu
             $("#btnRefresh").on('click', this.btnRefreshOnclick);
 
-            // Close dialog
+            //4. Close dialog
             $("[mdialog] .btn-dialog--close").on('click', function() {
                 $(this).closest("[mdialog]").css("visibility", "hidden");
             });
 
-            //Tắt notice hoặc xóa nhân viên
+            //5. Tắt notice hoặc xóa nhân viên
             $(document).on('click',".m-dialog-notice-button-confirm", function() {
                 console.log("oke");
                 if (int === "1") {
@@ -124,6 +130,8 @@ class EmployeePage {
                 }
             });
 
+
+            //6. Hiển thị thông báo xóa nhân viên hay không
             $(document).on('click', ".m-delete", function() {
                 try {
                     int = "1";
@@ -145,10 +153,10 @@ class EmployeePage {
 
             
 
-            // Đóng mở Navbar
+            //7. Đóng mở Navbar
             $("#toggleNavbar").on('click', this.toggleNavbar);
 
-            // Thêm mới dữ liệu
+            //8. Thêm mới dữ liệu
             $('#btnAddEmployee').on('click', this.addEmployee.bind(this));
 
         
@@ -157,7 +165,10 @@ class EmployeePage {
             console.error(error);
         }
     }
-    //deleteEmpoyee
+
+
+
+    //A. deleteEmpoyee
     deleteEmployee() {
         $.ajax({
             type: "DELETE",
@@ -177,7 +188,7 @@ class EmployeePage {
     }
     
 
-    // Show ra bảng thêm nhân viên
+    //B. Show ra bảng thêm nhân viên
     showDialog() {
         try {
             // Hiển thị form thêm mới
@@ -189,7 +200,8 @@ class EmployeePage {
         }
     }
 
-    // Refresh lại bảng nhân viên
+
+    //C. Refresh lại bảng nhân viên
     btnRefreshOnclick() {
         try {
             // Xử lý refresh dữ liệu
@@ -198,7 +210,8 @@ class EmployeePage {
         }
     }
 
-    // To nhỏ navbar
+
+    //D. To nhỏ navbar
     toggleNavbar() {
         try {
             var navbar = $('#navbar');
@@ -217,7 +230,9 @@ class EmployeePage {
         }
     }
 
-    // Thêm mới nhân viên và Sửa nhân viên
+
+
+    //E. Thêm mới nhân viên và Sửa nhân viên
     addEmployee() {
         try {
 
@@ -354,7 +369,10 @@ class EmployeePage {
             console.error("Lỗi trong hàm addEmployee:", error);
         }
     }
-    
+
+
+
+    //F. Kiểm tra các trường băt buộc phải nhập
     checkRequiredInput() {
         try {
             let result = {
@@ -387,6 +405,9 @@ class EmployeePage {
         }
     }
 
+
+
+    //G. Thêm lỗi vào notice
     addErrorElementToInputNotValid(input) {
         try {
             $(input).css("border-color", "red");
@@ -404,6 +425,9 @@ class EmployeePage {
         }
     }
 
+
+
+    //H. Load dữ liệu
     loadData() {
         try {
             $(`.m-loading`).show();
@@ -482,18 +506,4 @@ class EmployeePage {
 }
 
 
-
-function showNotice() {
-    try {
-        int ="1";
-        console.log(int);
-        // Đặt lại nội dung của dòng thông báo về trạng thái ban đầu
-        $("#noticeContent").html(initialNoticeContent);
-        $("#noticeContent1").html(initialNoticeContent1);
-        // Hiển thị form thông báo
-        $("#dlgNotice").css("visibility", "visible");
-    } catch (error) {
-        console.error("Không hiện thông báo được ...");
-    }
-}
 
