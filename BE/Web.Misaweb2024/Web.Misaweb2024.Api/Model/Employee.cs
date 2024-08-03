@@ -16,7 +16,7 @@
                     case 1:
                         return "Nữ";
                     case 2:
-                        return "Không xác định";
+                        return "Khác";
                     default:
                         break;
                 }
