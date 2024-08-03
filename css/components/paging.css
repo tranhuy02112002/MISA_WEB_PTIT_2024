@@ -5,9 +5,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .m-paging .m-paging-number-group{
+    margin-right: 8.5px;
     display: flex;
 }
 .m-paging .m-paging-center{

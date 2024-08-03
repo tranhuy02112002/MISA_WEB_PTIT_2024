@@ -288,15 +288,20 @@ class EmployeePage {
                 let bankAccount = $("#txtBankAccount").val();
                 let bankName = $("#txtBankName").val();
                 let branch = $("#txtBranch").val();
-
                 if (identityDate) {
                     identityDate = new Date(identityDate);
                 }
                 if (dob) {
                     dob = new Date(dob);
                 }
-                if (dob > new Date()) {
+                if (dob > new Date() && identityDate > new Date()) {
+                    alert("Ngày sinh, Ngày cấp CMTND không được phép lớn hơn ngày hiện tại");
+                    return;
+                }else if(dob > new Date()){
                     alert("Ngày sinh không được phép lớn hơn ngày hiện tại");
+                    return;
+                }else if(identityDate > new Date()){
+                    alert("Ngày cấp CMTND không được phép lớn hơn ngày hiện tại");
                     return;
                 }
 

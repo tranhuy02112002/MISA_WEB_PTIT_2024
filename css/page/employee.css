@@ -26,7 +26,7 @@
 }
 .m-page-grid{
     width: 100%;
-    height: calc(100% - 96px);
+    height: calc(100% - 70px);
 
 }
 .m-page-toolbar .m-toolbar-right{
@@ -71,7 +71,7 @@
     }
 
     .m-table-all {
-        max-height: 655px; /* Bạn có thể điều chỉnh chiều cao phù hợp */
+        height: 86.5%;        
         overflow-y: auto;
         margin-top: 10px;
     }

@@ -136,15 +136,18 @@ namespace Web.Misaweb2024.Api.Controllers
                 {
                     ErrorData.Add("EmpoyeeCode", "Mã nhân viên không được phép để trống");
                 }
-
+              
                 //1.2 Thông tin họ và tên không được phép để trống
                 if (String.IsNullOrEmpty(employee.FullName))
                 {
                     ErrorData.Add("FullName", "Tên nhân viên không được phép để trống");
                 }
 
-                //1.3 Email phải đúng định dạng
-                if (!IsValidEmail(employee.Email))
+                //1.3 Thông tin Email không được phép để trống và đúng định dạng
+                if (String.IsNullOrEmpty(employee.Email))
+                {
+                    ErrorData.Add("Email", "Email không được phép để trống");
+                }else if (!IsValidEmail(employee.Email))
                 {
                     ErrorData.Add("Email", "Email không đúng định dạng");
                 }
@@ -165,6 +168,20 @@ namespace Web.Misaweb2024.Api.Controllers
                 if (CheckEmployeeCode(employee.EmployeeCode)) {
                     ErrorData.Add("EmployeeCode", "Mã nhân viên đã bị trùng");
                 }
+
+                //1.7 Ngày cấp cccd không được lớn hơn ngày hiện tại
+                if (employee.IdentityDate > DateTime.Now)
+                {
+                    ErrorData.Add("IdentityDate", "Ngày cấp cccd không được lớn hơn ngày hiện tại");
+
+                }
+
+                //1.8 Thông tin cccd không được phép để trống
+                if (String.IsNullOrEmpty(employee.IdentityNumber))
+                {
+                    ErrorData.Add("IdentityNumber", "Số CMTND không được phép đẻ trống");
+                }
+
 
 
 
@@ -272,9 +289,12 @@ namespace Web.Misaweb2024.Api.Controllers
                 {
                     ErrorData.Add("FullName", "Tên nhân viên không được phép để trống");
                 }
-
-                //1.3 Email phải đúng định dạng
-                if (!IsValidEmail(employee.Email))
+                //1.3 Thông tin Email không được phép để trống và đúng định dạng
+                if (String.IsNullOrEmpty(employee.Email))
+                {
+                    ErrorData.Add("Email", "Email không được phép để trống");
+                }
+                else if (!IsValidEmail(employee.Email))
                 {
                     ErrorData.Add("Email", "Email không đúng định dạng");
                 }
@@ -290,6 +310,19 @@ namespace Web.Misaweb2024.Api.Controllers
                 {
                     ErrorData.Add("PhoneNumber", "Số điện thoại không được phép để trống");
                 }
+                //1.6 Ngày cấp cccd không được lớn hơn ngày hiện tại
+                if (employee.IdentityDate > DateTime.Now)
+                {
+                    ErrorData.Add("IdentityDate", "Ngày cấp cccd không được lớn hơn ngày hiện tại");
+
+                }
+
+                //1.7 Thông tin cccd không được phép để trống
+                if (String.IsNullOrEmpty(employee.IdentityNumber))
+                {
+                    ErrorData.Add("IdentityNumber", "Số CMTND không được phép đẻ trống");
+                }
+
 
                 if (ErrorData.Count > 0)
                 {
