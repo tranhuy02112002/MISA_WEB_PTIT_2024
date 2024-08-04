@@ -110,6 +110,53 @@ namespace Web.Misaweb2024.Api.Controllers
         }
 
         /// <summary>
+        /// Lấy ra danh sách nhân viên theo vị trí, phòng ban
+        /// </summary>
+        /// <returns>
+        /// 200-Danh sách khách hàng
+        /// 204-KHông có dữ liệu
+        /// </returns>
+        /// Crearedby: TQHUY(25/7/2024
+        [HttpGet("search/{searchTerm}")]
+        public IActionResult GetBySearchTerm(string searchTerm)
+        {
+            try
+            {
+                // Khai báo thông tin kết nối cơ sở dữ liệu
+                var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+
+                // Khởi tạo kết nối với MariaDB
+                using (var sqlConnection = new MySqlConnection(connectionString))
+                {
+                    // Câu lệnh truy vấn để tìm kiếm theo PositionName hoặc DepartmentName
+                    var sqlCommand = @"
+                        SELECT e.*
+                        FROM Employee e
+                        LEFT JOIN Positions p ON e.PositionID = p.PositionID
+                        LEFT JOIN Department d ON e.DepartmentID = d.DepartmentID
+                        WHERE p.PositionName LIKE CONCAT('%', @SearchTerm, '%')
+                        OR d.DepartmentName LIKE CONCAT('%', @SearchTerm, '%')";
+
+                    // Khởi tạo DynamicParameters và thêm tham số
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@SearchTerm", searchTerm);
+
+                    // Thực hiện truy vấn và lấy danh sách nhân viên phù hợp
+                    var employees = sqlConnection.Query<Employee>(sql: sqlCommand, param: parameters).ToList();
+
+                    // Trả kết quả cho Client
+                    return Ok(employees);
+                }
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+
+
+        /// <summary>
         /// Thêm mới nhân viên
         /// </summary>
         /// <param name="newEmployee"></param>
@@ -264,7 +311,7 @@ namespace Web.Misaweb2024.Api.Controllers
         /// <param name="id"></param>
         /// <param name="employee"></param>
         /// <returns></returns>
-        ///Crearedby: TQHUY(25/7/2024
+        ///Crearedby: TQHUY(25/7/2024)
 
 
         [HttpPut("{id}")]
@@ -549,11 +596,6 @@ namespace Web.Misaweb2024.Api.Controllers
             error.Data = ex.Data;
             return StatusCode(500, error);
         }
-
-
-
-
-
 
     }
 }

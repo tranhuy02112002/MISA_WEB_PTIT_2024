@@ -41,3 +41,13 @@
 .m-icon-search{
     background-image: url(../../assets/icon/search.png);
 }
+
+#inputField {
+    color: black; /* Màu chữ của văn bản nhập vào */
+}
+
+/* Định dạng cho placeholder */
+#inputField::placeholder {
+    color: #aea5a5; /* Màu mờ cho placeholder */
+    opacity: 1; /* Đảm bảo rằng placeholder không bị làm mờ quá mức */
+}

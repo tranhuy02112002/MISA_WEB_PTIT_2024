@@ -178,6 +178,19 @@ class EmployeePage {
             ///8. Thêm mới dữ liệu
             $('#btnAddEmployee').on('click', this.addEmployee.bind(this));
 
+            //9. Tìm kiếm nhân viên theo vị trí phòng ban
+            $('#inputField').on('keyup', function(event) {
+                // Kiểm tra nếu phím Enter được nhấn
+                if (event.key === 'Enter' || event.keyCode === 13) {
+                    // Gọi hàm SearchEmployee
+                    if($('#inputField').val()===""){
+                        me.loadData();
+                    }else{
+                        me.searchEmployee();
+                    }
+                }
+            });
+
         
 
         } catch (error) {
@@ -185,7 +198,7 @@ class EmployeePage {
         }
     }
 
-
+    
 
     ///A. deleteEmpoyee
     deleteEmployee() {
@@ -448,39 +461,39 @@ class EmployeePage {
             console.log(error);
         }
     }
-
-
-
-    ///H. Load dữ liệu
-    loadData() {
+    //H. Tìm kiếm thông tin theo vị trị phòng ban
+    searchEmployee() {
+        var keyword = $('#inputField').val();
         try {
-            $(`.m-loading`).show();
-            // Gọi API lấy dữ liệu:
-            fetch("http://localhost:5014/api/v1/Employees")
-                .then(res => res.json())
-                .then(data => {
+            $('.m-loading').show(); // Hiển thị loading
+    
+            // Gọi API lấy dữ liệu sử dụng jQuery.ajax:
+            $.ajax({
+                url: `http://localhost:5014/api/v1/Employees/search/${encodeURIComponent(keyword)}`,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
                     console.log(data);
                     // Lấy ra table
-                    const $table = $("#tblEmployees tbody");
+                    var $table = $("#tblEmployees tbody");
                     $table.empty(); // Xóa các hàng cũ nếu có
     
                     // Duyệt từng phần tử trong data
-                    let i = 1;
                     $.each(data, function(index, item) {
-                        let DateOfBirth = item.DateOfBirth ? new Date(item.DateOfBirth) : "";
+                        var DateOfBirth = item.DateOfBirth ? new Date(item.DateOfBirth) : "";
                         if (DateOfBirth) {
-                            let date = DateOfBirth.getDate();
+                            var date = DateOfBirth.getDate();
                             date = date < 10 ? `0${date}` : date;
-                            let month = DateOfBirth.getMonth() + 1;
+                            var month = DateOfBirth.getMonth() + 1;
                             month = month < 10 ? `0${month}` : month;
-                            let year = DateOfBirth.getFullYear();
+                            var year = DateOfBirth.getFullYear();
                             DateOfBirth = `${date}/${month}/${year}`;
                         } else {
                             DateOfBirth = "";
                         }
     
                         // Chuyển đổi giá trị Gender từ số sang chuỗi
-                        let genderText = "";
+                        var genderText = "";
                         switch(item.Gender) {
                             case 0: 
                                 genderText = "Nam";
@@ -495,7 +508,90 @@ class EmployeePage {
                                 genderText = "Không xác định";
                         }
     
-                        let el = $(`
+                        var el = $(`
+                            <tr>
+                                <td class="text-align-left">${index + 1}</td>
+                                <td class="text-align-left">${item.EmployeeCode}</td>
+                                <td class="text-align-left">${item.FullName}</td>
+                                <td class="text-align-left">${genderText}</td>
+                                <td class="text-align-center">${DateOfBirth}</td>
+                                <td class="text-align-left">${item.Email}</td>
+                                <td class="text-align-left" style="display: flex; border-style: none;">
+                                    <div style="margin-top: 9px; width: 250px;">${item.Address}</div>
+                                    <button class="m-fix m-all"></button>
+                                    <button class="m-add m-all"></button>
+                                    <button class="m-delete m-all"></button>
+                                </td>
+                            </tr>
+                        `);
+                        el.data("entity", item);
+                        $table.append(el);
+                    });
+    
+                    $('.m-loading').hide(); // Ẩn loading
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus, errorThrown);
+                    $('.m-loading').hide(); // Ẩn loading khi gặp lỗi
+                }
+            });
+        } catch (error) {
+            console.error(error);
+            $('.m-loading').hide(); // Ẩn loading khi gặp lỗi
+        }
+        console.log('Searching for employee:', keyword);
+    }
+    
+
+
+    ///U. Load dữ liệu
+    loadData() {
+        try {
+            $('.m-loading').show(); // Hiển thị loading
+    
+            // Gọi API lấy dữ liệu sử dụng jQuery.ajax:
+            $.ajax({
+                url: "http://localhost:5014/api/v1/Employees",
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    // Lấy ra table
+                    var $table = $("#tblEmployees tbody");
+                    $table.empty(); // Xóa các hàng cũ nếu có
+    
+                    // Duyệt từng phần tử trong data
+                    var i = 1;
+                    $.each(data, function(index, item) {
+                        var DateOfBirth = item.DateOfBirth ? new Date(item.DateOfBirth) : "";
+                        if (DateOfBirth) {
+                            var date = DateOfBirth.getDate();
+                            date = date < 10 ? `0${date}` : date;
+                            var month = DateOfBirth.getMonth() + 1;
+                            month = month < 10 ? `0${month}` : month;
+                            var year = DateOfBirth.getFullYear();
+                            DateOfBirth = `${date}/${month}/${year}`;
+                        } else {
+                            DateOfBirth = "";
+                        }
+    
+                        // Chuyển đổi giá trị Gender từ số sang chuỗi
+                        var genderText = "";
+                        switch(item.Gender) {
+                            case 0: 
+                                genderText = "Nam";
+                                break;
+                            case 1: 
+                                genderText = "Nữ";
+                                break;
+                            case 2: 
+                                genderText = "Khác";
+                                break;
+                            default:
+                                genderText = "Không xác định";
+                        }
+    
+                        var el = $(`
                             <tr>
                                 <td class="text-align-left">${i}</td>
                                 <td class="text-align-left">${item.EmployeeCode}</td>
@@ -511,21 +607,24 @@ class EmployeePage {
                                 </td>
                             </tr>
                         `);
-                        el.data("entity",item);
+                        el.data("entity", item);
                         $table.append(el);
                         i++;
                     });
-                    $(`.m-loading`).hide();
-                })
-                .catch(error => {
-                    console.error(error);
-                    $(`.m-loading`).hide(); // Ẩn loading khi gặp lỗi
-                });
+    
+                    $('.m-loading').hide(); // Ẩn loading
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus, errorThrown);
+                    $('.m-loading').hide(); // Ẩn loading khi gặp lỗi
+                }
+            });
         } catch (error) {
             console.error(error);
-            $(`.m-loading`).hide(); // Ẩn loading khi gặp lỗi
+            $('.m-loading').hide(); // Ẩn loading khi gặp lỗi
         }
     }
+    
     
 }
 
