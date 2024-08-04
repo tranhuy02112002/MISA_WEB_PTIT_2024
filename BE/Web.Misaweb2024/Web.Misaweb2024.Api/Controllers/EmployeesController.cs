@@ -462,9 +462,6 @@ namespace Web.Misaweb2024.Api.Controllers
         /// <param name="employeeId"></param>
         /// <returns></returns>
         [HttpDelete("{employeeId}")]
-
-
-
         public IActionResult Delete(Guid employeeId)
         {
             try
