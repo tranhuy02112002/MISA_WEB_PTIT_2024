@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Web.Misaweb2024.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3d9723fbd685d08a701f8be0727022a70a1adf4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+654fc87312ea23b3e3f72e5c831a9631a72c7339")]
 [assembly: System.Reflection.AssemblyProductAttribute("Web.Misaweb2024.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Web.Misaweb2024.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
