@@ -13,7 +13,7 @@
     4. Xóa thông tin nhân viên
     5. Tìm kiếm thông tin nhân viên theo vị trí, phòng ban
 
-# Các phân tiện ích đi kèm:
+# Các tiện ích đi kèm:
     1. Form luôn mặc định focus vào ô nhập liệu Mã nhân viên
     2. Có thể nhập liệu hoàn toàn bằng bàn phím, không cần dùng chuột
     3. Thông báo với các các thông tin bắt buộc phải nhập khi thêm nhân viên
