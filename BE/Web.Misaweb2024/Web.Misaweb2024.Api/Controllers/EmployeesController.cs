@@ -130,7 +130,7 @@ namespace Web.Misaweb2024.Api.Controllers
                 {
                     // Câu lệnh truy vấn để tìm kiếm theo PositionName hoặc DepartmentName
                     var sqlCommand = @"
-                        SELECT e.*
+                        SELECT e.*,p.PositionName, d.DepartmentName
                         FROM Employee e
                         LEFT JOIN Positions p ON e.PositionID = p.PositionID
                         LEFT JOIN Department d ON e.DepartmentID = d.DepartmentID
