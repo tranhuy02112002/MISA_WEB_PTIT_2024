@@ -13,23 +13,38 @@
 } */
 @import url(./employee.css);
 /* Button thêm món ăn */
+.page-header {
+    display: flex;
+    justify-content: space-between;  /* Đưa các phần tử sang hai bên */
+    align-items: center;  /* Canh giữa theo chiều dọc */
+    margin-bottom: 4px;  /* Khoảng cách dưới cùng */
+}
+
+
+
+.count-food {
+    font-size: 16px;
+    unicode-bidi: isolate;
+    /* font-weight: bold; */
+}
+
 .btn-add {
-    display: inline-block;
-    margin: 10px 0 20px;
-    background-color: #28a745;
+    /* display: inline- ; */
+    margin: 10px 8px 20px;
+    background-color: #019160;
     color: white;
     padding: 10px 16px;
     border: none;
     border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 16px;
+    /* font-weight: bold; */
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .btn-add:hover {
-    background-color: #218838;
+    background-color: #2fbe8e;
     transform: scale(1.05);
 }
 

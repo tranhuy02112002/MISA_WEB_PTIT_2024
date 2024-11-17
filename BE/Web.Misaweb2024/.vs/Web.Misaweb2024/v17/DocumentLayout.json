@@ -3,44 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\positons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\positons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\controllers\\foodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\controllers\\foodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\resources\\resourcevn.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\resources\\resourcevn.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\resources\\resourceen.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\resources\\resourceen.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\errorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\errorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\controllers\\foodscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\controllers\\foodscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|c:\\users\\huy tran\\desktop\\misa-tt\\misa_web_ptit_2024\\be\\web.misaweb2024\\web.misaweb2024.api\\model\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1F308C8-2C6E-4C37-A346-A84AC3663710}|Web.Misaweb2024.Api\\Web.Misaweb2024.Api.csproj|solutionrelative:web.misaweb2024.api\\model\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,84 +22,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "EmployeesController.cs",
               "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Controllers\\EmployeesController.cs",
               "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Controllers\\EmployeesController.cs",
               "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Controllers\\EmployeesController.cs",
               "RelativeToolTip": "Web.Misaweb2024.Api\\Controllers\\EmployeesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAkAAAA",
+              "ViewState": "AQIAANoAAAAAAAAAAAAIwAEBAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T06:42:28.642Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Food.cs",
-              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Food.cs",
-              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Model\\Food.cs",
-              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Food.cs",
-              "RelativeToolTip": "Web.Misaweb2024.Api\\Model\\Food.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T18:53:51.451Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ResourceVN.resx",
-              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Resources\\ResourceVN.resx",
-              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Resources\\ResourceVN.resx",
-              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Resources\\ResourceVN.resx",
-              "RelativeToolTip": "Web.Misaweb2024.Api\\Resources\\ResourceVN.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-11-17T18:52:56.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ResourceEN.resx",
-              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Resources\\ResourceEN.resx",
-              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Resources\\ResourceEN.resx",
-              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Resources\\ResourceEN.resx",
-              "RelativeToolTip": "Web.Misaweb2024.Api\\Resources\\ResourceEN.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-11-17T18:52:53.078Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ErrorService.cs",
-              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\ErrorService.cs",
-              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Model\\ErrorService.cs",
-              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\ErrorService.cs",
-              "RelativeToolTip": "Web.Misaweb2024.Api\\Model\\ErrorService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T18:52:39.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FoodController.cs",
-              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Controllers\\FoodController.cs",
-              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Controllers\\FoodController.cs",
-              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Controllers\\FoodController.cs",
-              "RelativeToolTip": "Web.Misaweb2024.Api\\Controllers\\FoodController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T18:51:50.587Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -135,53 +43,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Positons.cs",
-              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Positons.cs",
-              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Model\\Positons.cs",
-              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Positons.cs",
-              "RelativeToolTip": "Web.Misaweb2024.Api\\Model\\Positons.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "Food.cs",
+              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Food.cs",
+              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Model\\Food.cs",
+              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Food.cs",
+              "RelativeToolTip": "Web.Misaweb2024.Api\\Model\\Food.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:28:37.616Z",
+              "WhenOpened": "2024-11-17T19:13:17.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FoodsController.cs",
+              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Controllers\\FoodsController.cs",
+              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Controllers\\FoodsController.cs",
+              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Controllers\\FoodsController.cs",
+              "RelativeToolTip": "Web.Misaweb2024.Api\\Controllers\\FoodsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T19:11:56.797Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Department.cs",
-              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Department.cs",
-              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Model\\Department.cs",
-              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Department.cs",
-              "RelativeToolTip": "Web.Misaweb2024.Api\\Model\\Department.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:28:38.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Employee.cs",
-              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Model\\Employee.cs",
-              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Model\\Employee.cs",
-              "RelativeToolTip": "Web.Misaweb2024.Api\\Model\\Employee.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:28:32.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Program.cs",
-              "RelativeDocumentMoniker": "Web.Misaweb2024.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\HUY TRAN\\Desktop\\MISA-TT\\MISA_WEB_PTIT_2024\\BE\\Web.Misaweb2024\\Web.Misaweb2024.Api\\Program.cs",
-              "RelativeToolTip": "Web.Misaweb2024.Api\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:27:15.855Z"
             }
           ]
         }
