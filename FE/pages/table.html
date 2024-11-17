@@ -34,7 +34,7 @@
                 <div class="menu-text">Trang chủ</div>
             </div>
         
-            <div class="menu-item" onclick="window.location.href='table.html'">
+            <div class="menu-item" onclick="window.location.href='table.html'" style="background-color: #004999">
                 <div class="menu-icon m-icon m-icon-document"></div>
                 <div class="menu-text">Bàn ăn</div>
             </div>
@@ -43,16 +43,16 @@
                 <div class="menu-text">Món ăn</div>
             </div>
         
-            <div class="menu-item" onclick="window.location.href='employee.html'" style="background-color: #004999">
+            <div class="menu-item" onclick="window.location.href='employee.html'">
                 <div class="menu-icon m-icon m-icon-employee"></div>
                 <div class="menu-text">Nhân viên</div>
             </div>
         
-            <div class="menu-item" onclick="selectMenuItem(this)">
+            <div class="menu-item">
                 <div class="menu-icon m-icon m-icon-setting"></div>
                 <div class="menu-text">Cài đặt</div>
             </div>
-            <div  class="toggle-button">
+            <div  class="toggle-button" onclick="toggleNavbar()">
                 <span id="toggleNavbar" style="margin-left: 30px;" > 
                     Thu gọn</span>
             </div>
@@ -60,7 +60,7 @@
         
         <div class="page-content">
             <div class="m-page-header">
-                <div class="m-page-title">Quản lý nhân viên</div>
+                <div class="m-page-title">Quản lý bàn ăn</div>
                 <div class="m-page-button">
                     <button id="btnShowDialog" class="m-btn m-btn-icon m-btn-icon-add" >Thêm mới</button>
                 </div>
@@ -371,12 +371,11 @@
     </div>
     <!-- Thư viện js -->
     <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/employee/employee.js"></script>
 
     <!-- JaveScrip sử dụng chung -->
 
     <!-- js dành riêng cho Page -->
-    <script src="../js/employee/employee.js"></script>
-
 
 </body>
 </html>

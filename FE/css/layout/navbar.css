@@ -9,7 +9,8 @@
     flex-shrink: 0;
     box-sizing: border-box;
     border-right: 1px solid #bbb;
-    background-color: #001833;
+    background-color: #001833
+
 }
 .navbar.collapsed {
     width: var(--navbar-width-collapsed);
@@ -33,7 +34,6 @@
 .menu-item:hover{
     background-color: #003166;
 }
-
 .menu-item.menu-item-focus{
     /* background-color: #019160; */
     color: #fff;

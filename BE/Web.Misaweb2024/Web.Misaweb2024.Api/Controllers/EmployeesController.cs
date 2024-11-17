@@ -27,7 +27,9 @@ namespace Web.Misaweb2024.Api.Controllers
             try
             {
                 // Khai báo thông tin kết nối cơ sở dữ liệu
-                var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+                //var connectionString1 = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+                var connectionString = "Host=localhost; Port=3306; Database=quanlynhahang; User Id=root; Password=nhox9x01";
+
 
                 // Khởi tạo kết nối với MariaDB
                 using (var sqlConnection = new MySqlConnection(connectionString))
@@ -35,9 +37,9 @@ namespace Web.Misaweb2024.Api.Controllers
                     // Câu lệnh truy vấn để lấy thông tin tất cả nhân viên, cùng tên vị trí và tên phòng ban
                     var sqlCommand = @"
                 SELECT e.*, p.PositionName, d.DepartmentName
-                FROM Employee e
-                LEFT JOIN Positions p ON e.PositionID = p.PositionID
-                LEFT JOIN Department d ON e.DepartmentID = d.DepartmentID";
+                FROM employee e
+                LEFT JOIN positions p ON e.PositionID = p.PositionID
+                LEFT JOIN department d ON e.DepartmentID = d.DepartmentID";
 
                     // Thực hiện truy vấn và lấy danh sách tất cả nhân viên
                     var employees = sqlConnection.Query<Employee>(sql: sqlCommand).ToList();
@@ -69,8 +71,7 @@ namespace Web.Misaweb2024.Api.Controllers
             try
             {
                 // Khai báo thông tin kết nối cơ sở dữ liệu
-                var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
-
+                var connectionString = "Host=localhost; Port=3306; Database=quanlynhahang; User Id=root; Password=nhox9x01";
                 // Khởi tạo kết nối với MariaDB
                 using (var sqlConnection = new MySqlConnection(connectionString))
                 {   
@@ -78,9 +79,9 @@ namespace Web.Misaweb2024.Api.Controllers
                     // Câu lệnh truy vấn để lấy thông tin nhân viên, tên vị trí và tên phòng ban
                     var sqlCommand = @"
                     SELECT e.*, p.PositionName, d.DepartmentName
-                    FROM Employee e
-                    LEFT JOIN Positions p ON e.PositionID = p.PositionID
-                    LEFT JOIN Department d ON e.DepartmentID = d.DepartmentID
+                    FROM employee e
+                    LEFT JOIN positions p ON e.PositionID = p.PositionID
+                    LEFT JOIN department d ON e.DepartmentID = d.DepartmentID
                     WHERE e.EmployeeID = @EmployeeID";
 
                     // Khởi tạo DynamicParameters và thêm tham số
@@ -123,7 +124,7 @@ namespace Web.Misaweb2024.Api.Controllers
             try
             {
                 // Khai báo thông tin kết nối cơ sở dữ liệu
-                var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+                var connectionString = "Host=localhost; Port=3306; Database=quanlynhahang; User Id=root; Password=nhox9x01";
 
                 // Khởi tạo kết nối với MariaDB
                 using (var sqlConnection = new MySqlConnection(connectionString))
@@ -131,9 +132,9 @@ namespace Web.Misaweb2024.Api.Controllers
                     // Câu lệnh truy vấn để tìm kiếm theo PositionName hoặc DepartmentName
                     var sqlCommand = @"
                         SELECT e.*,p.PositionName, d.DepartmentName
-                        FROM Employee e
-                        LEFT JOIN Positions p ON e.PositionID = p.PositionID
-                        LEFT JOIN Department d ON e.DepartmentID = d.DepartmentID
+                        FROM employee e
+                        LEFT JOIN positions p ON e.PositionID = p.PositionID
+                        LEFT JOIN department d ON e.DepartmentID = d.DepartmentID
                         WHERE p.PositionName LIKE CONCAT('%', @SearchTerm, '%')
                         OR d.DepartmentName LIKE CONCAT('%', @SearchTerm, '%')";
 
@@ -240,13 +241,13 @@ namespace Web.Misaweb2024.Api.Controllers
                 }
 
                 //Bước 2. Khởi tạo kết nối đến Database
-                var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+                var connectionString = "Host=localhost; Port=3306; Database=quanlynhahang; User Id=root; Password=nhox9x01";
                 var mySqlConnection = new MySqlConnection(connectionString);
 
 
 
                 //Bước 3. Thực hiện thêm mới dữ liệu vào database
-                var sqlCommand = @"INSERT INTO Employee (EmployeeId, EmployeeCode, FullName, DateOfBirth, Gender, IdentityNumber, IdentityDate,
+                var sqlCommand = @"INSERT INTO employee (EmployeeId, EmployeeCode, FullName, DateOfBirth, Gender, IdentityNumber, IdentityDate,
                    IdentityPlace, Email, PhoneNumber, LandlineNumber, Address, BankAccount, BankName, Branch, PositionId, DepartmentId,
                    CreatedDate, CreatedBy, ModifiedDate, ModifiedBy)
                    VALUES (@EmployeeId, @EmployeeCode, @FullName, @DateOfBirth, @Gender, @IdentityNumber, @IdentityDate, @IdentityPlace, @Email,
@@ -379,11 +380,11 @@ namespace Web.Misaweb2024.Api.Controllers
                 }
 
                 // Bước 2. Khởi tạo kết nối đến Database
-                var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+                var connectionString = "Host=localhost; Port=3306; Database=quanlynhahang; User Id=root; Password=nhox9x01";
                 using (var mySqlConnection = new MySqlConnection(connectionString))
                 {
                     // Bước 3. Thực hiện cập nhật dữ liệu vào database
-                    var sqlCommand = @"UPDATE Employee SET 
+                    var sqlCommand = @"UPDATE employee SET 
                                 EmployeeCode = @EmployeeCode,
                                 FullName = @FullName,
                                 DateOfBirth = @DateOfBirth,
@@ -467,13 +468,13 @@ namespace Web.Misaweb2024.Api.Controllers
             try
             {
                 // Khai báo thông tin kết nối cơ sở dữ liệu
-                var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+                var connectionString = "Host=localhost; Port=3306; Database=quanlynhahang; User Id=root; Password=nhox9x01";
 
                 // Khởi tạo kết nối với MariaDB
                 using (var sqlConnection = new MySqlConnection(connectionString))
                 {
                     // Câu lệnh truy vấn để xóa dữ liệu
-                    var sqlCommand = "DELETE FROM Employee WHERE EmployeeID=@EmployeeID";
+                    var sqlCommand = "DELETE FROM employee WHERE EmployeeID=@EmployeeID";
 
                     // Khởi tạo DynamicParameters và thêm tham số
                     var parameters = new DynamicParameters();
@@ -505,9 +506,9 @@ namespace Web.Misaweb2024.Api.Controllers
         //True - Là đã bị trùng, False - là không bị trùng
         private bool CheckEmployeeCode(String employeeCode)
         {
-            var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+            var connectionString = "Host=localhost; Port=3306; Database=quanlynhahang; User Id=root; Password=nhox9x01";
             var mySqlConnection = new MySqlConnection(connectionString);
-            var sqlCheck = "SELECT EmployeeCode FROM Employee  WHERE EmployeeCode = @EmployeeCode";
+            var sqlCheck = "SELECT EmployeeCode FROM employee  WHERE EmployeeCode = @EmployeeCode";
             var dynamicParams = new DynamicParameters();
             dynamicParams.Add("@EmployeeCode",employeeCode);
             var res = mySqlConnection.QueryFirstOrDefault<String>(sqlCheck, param: dynamicParams);
@@ -519,14 +520,14 @@ namespace Web.Misaweb2024.Api.Controllers
         //Lấy ra PositionID dự vào PostionName
         private Guid? GetPositionIdByName(string positionName)
         {
-            var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+            var connectionString = "Host=localhost; Port=3306; Database=quanlynhahang; User Id=root; Password=nhox9x01";
             using (var mySqlConnection = new MySqlConnection(connectionString))
             {
                 // Mở kết nối
                 mySqlConnection.Open();
 
                 // Truy vấn SQL để lấy PositionId từ PositionName
-                var sqlQuery = "SELECT PositionId FROM Positions WHERE PositionName = @PositionName";
+                var sqlQuery = "SELECT PositionId FROM positions WHERE PositionName = @PositionName";
 
                 // Tạo đối tượng DynamicParameters và thêm tham số
                 var dynamicParams = new DynamicParameters();
@@ -542,14 +543,14 @@ namespace Web.Misaweb2024.Api.Controllers
         //Lấy ra Departmant ID dưa vào DepartmentName
         private Guid? GetDepartmentIdByName(string departmentName)
         {
-            var connectionString = "Host=8.222.228.150; Port=3306; Database=PTIT_B20DCCN329_TranQuangHuy; User Id=manhnv; Password=12345678";
+            var connectionString = "Host=localhost; Port=3306; Database=quanlynhahang; User Id=root; Password=nhox9x01";
             using (var mySqlConnection = new MySqlConnection(connectionString))
             {
                 // Mở kết nối
                 mySqlConnection.Open();
 
                 // Truy vấn SQL để lấy DepartmentId từ DepartmentName
-                var sqlQuery = "SELECT DepartmentId FROM Department WHERE DepartmentName = @DepartmentName";
+                var sqlQuery = "SELECT DepartmentId FROM department WHERE DepartmentName = @DepartmentName";
 
                 // Tạo đối tượng DynamicParameters và thêm tham số
                 var dynamicParams = new DynamicParameters();

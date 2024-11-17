@@ -1,3 +1,5 @@
+Họ và tên: Trần Quang Huy
+Mã sinh viên: B20DCCN329
 # MISA_WEB_PTIT_2024
 # Công nghệ sử dụng:
     1. FE
@@ -17,9 +19,6 @@
     1. Form luôn mặc định focus vào ô nhập liệu Mã nhân viên
     2. Có thể nhập liệu hoàn toàn bằng bàn phím, không cần dùng chuột
     3. Thông báo với các các thông tin bắt buộc phải nhập khi thêm nhân viên
-
-Cảm ơn đã chấm phần bài làm của em.
-Chúc anh một ngày tốt lành !
 
 
     

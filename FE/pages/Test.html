@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Bảng Quản Lý Món Ăn</title>
+</head>
+<body>
+    <div class="container">
+        <button class="btn-add">+ Thêm mới</button>
+        <table class="food-table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên món ăn</th>
+                    <th>Giá (vnd)</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ếch xào xả ớt</td>
+                    <td>100,000</td>
+                    <td>
+                        <button class="btn-edit">✏️</button>
+                        <button class="btn-delete">❌</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Canh Gà Kiểu Thái Ấm Lòng Ngày Mưa</td>
+                    <td>80,000</td>
+                    <td>
+                        <button class="btn-edit">✏️</button>
+                        <button class="btn-delete">❌</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Mì Nấu Bò Bulgogi Hàn Quốc Đơn Giản Mà Ngon</td>
+                    <td>45,000</td>
+                    <td>
+                        <button class="btn-edit">✏️</button>
+                        <button class="btn-delete">❌</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Bánh Su Kem Đơn Giản Hình Thiên Nga Xinh Xắn</td>
+                    <td>25,000</td>
+                    <td>
+                        <button class="btn-edit">✏️</button>
+                        <button class="btn-delete">❌</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Mực Hấp Kiểu Thái</td>
+                    <td>60,000</td>
+                    <td>
+                        <button class="btn-edit">✏️</button>
+                        <button class="btn-delete">❌</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button class="page-btn">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">›</button>
+        </div>
+    </div>
+    <form id="addFoodForm" enctype="multipart/form-data">
+        <label for="tenMonAn">Tên món ăn:</label>
+        <input type="text" id="tenMonAn" name="tenMonAn" required>
+    
+        <label for="gia">Giá:</label>
+        <input type="number" id="gia" name="gia" required>
+    
+        <label for="hinhAnh">Hình ảnh:</label>
+        <input type="file" id="hinhAnh" name="hinhAnh" accept="../img/*" required>
+    
+        <button type="submit">Thêm món ăn</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống quản lý nhà hàng</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/page/food.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <div class="sibar"></div>
+            <div class="logo"></div>
+        </div>
+        <div class="header-right">
+            <div class="header1">
+                <div class="m-text">Chi nhánh Hà Nội</div>
+                <div class="menu-icon m-icon2 m-icon-down"></div>
+            </div>
+            <div class="header2">
+                <div class="m-img"></div>
+                <div class="m-name">Trần Quang Huy</div>
+                <div class="menu-icon m-icon2 m-icon-dot2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div id="navbar" class="navbar">
+            <div class="menu-item menu-item-focus">
+                <div class="menu-icon m-icon m-icon-dashboard"></div>
+                <div class="menu-text">Trang chủ</div>
+            </div>
+
+            <div class="menu-item" onclick="window.location.href='table.html'">
+                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-text">Bàn ăn</div>
+            </div>
+
+            <div class="menu-item" onclick="window.location.href='food.html'" style="background-color: #004999">
+                <div class="menu-icon m-icon m-icon-food"></div>
+                <div class="menu-text">Món ăn</div>
+            </div>
+
+            <div class="menu-item" onclick="window.location.href='employee.html'">
+                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-text">Nhân viên</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-icon m-icon m-icon-setting"></div>
+                <div class="menu-text">Cài đặt</div>
+            </div>
+
+            <div class="toggle-button" onclick="toggleNavbar()">
+                <span id="toggleNavbar" style="margin-left: 30px;">Thu gọn</span>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="m-page-header">
+                <div class="m-page-title">Quản lý món ăn</div>
+            </div>
+            
+            <div class="page-content-son">
+                <button class="btn-add" onclick="toggleForm()">+ Thêm món ăn</button>
+
+                <!-- Form thêm món ăn -->
+                <div class="form-popup" id="addFoodForm">
+                    <form class="form-container">
+                        <h2>Thêm món ăn</h2>
+
+                        <label for="foodName"><b>Tên món ăn</b></label>
+                        <input type="text" id="foodName" placeholder="Nhập tên món ăn" required>
+
+                        <label for="foodPrice"><b>Giá (VNĐ)</b></label>
+                        <input type="number" id="foodPrice" placeholder="Nhập giá món ăn" required>
+
+                        <label for="foodImage"><b>Hình ảnh</b></label>
+                        <input type="file" id="foodImage" accept="image/*" required>
+
+                        <button type="button" class="btn btn-save" onclick="addFood()">Lưu</button>
+                        <button type="button" class="btn btn-cancel" onclick="toggleForm()">Hủy</button>
+                    </form>
+                </div>
+
+                <!-- Khu vực hiển thị món ăn -->
+                <div class="container" id="foodList">
+                    <!-- Món ăn mẫu -->
+                    <div class="food-item">
+                        <img class="food-image" src="../assets/img/imgfood/hambuger.jpg" alt="Món ăn">
+                        <div class="food-details">
+                            <p class="food-name">hambuger</p>
+                            <p class="food-price">100,000 VNĐ</p>
+                            <div class="actions">
+                                <button class="btn btn-edit">Sửa</button>
+                                <button class="btn btn-delete">Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-loading">
+        <div class="m-loading-icon"></div>
+    </div>
+
+    <!-- Thư viện js -->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/food/food.js"></script>
+
+    <!-- JaveScrip sử dụng chung -->
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

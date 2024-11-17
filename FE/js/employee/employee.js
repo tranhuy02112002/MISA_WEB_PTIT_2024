@@ -85,15 +85,29 @@ class EmployeePage {
                 }
                 // let selectedGender = $('input[name="gender"]:checked').val();
                 // $("#txtPosition").val(employee.PositionName);
-                if (employee.PositionName === "Lập trình viên") {
-                    $("#txtPositionName").val("nhanvien");
-                } else if (employee.PositionName === "Nhà thiết kế đồ họa") {
+                if (employee.PositionName === "Quản lý nhà hàng") {
                     $("#txtPositionName").val("quanly");
-                } else if (employee.PositionName === "Kỹ sư an ninh mạng") {
-                    $("#txtPositionName").val("kysuanninhmang");
+                } else if (employee.PositionName === "Trợ lý quản lý") {
+                    $("#txtPositionName").val("troly");
+                } else if (employee.PositionName === "Lễ tân") {
+                    $("#txtPositionName").val("letan");
+                } else if (employee.PositionName === "Phục vụ") {
+                    $("#txtPositionName").val("phucvu");
+                } else if (employee.PositionName === "Pha chế") {
+                    $("#txtPositionName").val("phache");
+                } else if (employee.PositionName === "Thu ngân") {
+                    $("#txtPositionName").val("thungan");
+                } else if (employee.PositionName === "Bếp trưởng") {
+                    $("#txtPositionName").val("beptruong");
+                } else if (employee.PositionName === "Bếp phó") {
+                    $("#txtPositionName").val("beppho");
+                } else if (employee.PositionName === "Đầu bếp") {
+                    $("#txtPositionName").val("daubep");
+                } else if (employee.PositionName === "Quản lý kho") {
+                    $("#txtPositionName").val("quanlykho");
                 } else {
                     $("#txtPositionName").val("");
-                }
+                } 
                 
                 $("#txtIdentityNumber").val(employee.IdentityNumber);
 
@@ -104,13 +118,15 @@ class EmployeePage {
                 
                 $("#txtIdentityDate").val(`${yearCreated}-${monthCreated}-${dayCreated}`);
                 // $("#txtDepartmentName").val(employee.DepartmentName);
-                if (employee.DepartmentName === "Phòng kỹ thuật") {
-                    $("#txtDepartmentName").val("phongkythuat");
-                } else if (employee.DepartmentName === "Phòng thiết kế") {
-                    $("#txtDepartmentName").val("phongthietke");
-                } else if (employee.DepartmentName === "Phòng an ninh mạng") {
-                    $("#txtDepartmentName").val("phonganninhmang");
-                } else {
+                if (employee.DepartmentName === "Quản lý") {
+                    $("#txtDepartmentName").val("bpquanly");
+                } else if (employee.DepartmentName === "Dịch vụ khách hàng") {
+                    $("#txtDepartmentName").val("bpdichvukhachhang");
+                } else if (employee.DepartmentName === "Bếp") {
+                    $("#txtDepartmentName").val("bpbep");
+                } else if (employee.DepartmentName === "Kho") {
+                    $("#txtDepartmentName").val("bpkho");
+                }else {
                     // Giá trị mặc định hoặc xử lý trường hợp không khớp
                     $("#txtDepartmentName").val("");
                 }                
@@ -178,7 +194,7 @@ class EmployeePage {
             ///8. Thêm mới dữ liệu
             $('#btnAddEmployee').on('click', this.addEmployee.bind(this));
 
-            //9. Tìm kiếm nhân viên theo vị trí phòng ban
+            //9. Tìm kiếm nhân viên theo vị trí bộ phận
             $('#inputField').on('keyup', function(event) {
                 // Kiểm tra nếu phím Enter được nhấn
                 if (event.key === 'Enter' || event.keyCode === 13) {
@@ -627,6 +643,5 @@ class EmployeePage {
     
     
 }
-
 
 
