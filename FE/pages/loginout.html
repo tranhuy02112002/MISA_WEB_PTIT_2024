@@ -14,17 +14,18 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
+          <!-- Form đăng nhập -->
           <form action="#" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" id="login-username" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id="login-password" placeholder="Password" />
             </div>
-            <input type="submit" value="Login" class="btn solid" id="sign-in" />
+            <input type="submit" value="Login" class="btn solid" id="btn-login" />
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
@@ -41,21 +42,23 @@
               </a>
             </div>
           </form>
+
+          <!-- Form đăng ký -->
           <form action="#" class="sign-up-form">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" id="register-username" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" id="register-email" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id="register-password" placeholder="Password" />
             </div>
-            <input type="submit" class="btn" value="Sign up"/>
+            <input type="submit" class="btn" value="Sign up" id="btn-register"/>
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
@@ -76,6 +79,7 @@
       </div>
 
       <div class="panels-container">
+        <!-- Panel đăng ký -->
         <div class="panel left-panel">
           <div class="content">
             <h3>New here ?</h3>
@@ -89,6 +93,8 @@
           </div>
           <img src=".../assets/img/log.svg" class="image" alt="" />
         </div>
+
+        <!-- Panel đăng nhập -->
         <div class="panel right-panel">
           <div class="content">
             <h3>One of us ?</h3>
@@ -104,6 +110,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Thêm jQuery từ CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="../js/loginout/loginout.js"></script>
   </body>

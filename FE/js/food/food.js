@@ -51,13 +51,17 @@ $(document).ready(function () {
 
     // Xử lý form thêm món ăn
     $(".btn-add").on('click', function () {
-        $("#addFoodForm").toggle();  // Hiển thị/ẩn form
+        $("#addFoodForm").show();  // Hiển thị form thêm món ăn
+        // Reset form và thay đổi hành động khi nhấn nút "Lưu" thành thêm món ăn
+        $("#foodName").val('');
+        $("#foodPrice").val('');
+        $("#foodImage").val('');  // Nếu có ô input cho ảnh
+        $(".btn-save").text('Lưu');  // Đổi button save thành cập nhật
+        $(".btn-save").off('click').on('click', function () {
+            addFood();  // Gọi hàm addFood khi nhấn lưu
+        });
     });
-
-    // Lưu món ăn mới
-    $(".btn-save").on('click', function () {
-        addFood();
-    });
+    
 
     // Hủy form
     $(".btn-cancel").on('click', function () {

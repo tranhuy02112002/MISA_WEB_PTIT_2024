@@ -78,3 +78,87 @@ body{
     }
     
 }
+
+/* Cấu trúc của header */
+.header2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #333; /* Màu chữ đen tối, dễ đọc */
+}
+
+/* Hình ảnh người dùng */
+.m-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc; /* Màu xám nhẹ thay vì màu sáng */
+    margin-right: 10px;
+}
+
+/* Phần chữ "Xin chào" ngay cạnh ảnh */
+.greeting {
+    font-size: 15px;
+    font-weight: normal; /* Không đậm */
+    display: flex;
+    align-items: center; /* Căn giữa ảnh và chữ */
+    margin-left: 10px; /* Khoảng cách giữa ảnh và chữ */
+    margin-left: 650px;
+}
+
+/* Icon đăng xuất */
+.menu-icon {
+    cursor: pointer;
+}
+
+/* Menu đăng xuất */
+.logout-menu {
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    display: none;
+    width: 200px; /* Chiều rộng vừa phải */
+}
+
+/* Hiển thị thông tin người dùng trong menu */
+.logout-menu p {
+    margin: 5px 0;
+}
+
+/* Nút đăng xuất */
+#btn-logout {
+    background-color: #eeeeee;
+    color: #333;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#btn-logout:hover {
+    background-color: #ddd; /* Màu nền khi hover */
+}
+
+/* Khi hiển thị menu đăng xuất */
+.logout-menu.show {
+    display: block;
+}
+
+/* Điều chỉnh hover cho biểu tượng đăng xuất */
+#logout-icon:hover {
+    color: #666; /* Chỉ thay đổi màu icon khi hover */
+}
+
+#username-display {
+    margin-left: 5px; /* Đảm bảo không có khoảng cách trước tên người dùng */
+}

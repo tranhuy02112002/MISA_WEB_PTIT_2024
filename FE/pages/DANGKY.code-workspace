@@ -1,0 +1,44 @@
+{
+	"folders": [
+		{
+			"path": "../../../../WorkSpace/html/DANGKY"
+		},
+		{
+			"path": "../../../../NodeJS"
+		},
+		{
+			"path": "../../../../../Downloads/Kì 1 năm 4/Phát triển hệ thống thông minh-N.M.Hùng/HTTM"
+		},
+		{
+			"path": "../../../../../Downloads/bootstrap-5.3.2-dist"
+		},
+		{
+			"path": "../../../../Archive"
+		},
+		{
+			"path": "../../../../midproj-065329425"
+		},
+		{
+			"path": "../../../../BTL"
+		},
+		{
+			"path": "../../../MISA-WEB2024/UI"
+		},
+		{
+			"path": "../../../MISA_WEB_2024_Trần Quang Huy"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "MISA_WEB_PTIT_2024",
+		"files.associations": {
+			"iostream": "cpp",
+			"random": "cpp",
+			"cmath": "cpp",
+			"FPT.C": "cpp"
+		},
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}

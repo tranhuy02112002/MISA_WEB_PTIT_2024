@@ -1,0 +1,203 @@
+@import url(./employee.css);
+/* Button thêm món ăn */
+/* Tổng quan */
+.page-header {
+    display: flex;
+    justify-content: space-between;  /* Đưa các phần tử sang hai bên */
+    align-items: center;  /* Canh giữa theo chiều dọc */
+    margin-bottom: 4px;  /* Khoảng cách dưới cùng */
+}
+
+/* Thêm bàn ăn */
+.btn-add {
+    margin: 10px 8px 20px;
+    background-color: #019160;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+.count-table{
+    font-size: 16px;
+    unicode-bidi: isolate;
+}
+
+.btn-add:hover {
+    background-color: #2fbe8e;
+    transform: scale(1.05);
+}
+
+/* Khu vực hiển thị danh sách bàn ăn */
+/* Khu vực hiển thị danh sách bàn ăn */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Hình vuông nhỏ hơn */
+    gap: 15px; /* Khoảng cách giữa các hình vuông */
+    max-height: 600px; /* Tăng chiều cao tối đa */
+    overflow-y: auto; /* Thêm thanh cuộn dọc nếu danh sách bàn nhiều hơn */
+}
+
+
+/* Item bàn ăn */
+/* Item bàn ăn */
+.table-item {
+    background-color: #a7c6ed; /* Màu xanh dương đậm hơn */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%;
+    padding: 20px; /* Tăng padding để item lớn hơn */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.table-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Tên bàn ăn */
+.table-name {
+    font-size: 16px; /* Tăng kích thước chữ */
+    font-weight: bold;
+    color: #333; /* Màu chữ tối hơn để dễ đọc */
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+/* Trạng thái bàn ăn */
+.table-status {
+    font-size: 14px; /* Tăng kích thước chữ */
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Các nút hành động */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* Tăng khoảng cách giữa các nút */
+}
+
+.btn {
+    padding: 8px 16px; /* Tăng padding cho nút */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Tăng kích thước chữ trong nút */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #a71d2a;
+    transform: scale(1.1);
+}
+
+/* Form popup */
+.form-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 350px;
+    z-index: 1000;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-container {
+    padding: 20px;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #555;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.form-container input:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+.form-container .btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #a71d2a;
+}
+
+.form-popup.active {
+    display: block;
+}
+
+/* Làm mờ nền khi form mở */
+body.modal-open {
+    background-color: rgba(0, 0, 0, 0.1);
+}

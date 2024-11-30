@@ -26,7 +26,7 @@ class EmployeePage {
         this.loadData();
     }
     
-    /* Khởi tạo các sự kiện trong page 
+    /* Khởi tạo các sự kiện trong page adminpassword
     *Author: TQHuy (10/7/2024) */
     initEvents() {
         try {   
@@ -188,8 +188,6 @@ class EmployeePage {
 
             
 
-            ///7. Đóng mở Navbar
-            $("#toggleNavbar").on('click', this.toggleNavbar);
 
             ///8. Thêm mới dữ liệu
             $('#btnAddEmployee').on('click', this.addEmployee.bind(this));
