@@ -17,6 +17,11 @@ $(document).ready(function () {
                     return;
                 }
 
+                response.sort(function (a, b) {
+                    return a.TableNumber - b.TableNumber;  // Sắp xếp theo số bàn từ bé đến lớn
+                });
+
+
                 // Duyệt qua danh sách bàn ăn và hiển thị
                 response.forEach(function (table) {
                     var tableItemHtml = `

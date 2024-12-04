@@ -137,7 +137,6 @@ $(document).ready(function () {
         var foodId = $(this).data('id');
         editFood(foodId);  // Gọi hàm editFood khi nhấn nút Sửa
     });
-
     // Hàm lấy thông tin món ăn và điền vào form sửa
     function editFood(foodId) {
         // Lấy thông tin món ăn hiện tại
