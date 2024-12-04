@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hệ thống quản lý nhà hàng</title>
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/page/revenue.css">
+    <link rel="stylesheet" href="../css/page/admindashboard.css">
 </head>
 
 <body>
@@ -37,22 +36,22 @@
                     <button id="btn-logout" class="btn-logout">Đăng Xuất</button>
                 </div>
             </div>
+            
+            
         </div>
     </div>
-
     <div class="main">
+    
         <div id="navbar" class="navbar">
-            <div class="menu-item menu-item-focus" onclick="window.location.href='admindashboard.html'">
+            <div class="menu-item menu-item-focus" onclick="window.location.href='admindashboard.html'" style="background-color: #004999">
                 <div class="menu-icon m-icon m-icon-dashboard"></div>
                 <div class="menu-text">Trang chủ</div>
             </div>
-
-
             <div class="menu-item" onclick="window.location.href='food.html'">
                 <div class="menu-icon m-icon m-icon-food"></div>
                 <div class="menu-text">Món ăn</div>
             </div>
-            <div class="menu-item" onclick="window.location.href='table.html'" >
+            <div class="menu-item" onclick="window.location.href='table.html'">
                 <div class="menu-icon m-icon m-icon-employee"></div>
                 <div class="menu-text">Bàn ăn</div>
             </div>
@@ -60,45 +59,45 @@
                 <div class="menu-icon m-icon m-icon-employee"></div>
                 <div class="menu-text">Nguyên liệu</div>
             </div>
-            
             <div class="menu-item" onclick="window.location.href='employee.html'">
                 <div class="menu-icon m-icon m-icon-employee"></div>
                 <div class="menu-text">Nhân viên</div>
             </div>
-            <div class="menu-item" onclick="window.location.href='revenue.html'"  style="background-color: #004999">
+            <div class="menu-item" onclick="window.location.href='revenue.html'">
                 <div class="menu-icon m-icon m-icon-employee"></div>
                 <div class="menu-text">Doanh thu</div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" onclick="selectMenuItem(this)">
                 <div class="menu-icon m-icon m-icon-setting"></div>
                 <div class="menu-text">Cài đặt</div>
             </div>
-
-            <div class="toggle-button" onclick="toggleNavbar()">
-                <span id="toggleNavbar" style="margin-left: 30px;">Thu gọn</span>
+            <div  class="toggle-button">
+                <span id="toggleNavbar" style="margin-left: 30px;" > 
+                    Thu gọn</span>
             </div>
         </div>
+        
         <div class="page-content">
             <div class="m-page-header">
-                <div class="m-page-title">Quản lý doanh thu</div>
+                <div class="m-page-title">Trang chủ Admin</div>
             </div>
-            
             <div class="page-content-son">
-               
             </div>
         </div>
     </div>
-
     <div class="m-loading">
         <div class="m-loading-icon"></div>
     </div>
-
     <!-- Thư viện js -->
     <script src="../js/jquery-3.7.1.min.js"></script>
-    <script src="../js/revenue/revenue.js"></script>
 
     <!-- JaveScrip sử dụng chung -->
     <script src="../js/main.js"></script>
-</body>
 
+
+    <!-- js dành riêng cho Page -->
+    <script src="../js/admindashboard/admindashboard.js"></script>
+
+
+</body>
 </html>

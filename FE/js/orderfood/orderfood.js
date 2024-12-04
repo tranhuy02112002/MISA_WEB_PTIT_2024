@@ -135,13 +135,13 @@ $(document).ready(function() {
     function updatePaymentDetails() {
         if (!currentOrderId) {
             // Mã hóa đơn
-            $('#billCode').text('ĐH-');
+            $('#billCode').text('ĐH');
         
             // Giờ vào
             $('#entryTime').text(new Date().toLocaleTimeString());
         } else {
             // Nếu có currentOrderId, hiển thị thời gian order và ID đơn hàng
-            $('#billCode').text('ĐH-' + currentOrderId);
+            $('#billCode').text(currentOrderId);
             
             // Giả sử bạn có một thuộc tính orderTime lưu thời gian order
             $('#entryTime').text(dateTime);

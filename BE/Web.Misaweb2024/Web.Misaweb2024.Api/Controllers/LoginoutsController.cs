@@ -95,15 +95,15 @@ namespace Web.Misaweb2024.Api.Controllers
 
                     if (user.IsAdmin == 1)
                     {
-                        redirectUrl = "admin.html";
+                        redirectUrl = "admindashboard.html";
                     }
                     else if (user.IsAdmin == 2)
                     {
-                        redirectUrl = "tableorder.html";
+                        redirectUrl = "staffdashboard.html";
                     }
                     else
                     {
-                        redirectUrl = "customer.html";
+                        redirectUrl = "customerdashboard.html";
                     }
 
                     return Ok(new { message = "Đăng nhập thành công.", RedirectUrl = redirectUrl });

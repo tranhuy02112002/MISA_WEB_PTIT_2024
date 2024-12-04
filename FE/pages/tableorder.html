@@ -42,14 +42,22 @@
     <div class="main">
     
         <div id="navbar" class="navbar">
-            <div class="menu-item menu-item-focus">
+            <div class="menu-item menu-item-focus" onclick="window.location.href='staffdashboard.html'">
                 <div class="menu-icon m-icon m-icon-dashboard"></div>
                 <div class="menu-text">Trang chủ</div>
             </div>
         
             <div class="menu-item" onclick="window.location.href='tableorder.html'" style="background-color: #004999">
                 <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-text">Đặt món</div>
+            </div>
+            <div class="menu-item" onclick="window.location.href='confirmtableorder.html'">
+                <div class="menu-icon m-icon m-icon-document"></div>
                 <div class="menu-text">Đặt bàn</div>
+            </div>
+            <div class="menu-item" onclick="window.location.href='bill.html'">
+                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-text">Hóa đơn</div>
             </div>
             <div class="menu-item">
                 <div class="menu-icon m-icon m-icon-setting"></div>
@@ -63,7 +71,7 @@
         
         <div class="page-content">
             <div class="m-page-header">
-                <div class="m-page-title">Quản lý đặt bàn</div>
+                <div class="m-page-title">Quản lý đặt món</div>
             </div>
             <div class="page-content-son">
                 <div class="table-management">
@@ -80,7 +88,7 @@
     </div>
     <!-- Thư viện js -->
     <script src="../js/jquery-3.7.1.min.js"></script>
-    <script src="../js/customer/test.js"></script>
+    <script src="../js/tableorder/tableorder.js"></script>
 
     <!-- JaveScrip sử dụng chung -->
      <script src="../js/main.js"></script>

@@ -1,42 +1,70 @@
-// Danh sách bàn mẫu (sau này sẽ lấy từ API)
-const tables = [
-    { id: 1, number: 'A1', seats: 4, status: 'available' },
-    { id: 2, number: 'A2', seats: 4, status: 'available' },
-    { id: 3, number: 'A3', seats: 6, status: 'available' },
-    { id: 4, number: 'B1', seats: 4, status: 'available' },
-    { id: 5, number: 'B2', seats: 4, status: 'available' },
-    { id: 6, number: 'B3', seats: 8, status: 'available' }
-];
+$(document).ready(function () {
+    // Hàm tải danh sách bàn từ API
+    function loadTables() {
+        $.ajax({
+            url: 'http://localhost:5014/api/v1/Tables', 
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                console.log(response);
+                const tableGrid = $("#tableGrid");
+                tableGrid.empty(); 
 
-// Render danh sách bàn
-function renderTables() {
-    const tableGrid = document.getElementById('tableGrid');
-    tableGrid.innerHTML = ''; // Xóa bỏ nội dung cũ
+                if (response.length === 0) {
+                    tableGrid.append("<p>Không có bàn ăn nào.</p>");
+                    return;
+                }
 
-    tables.forEach(table => {
-        const tableElement = document.createElement('div');
-        tableElement.classList.add('table-item');
-        tableElement.classList.add(table.status === 'available' ? 'table-available' : 'table-occupied');
-        
-        tableElement.innerHTML = `
-            <div class="table-number">${table.number}</div>
-            <div class="table-seats">${table.seats} chỗ</div>
-        `;
+                // Sắp xếp danh sách bàn theo TableNumber (số bàn) từ bé đến lớn
+                response.sort(function (a, b) {
+                    return a.TableNumber - b.TableNumber;
+                });
 
-        // Sự kiện click để thay đổi trạng thái bàn
-        tableElement.addEventListener('click', () => {
-            toggleTableStatus(table);
+                // Hiển thị danh sách bàn
+                response.forEach(function (table) {
+                    const statusClass = table.Status === 'Available' ? 'table-available' : 'table-occupied';
+                    const tableHtml = `
+                        <div class="table-item ${statusClass}" 
+                             data-id="${table.TableId}" 
+                             data-status="${table.Status}"
+                             data-table-number="${table.TableNumber}"
+                             data-seats="${table.Seats}">
+                            <div class="table-number">Bàn: ${table.TableNumber}</div>
+                            <div class="table-seats">${table.Seats} chỗ</div>
+                        </div>
+                    `;
+                    tableGrid.append(tableHtml);
+                });
+            },
+            error: function (error) {
+                console.error("Lỗi khi tải danh sách bàn.", error);
+                alert("Không thể tải danh sách bàn ăn.");
+            }
         });
+    }
 
-        tableGrid.appendChild(tableElement);
+    // Gọi hàm loadTables khi trang được tải
+    loadTables();
+
+    // Xử lý sự kiện click vào bàn để thay đổi trạng thái và màu sắc
+    $(document).on('click', '.table-item', function () {
+        const tableId = $(this).data('id');
+        const tableNumber = $(this).data('table-number');
+        const tableSeats = $(this).data('seats');
+        const currentStatus = $(this).data('status');
+
+        // Lưu thông tin bàn vào localStorage
+        localStorage.setItem('selectedTableId', tableId);
+        console.log("ID của bàn đã chọn:", tableId);
+        localStorage.setItem('selectedTableNumber', tableNumber);
+        localStorage.setItem('selectedTableSeats', tableSeats);
+        window.location.href = 'orderfood.html'; 
     });
-}
 
-// Thay đổi trạng thái bàn
-function toggleTableStatus(table) {
-    table.status = table.status === 'available' ? 'occupied' : 'available';
-    renderTables();
-}
 
-// Khởi tạo
-document.addEventListener('DOMContentLoaded', renderTables);
+
+    // Xóa localStorage khi tải trang để tránh dữ liệu cũ
+    localStorage.removeItem('selectedTableId');
+    localStorage.removeItem('selectedTableNumber');
+    localStorage.removeItem('selectedTableSeats');
+});
