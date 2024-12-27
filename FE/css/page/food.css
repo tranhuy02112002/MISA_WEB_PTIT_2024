@@ -54,7 +54,6 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Hình vuông nhỏ hơn */
     gap: 15px; /* Khoảng cách giữa các hình vuông */
     max-height: 600px;
-    overflow-y: auto;
 }
 
 /* Item món ăn */

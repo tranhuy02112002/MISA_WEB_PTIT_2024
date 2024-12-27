@@ -1,1 +1,221 @@
 @import url(./employee.css);
+.page-content-son {
+    display: flex;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.form-container {
+    width: 37%;
+    height: 90%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.list-container {
+    width: 60%;
+    height: 90%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow: hidden;
+        overflow-y: auto;
+    position: relative;
+}
+
+.list-container-table {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.form-container h3, 
+.list-container h3 {
+    margin-top: 0;
+    color: #004999;
+    border-bottom: 2px solid #004999;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.form-container form {
+    display: grid;
+    gap: 15px;
+}
+
+.form-container label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-container input, 
+.form-container select {
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.form-container input:focus, 
+.form-container select:focus {
+    outline: none;
+    border-color: #004999;
+}
+
+#saveBooktableBtn {
+    background-color: #004999;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#saveBooktableBtn:hover {
+    background-color: #003366;
+}
+
+#booktableList {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#booktableList thead {
+    position: relative;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+}
+
+#booktableList th {
+    background-color: #004999;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+#booktableList td {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#booktableList tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Thanh cuộn tùy chỉnh */
+.form-container::-webkit-scrollbar,
+.list-container-table::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-container::-webkit-scrollbar-track,
+.list-container-table::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.form-container::-webkit-scrollbar-thumb,
+.list-container-table::-webkit-scrollbar-thumb {
+    background: #004999;
+    border-radius: 4px;
+}
+
+.form-container::-webkit-scrollbar-thumb:hover,
+.list-container-table::-webkit-scrollbar-thumb:hover {
+    background: #003366;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .page-content-son {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .form-container, 
+    .list-container {
+        width: 100%;
+    }
+}
+
+/* Các nút trong bảng */
+#booktableList .approve-btn,
+#booktableList .edit-booking,
+#booktableList .cancel-booking {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 0 3px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Nút Duyệt */
+#booktableList .approve-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+#booktableList .approve-btn:hover:not(.disabled) {
+    background-color: #218838;
+}
+
+#booktableList .approve-btn.disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Nút Sửa */
+#booktableList .edit-btn {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+#booktableList .edit-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Nút Xóa */
+#booktableList .delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+#booktableList .delete-btn:hover {
+    background-color: #bd2130;
+}
+
+/* Nhóm nút trong ô */
+#booktableList td:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Responsive cho nút */
+@media (max-width: 768px) {
+    #booktableList .approve-btn,
+    #booktableList .edit-btn,
+    #booktableList .delete-btn {
+        padding: 4px 8px;
+        font-size: 0.7em;
+        margin: 0 2px;
+    }
+
+    #booktableList td:last-child {
+        flex-direction: column;
+        gap: 3px;
+    }
+}
+

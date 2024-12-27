@@ -34,11 +34,11 @@
 /* Khu vực hiển thị danh sách bàn ăn */
 /* Khu vực hiển thị danh sách bàn ăn */
 .container {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Hình vuông nhỏ hơn */
     gap: 15px; /* Khoảng cách giữa các hình vuông */
     max-height: 600px; /* Tăng chiều cao tối đa */
-    overflow-y: auto; /* Thêm thanh cuộn dọc nếu danh sách bàn nhiều hơn */
 }
 
 

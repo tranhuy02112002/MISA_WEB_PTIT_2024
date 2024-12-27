@@ -46,11 +46,11 @@
                 <div class="menu-text">Món ăn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='table.html'" style="background-color: #004999">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-table"></div>
                 <div class="menu-text">Bàn ăn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='ingredient.html'">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-ingredient"></div>
                 <div class="menu-text">Nguyên liệu</div>
             </div>
             <div class="menu-item" onclick="window.location.href='employee.html'">
@@ -58,7 +58,7 @@
                 <div class="menu-text">Nhân viên</div>
             </div>
             <div class="menu-item" onclick="window.location.href='revenue.html'">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-revenue"></div>
                 <div class="menu-text">Doanh thu</div>
             </div>
             <div class="menu-item">
@@ -80,33 +80,36 @@
                     <button class="btn-add" onclick="toggleForm()">+ Thêm bàn ăn</button>
                     <span class="count-table">Tổng số bàn: <span id="tableCount">0</span></span>
                 </div>
-
-                <div class="form-popup" id="addTableForm">
-                    <form class="form-container">
-                        <h2>Thêm bàn ăn</h2>
-                        <label for="tableNumber"><b>Số bàn ăn</b></label>
-                        <input type="text" id="tableNumber" placeholder="Nhập số bàn ăn" required>
-                        <label for="tableCapacity"><b>Sức chứa</b></label>
-                        <input type="number" id="tableCapacity" placeholder="Nhập sức chứa" required>
-                        <button type="button" class="btn btn-save" onclick="addTable()">Lưu</button>
-                        <button type="button" class="btn btn-cancel" onclick="toggleForm()">Hủy</button>
-                    </form>
-                </div>
-
-                <div class="form-popup" id="editTableForm" style="display: none;">
-                    <form class="form-container">
-                        <h2>Sửa thông tin bàn ăn</h2>
-                        <label for="editTableNumber"><b>Số bàn ăn</b></label>
-                        <input type="text" id="editTableNumber" placeholder="Nhập số bàn ăn" required>
-                        <label for="editTableCapacity"><b>Sức chứa</b></label>
-                        <input type="number" id="editTableCapacity" placeholder="Nhập sức chứa" required>
-                        <button type="button" class="btn btn-save" onclick="saveTableChanges()">Lưu</button>
-                        <button type="button" class="btn btn-cancel" onclick="toggleEditForm()">Hủy</button>
-                    </form>
-                </div>
-
-                <div class="container" id="tableList">
-                    <!-- Các bàn ăn sẽ được hiển thị ở đây -->
+                <div class="m-page-grid" style="width: 100%;">
+                    <div class="m-table-all">
+                        <div class="form-popup" id="addTableForm">
+                            <form class="form-container">
+                                <h2>Thêm bàn ăn</h2>
+                                <label for="tableNumber"><b>Số bàn ăn</b></label>
+                                <input type="text" id="tableNumber" placeholder="Nhập số bàn ăn" required>
+                                <label for="tableCapacity"><b>Sức chứa</b></label>
+                                <input type="number" id="tableCapacity" placeholder="Nhập sức chứa" required>
+                                <button type="button" class="btn btn-save" onclick="addTable()">Lưu</button>
+                                <button type="button" class="btn btn-cancel" onclick="toggleForm()">Hủy</button>
+                            </form>
+                        </div>
+        
+                        <div class="form-popup" id="editTableForm" style="display: none;">
+                            <form class="form-container">
+                                <h2>Sửa thông tin bàn ăn</h2>
+                                <label for="editTableNumber"><b>Số bàn ăn</b></label>
+                                <input type="text" id="editTableNumber" placeholder="Nhập số bàn ăn" required>
+                                <label for="editTableCapacity"><b>Sức chứa</b></label>
+                                <input type="number" id="editTableCapacity" placeholder="Nhập sức chứa" required>
+                                <button type="button" class="btn btn-save" onclick="saveTableChanges()">Lưu</button>
+                                <button type="button" class="btn btn-cancel" onclick="toggleEditForm()">Hủy</button>
+                            </form>
+                        </div>
+        
+                        <div class="container" id="tableList">
+                            <!-- Các bàn ăn sẽ được hiển thị ở đây -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

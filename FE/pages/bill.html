@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hệ thống quản lý nhà hàng</title>
-    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/page/bill.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
     <div class="header">
@@ -42,15 +42,15 @@
             </div>
         
             <div class="menu-item" onclick="window.location.href='tableorder.html'" >
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-tableorder"></div>
                 <div class="menu-text">Đặt món</div>
             </div>
             <div class="menu-item" onclick="window.location.href='confirmtableorder.html'">
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-booktable"></div>
                 <div class="menu-text">Đặt bàn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='bill.html'"style="background-color: #004999" >
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-bill"></div>
                 <div class="menu-text">Hóa đơn</div>
             </div>
             
@@ -72,7 +72,34 @@
             </div>
             
             <div class="page-content-son">
-            </div>
+                <div class="bill-list">
+                    <table id="billTable">
+                        <thead>
+                            <tr >
+                                <th>Mã Hóa Đơn</th>
+                                <th>Khách Hàng</th>
+                                <th>Tổng Tiền</th>
+                                <th>Trạng Thái</th>
+                                <th>Giờ Vào</th>
+                                <th>Giờ Thanh Toán</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Danh sách hóa đơn sẽ được render ở đây -->
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div id="billDetailsModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <span class="close-btn" id="closeBillDetailsModal">&times;</span>
+                        <h2>Chi tiết hóa đơn</h2>
+                        <div id="billDetails">
+                            <!-- Chi tiết hóa đơn sẽ được render ở đây -->
+                        </div>
+                    </div>
+                </div>
+             </div>
         </div>
     </div>
 

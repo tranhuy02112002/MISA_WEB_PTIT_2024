@@ -1,1 +1,146 @@
+/* Tổng quan */
+
 @import url(./employee.css);
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Danh sách hóa đơn */
+.bill-list {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 20000px;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.bill-list table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+
+.bill-list tbody tr {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.bill-list tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.bill-list th {
+    background-color:#019160 ;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bill-list td {
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Modal chi tiết hóa đơn */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    width: 80%;
+    max-width: 600px;
+    margin: 100px auto;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #019160;
+    text-align: center;
+    border-bottom: 2px solid #019160;
+    padding-bottom: 10px;
+}
+
+.modal-content p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.modal-content ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.modal-content ul li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Hiệu ứng fade-in cho modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+    }
+
+    .bill-list table {
+        font-size: 12px;
+    }
+
+    .bill-list th, .bill-list td {
+        padding: 10px;
+    }
+}
+

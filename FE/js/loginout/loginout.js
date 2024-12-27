@@ -72,7 +72,8 @@ $(document).ready(function () {
         alert(response.message);
 
         // Lưu thông tin người dùng vào localStorage
-        localStorage.setItem("username", username);
+        localStorage.setItem("userId", response.UserId);
+        localStorage.setItem("username", response.Username);
         localStorage.setItem("isAdmin", response.IsAdmin);  // Lưu giá trị IsAdmin từ response
 
         // Điều hướng đến trang phù hợp

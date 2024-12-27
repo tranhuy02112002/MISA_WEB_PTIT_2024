@@ -47,11 +47,11 @@
             </div>
         
             <div class="menu-item" onclick="window.location.href='cus_booktableonline.html'" style="background-color: #004999">
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-booktableonline"></div>
                 <div class="menu-text">Đặt bàn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='cus_orderonline.html'" >
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-orderonline"></div>
                 <div class="menu-text">Đặt hàng</div>
             </div>
             <div class="menu-item">
@@ -69,6 +69,46 @@
                 <div class="m-page-title">Đặt bàn online</div>
             </div>
             <div class="page-content-son">
+                <div class="form-container">
+                    <h3>Thông tin đặt bàn</h3>
+                    <form id="booktableForm">
+                        <input type="hidden" id="userId" value="">
+                        <label for="customerName">Tên khách hàng:</label>
+                        <input type="text" id="customerName" placeholder="Nhập tên khách hàng" required>
+    
+                        <label for="customerPhone">Số điện thoại:</label>
+                        <input type="text" id="customerPhone" placeholder="Nhập số điện thoại" required>
+    
+                        <label for="customerEmail">Email:</label>
+                        <input type="email" id="customerEmail" placeholder="Nhập email">
+    
+                        <label for="bookDate">Ngày đặt:</label>
+                        <input type="datetime-local" id="bookDate" required>
+    
+                        <label for="guestCount">Số khách:</label>
+                        <input type="number" id="guestCount" min="1" max="10" required>
+    
+                        <button type="button" id="saveBooktableBtn">Đặt bàn</button>
+                    </form>
+                </div>
+    
+                <div class="list-container">
+                    <h3>Lịch sử đặt bàn của bạn</h3>
+                    <table id="booktableList">
+                        <thead>
+                            <tr>
+                                <th>Ngày đặt</th>
+                                <th>Số khách</th>
+                                <th>Bàn</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Danh sách đơn đặt bàn sẽ được render tại đây -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
         </div>
@@ -78,7 +118,7 @@
     </div>
     <!-- Thư viện js -->
     <script src="../js/jquery-3.7.1.min.js"></script>
-    <script src="../js/customer/customer.js"></script>
+    <script src="../js/customer/cus_booktableonline.js"></script>
 
     <!-- JaveScrip sử dụng chung -->
      <script src="../js/main.js"></script>

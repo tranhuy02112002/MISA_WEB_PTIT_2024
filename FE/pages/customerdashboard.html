@@ -47,11 +47,11 @@
             </div>
         
             <div class="menu-item" onclick="window.location.href='cus_booktableonline.html'" >
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-booktableonline"></div>
                 <div class="menu-text">Đặt bàn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='cus_orderonline.html'" >
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-orderonline"></div>
                 <div class="menu-text">Đặt hàng</div>
             </div>
             <div class="menu-item">
@@ -69,6 +69,56 @@
                 <div class="m-page-title">Xin chào khách hàng</div>
             </div>
             <div class="page-content-son">
+                <div class="welcome-message">
+                    <h2>Chào mừng đến với nhà hàng của chúng tôi!</h2>
+                    <p>Chúng tôi rất vui được phục vụ bạn. Dưới đây là một số dịch vụ mà bạn có thể sử dụng:</p>
+                </div>
+                <div class="services">
+                    <div class="service-item">
+                        <h3>Đặt Bàn</h3>
+                        <p>Đặt bàn trực tuyến dễ dàng và nhanh chóng.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Đặt Hàng</h3>
+                        <p>Thực đơn đa dạng với nhiều món ăn ngon.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Cài Đặt</h3>
+                        <p>Tùy chỉnh trải nghiệm của bạn theo ý thích.</p>
+                    </div>
+                </div>
+                <div class="promotion-section">
+                    <h2>Chương Trình Ưu Đãi</h2>
+                    <div class="promotion-item">
+                        <p><strong>Giảm giá 20%</strong> cho đơn hàng đầu tiên khi đặt hàng trực tuyến!</p>
+                    </div>
+                    <div class="promotion-item">
+                        <p><strong>Miễn phí giao hàng</strong> cho đơn hàng trên 200.000 VNĐ!</p>
+                    </div>
+                </div>
+                
+                <div class="call-to-action">
+                    <button onclick="window.location.href='cus_booktableonline.html'" class="btn-primary">Đặt Bàn Ngay</button>
+                    <button onclick="window.location.href='cus_orderonline.html'" class="btn-secondary">Đặt Hàng Ngay</button>
+                </div>
+                <section class="customer-comments">
+                    <div class="container">
+                        <h2>Nhận xét từ khách hàng</h2>
+                        <div class="comment-section">
+                            <div class="comment-list" id="comments-container">
+                                <!-- Danh sách comment sẽ được load động -->
+                            </div>
+                            <div class="comment-input-container">
+                                <textarea 
+                                    id="comment-content" 
+                                    placeholder="Viết nhận xét của bạn..."
+                                ></textarea>
+                                <button id="submit-comment">Gửi</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
             </div>
             
         </div>

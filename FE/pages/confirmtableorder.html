@@ -6,6 +6,8 @@
     <title>Hệ thống quản lý nhà hàng</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/page/confirmtableorder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 <body>
     <div class="header">
@@ -42,15 +44,15 @@
             </div>
         
             <div class="menu-item" onclick="window.location.href='tableorder.html'" >
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-tableorder"></div>
                 <div class="menu-text">Đặt món</div>
             </div>
             <div class="menu-item" onclick="window.location.href='confirmtableorder.html'"style="background-color: #004999" >
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-booktable"></div>
                 <div class="menu-text">Đặt bàn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='bill.html'">
-                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-icon m-icon m-icon-bill"></div>
                 <div class="menu-text">Hóa đơn</div>
             </div>
             <div class="menu-item">
@@ -71,6 +73,55 @@
             </div>
             
             <div class="page-content-son">
+                
+                <div class="form-container">
+                    <h3>Thông tin đặt bàn</h3>
+                    <form id="booktableForm">
+                        <label for="customerName">Tên khách hàng:</label>
+                        <input type="text" id="customerName" placeholder="Nhập tên khách hàng" required>
+    
+                        <label for="customerPhone">Số điện thoại:</label>
+                        <input type="text" id="customerPhone" placeholder="Nhập số điện thoại" required>
+    
+                        <label for="customerEmail">Email:</label>
+                        <input type="email" id="customerEmail" placeholder="Nhập email">
+    
+                        <label for="bookDate">Ngày đặt:</label>
+                        <input type="datetime-local" id="bookDate" required>
+    
+                        <label for="guestCount">Số khách:</label>
+                        <input type="number" id="guestCount" min="1" required>
+    
+                        <label for="tableSelect">Chọn bàn:</label>
+                        <select id="tableSelect">
+                            <!-- Danh sách bàn sẽ được render tại đây -->
+                        </select>
+    
+                        <button type="button" id="saveBooktableBtn">Lưu</button>
+                    </form>
+                </div>
+    
+                <!-- Danh sách đặt bàn -->
+                <div class="list-container">
+                    <h3>Danh sách đặt bàn</h3>
+                    <table id="booktableList">
+                        <thead>
+                            <tr>
+                                <th>Tên khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Ngày đặt</th>
+                                <th>Số khách</th>
+                                <th>Bàn</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Danh sách đơn đặt bàn sẽ được render tại đây -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -296,5 +296,84 @@ namespace Web.Misaweb2024.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Lỗi hệ thống: {ex.Message}");
             }
         }
+        [HttpGet("all")]
+        public IActionResult GetAllOrders()
+        {
+            try
+            {
+                using (var sqlConnection = new MySqlConnection(_connectionString))
+                {
+                    var getAllOrdersQuery = @"
+                SELECT o.OrderID, 
+                       o.CustomerName, 
+                       o.TotalAmount, 
+                       o.Status, 
+                       o.CreatedDate AS EntryTime, 
+                       p.PaymentDate AS PaymentTime
+                FROM `order` o
+                LEFT JOIN payment p ON o.OrderID = p.OrderID
+                ORDER BY o.CreatedDate DESC";
+
+                    var orders = sqlConnection.Query<dynamic>(getAllOrdersQuery);
+
+                    return Ok(orders);
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Lỗi hệ thống: {ex.Message}");
+            }
+        }
+        [HttpGet("{orderId}")]
+        public IActionResult GetOrderDetails(Guid orderId)
+        {
+            try
+            {
+                using (var sqlConnection = new MySqlConnection(_connectionString))
+                {
+                    var getOrderDetailsQuery = @"
+                    SELECT o.OrderID, 
+                           o.CustomerName, 
+                           o.CustomerPhone, 
+                           o.CustomerEmail, 
+                           o.DiscountPercentage, 
+                           o.TotalAmount, 
+                           o.Status, 
+                           o.CreatedDate AS EntryTime, 
+                           p.PaymentDate AS PaymentTime, 
+                           t.TableNumber, -- Lấy số bàn ăn từ bảng table
+                           JSON_ARRAYAGG(
+                               JSON_OBJECT(
+                                   'FoodName', f.FoodName, 
+                                   'Quantity', od.Quantity, 
+                                   'Price', od.Price, 
+                                   'TotalPrice', od.TotalPrice
+                               )
+                           ) AS OrderDetails
+                    FROM `order` o
+                    LEFT JOIN orderdetails od ON o.OrderID = od.OrderID
+                    LEFT JOIN food f ON od.FoodID = f.FoodID
+                    LEFT JOIN payment p ON o.OrderID = p.OrderID
+                    LEFT JOIN `table` t ON o.TableID = t.TableID -- Kết nối với bảng table để lấy số bàn
+                    WHERE o.OrderID = @OrderID
+                    GROUP BY o.OrderID, t.TableNumber, p.PaymentDate";
+
+
+                    var order = sqlConnection.QueryFirstOrDefault<dynamic>(getOrderDetailsQuery, new { OrderID = orderId });
+
+                    if (order == null)
+                    {
+                        return NotFound("Không tìm thấy hóa đơn.");
+                    }
+
+                    return Ok(order);
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Lỗi hệ thống: {ex.Message}");
+            }
+        }
+
     }
 }

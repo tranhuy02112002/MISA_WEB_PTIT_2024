@@ -6,6 +6,11 @@
     <title>Hệ thống quản lý nhà hàng</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/page/admindashboard.css">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+    />
+
 </head>
 
 <body>
@@ -52,11 +57,12 @@
                 <div class="menu-text">Món ăn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='table.html'">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class=" menu-icon m-icon m-icon-table"></div>
                 <div class="menu-text">Bàn ăn</div>
             </div>
+            
             <div class="menu-item" onclick="window.location.href='ingredient.html'">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-ingredient"></div>
                 <div class="menu-text">Nguyên liệu</div>
             </div>
             <div class="menu-item" onclick="window.location.href='employee.html'">
@@ -64,7 +70,7 @@
                 <div class="menu-text">Nhân viên</div>
             </div>
             <div class="menu-item" onclick="window.location.href='revenue.html'">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-revenue"></div>
                 <div class="menu-text">Doanh thu</div>
             </div>
             <div class="menu-item" onclick="selectMenuItem(this)">
@@ -82,7 +88,168 @@
                 <div class="m-page-title">Trang chủ Admin</div>
             </div>
             <div class="page-content-son">
+                <div class="dashboard-grid">
+                    <div class="overview-card revenue-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Tổng Doanh Thu</h3>
+                            <h2>1,500,000,000 VNĐ</h2>
+                            <span class="trend-up">+15.3% so với tháng trước</span>
+                        </div>
+                    </div>
+            
+                    <div class="overview-card order-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Tổng Đơn Hàng</h3>
+                            <h2>350 Đơn</h2>
+                            <span class="trend-up">Trong tháng</span>
+                        </div>
+                    </div>
+            
+                    <div class="overview-card employee-card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Nhân Viên</h3>
+                            <h2>45 Người</h2>
+                            <span class="trend-up">Đang Hoạt Động</span>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="dashboard-details">
+                    <div class="recent-orders">
+                        <div class="section-header">
+                            <h3>Đơn Hàng Gần Đây</h3>
+                            <a href="bill.html" class="view-all">Xem Tất Cả</a>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mã Đơn</th>
+                                    <th>Khách hàng</th>
+                                    <th>Tổng Tiền</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>6355e8f0-9c60-4744-9a33-d8e79c8fa3be</td>
+                                    <td>Nguyễn Hoàng Thao</td>
+                                    <td>500,000 VNĐ</td>
+                                    <td><span class="badge success">Hoàn Thành</span>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-view"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-print"><i class="fas fa-print"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9202066a-4cab-4fc0-8417-118cfd350475</td>
+                                    <td>Đinh Công Trứ</td>
+                                    <td>350,000 VNĐ</td>
+                                    <td><span class="badge pending">Đang Xử Lý</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-view"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-print"><i class="fas fa-print"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8eac9f3f-bcc9-45f2-8817-68bf41d1d132</td>
+                                    <td>Nguyễn Văn Đại</td>
+                                    <td>400,000 VNĐ</td>
+                                    <td><span class="badge pending">Đang Xử Lý</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-view"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-print"><i class="fas fa-print"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>f4565c3e-28fb-4191-b726-0f1d0ab1bc41</td>
+                                    <td>Hoàng Văn Nam</td>
+                                    <td>500,000 VNĐ</td>
+                                    <td><span class="badge pending">Đang Xử Lý</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-view"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-print"><i class="fas fa-print"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            
+                    <div class="dashboard-stats">
+                        <div class="inventory-stats">
+                            <div class="section-header">
+                                <h3>Nguyên Liệu Tồn Kho</h3>
+                                <a href="ingredient.html" class="view-all">Quản Lý</a>
+                            </div>
+                            <div class="inventory-list">
+                                <div class="inventory-item">
+                                    <span>Thịt Bò</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 70%;"></div>
+                                    </div>
+                                    <span>70%</span>
+                                </div>
+                                <div class="inventory-item">
+                                    <span>Rau Tươi</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 40%;"></div>
+                                    </div>
+                                    <span>40%</span>
+                                </div>
+                                <div class="inventory-item">
+                                    <span>Hải Sản</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 85%;"></div>
+                                    </div>
+                                    <span>85%</span>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="quick-actions">
+                            <div class="section-header">
+                                <h3>Thao Tác Nhanh</h3>
+                            </div>
+                            <div class="action-grid">
+                                <button class="quick-action-btn">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Thêm Nhân Viên</span>
+                                </button>
+                                <button class="quick-action-btn">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Thêm Món Ăn</span>
+                                </button>
+                                <button class="quick-action-btn">
+                                    <i class="fas fa-table"></i>
+                                    <span>Bàn ăn</span>
+                                </button>
+                                <button class="quick-action-btn">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span>Báo Cáo</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
         </div>
     </div>
     <div class="m-loading">

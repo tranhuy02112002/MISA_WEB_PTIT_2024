@@ -53,11 +53,11 @@
                 <div class="menu-text">Món ăn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='table.html'" >
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-table"></div>
                 <div class="menu-text">Bàn ăn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='ingredient.html'">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-ingredient"></div>
                 <div class="menu-text">Nguyên liệu</div>
             </div>
             
@@ -66,7 +66,7 @@
                 <div class="menu-text">Nhân viên</div>
             </div>
             <div class="menu-item" onclick="window.location.href='revenue.html'">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-revenue"></div>
                 <div class="menu-text">Doanh thu</div>
             </div>
             <div class="menu-item">
@@ -89,36 +89,27 @@
                 <span class="count-food">Tổng số món: 10</span> <!-- Bạn có thể thay đổi số này bằng dữ liệu động từ API -->
                 </div>
                 <!-- Form thêm món ăn -->
-                <div class="form-popup" id="addFoodForm">
-                    <form class="form-container">
-                        <h2>Thêm món ăn</h2>
-
-                        <label for="foodName"><b>Tên món ăn</b></label>
-                        <input type="text" id="foodName" placeholder="Nhập tên món ăn" required>
-
-                        <label for="foodPrice"><b>Giá (VNĐ)</b></label>
-                        <input type="number" id="foodPrice" placeholder="Nhập giá món ăn" required>
-
-                        <label for="foodImage"><b>Hình ảnh</b></label>
-                        <input type="file" id="foodImage" accept="image/*" required>
-
-                        <button type="button" class="btn btn-save" onclick="addFood()">Lưu</button>
-                        <button type="button" class="btn btn-cancel" onclick="toggleForm()">Hủy</button>
-                    </form>
-                </div>
-
-                <!-- Khu vực hiển thị món ăn -->
-                <div class="container" id="foodList">
-                    <!-- Món ăn mẫu -->
-                    <div class="food-item">
-                        <img class="food-image" src="../assets/img/imgfood/hambuger.jpg" alt="Món ăn">
-                        <div class="food-details">
-                            <p class="food-name">hambuger</p>
-                            <p class="food-price">100,000 VNĐ</p>
-                            <div class="actions">
-                                <button class="btn btn-edit">Sửa</button>
-                                <button class="btn btn-delete">Xóa</button>
-                            </div>
+                <div class="m-page-grid" style="width: 100%;">
+                    <div class="m-table-all">
+                        <div class="form-popup" id="addFoodForm">
+                            <form class="form-container">
+                                <h2>Thêm món ăn</h2>
+        
+                                <label for="foodName"><b>Tên món ăn</b></label>
+                                <input type="text" id="foodName" placeholder="Nhập tên món ăn" required>
+        
+                                <label for="foodPrice"><b>Giá (VNĐ)</b></label>
+                                <input type="number" id="foodPrice" placeholder="Nhập giá món ăn" required>
+        
+                                <label for="foodImage"><b>Hình ảnh</b></label>
+                                <input type="file" id="foodImage" accept="image/*" required>
+        
+                                <button type="button" class="btn btn-save" onclick="addFood()">Lưu</button>
+                                <button type="button" class="btn btn-cancel" onclick="toggleForm()">Hủy</button>
+                            </form>
+                        </div>
+                        <!-- Khu vực hiển thị món ăn -->
+                        <div class="container" id="foodList">
                         </div>
                     </div>
                 </div>

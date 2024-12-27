@@ -4,6 +4,7 @@ using Dapper;
 using System;
 using Web.Misaweb2024.Api.Model;
 using Microsoft.AspNetCore.Identity;
+using System.Data;
 
 namespace Web.Misaweb2024.Api.Controllers
 {
@@ -106,7 +107,14 @@ namespace Web.Misaweb2024.Api.Controllers
                         redirectUrl = "customerdashboard.html";
                     }
 
-                    return Ok(new { message = "Đăng nhập thành công.", RedirectUrl = redirectUrl });
+                    return Ok(new
+                    {
+                        message = "Đăng nhập thành công",
+                        UserId = user.UserId,
+                        Username = user.Username,
+                        IsAdmin = user.IsAdmin,
+                        RedirectUrl = redirectUrl
+                    });
 
                 }
             }

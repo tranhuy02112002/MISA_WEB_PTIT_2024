@@ -7,6 +7,10 @@
     <title>Hệ thống quản lý nhà hàng</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/page/revenue.css">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet"
+    />
 </head>
 
 <body>
@@ -53,11 +57,11 @@
                 <div class="menu-text">Món ăn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='table.html'" >
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-table"></div>
                 <div class="menu-text">Bàn ăn</div>
             </div>
             <div class="menu-item" onclick="window.location.href='ingredient.html'">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-ingredient"></div>
                 <div class="menu-text">Nguyên liệu</div>
             </div>
             
@@ -66,7 +70,7 @@
                 <div class="menu-text">Nhân viên</div>
             </div>
             <div class="menu-item" onclick="window.location.href='revenue.html'"  style="background-color: #004999">
-                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-icon m-icon m-icon-revenue"></div>
                 <div class="menu-text">Doanh thu</div>
             </div>
             <div class="menu-item">
@@ -84,8 +88,81 @@
             </div>
             
             <div class="page-content-son">
-               
+                <div class="revenue-container">
+                    <div class="revenue-summary">
+                        <div class="summary-card profit-card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Tổng doanh thu</h3>
+                                <p id="totalRevenue" class="highlight-text">0 đ</p>
+                            </div>
+                        </div>
+                        <div class="summary-card profit-card">
+                            <div class="card-icon">
+                                <i class="fas fa-coins"></i> 
+                            </div>
+                            <div class="card-content">
+                                <h3>Lợi nhuận hôm nay</h3>
+                                <p id="todayProfit" class="highlight-text">0 đ</p>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card orders-card">
+                            <div class="card-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Số đơn hôm nay</h3>
+                                <p id="todayOrders" class="highlight-text">0</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-card orders-card">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-burger"></i>
+
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Số món hôm nay</h3>
+                                <p id="todayOrdersFood" class="highlight-text">0</p>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card top-foods-card">
+                            <div class="card-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Top Món Ăn</h3>
+                                <ul id="topFoods" class="top-foods-list">
+                                    <!-- Top foods will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="revenue-chart-section">
+                        <div class="chart-header">
+                            <h3>Biểu Đồ Doanh Thu</h3>
+                            <div class="date-filter">
+                                <label for="dateRange">Khoảng thời gian:</label>
+                                <select id="dateRange">
+                                    <option value="7">7 ngày</option>
+                                    <option value="30">30 ngày</option>
+                                    <option value="90">3 tháng</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
         </div>
     </div>
 
@@ -96,6 +173,8 @@
     <!-- Thư viện js -->
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/revenue/revenue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <!-- JaveScrip sử dụng chung -->
     <script src="../js/main.js"></script>

@@ -1,1 +1,106 @@
 @import url(./employee.css);
+.dashboard-overview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.overview-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.overview-card .card-icon {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.overview-card .card-icon i {
+    font-size: 24px;
+    color: #019160;
+}
+
+.overview-card .card-content h3 {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.overview-card .card-content h2 {
+    color: #019160;
+    margin-bottom: 5px;
+}
+
+.trend-up {
+    color: #004999;
+    font-size: 0.8em;
+}
+
+.recent-activities {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recent-orders, .notifications {
+    width: 48%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.recent-orders table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-orders th, 
+.recent-orders td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+}
+
+.badge.success {
+    background-color: #e7f5e7;
+    color: green;
+}
+
+.badge.pending {
+    background-color: #fff4e5;
+    color: orange;
+}
+
+.notifications .notification-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.notification-item i {
+    margin-right: 10px;
+    color: #019160;
+}
+
+.notification-item .time {
+    margin-left: auto;
+    color: #666;
+    font-size: 0.8em;
+}

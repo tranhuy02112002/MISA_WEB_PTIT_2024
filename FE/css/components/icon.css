@@ -17,14 +17,36 @@
 .m-icon-employee {
     background-image: url(../../assets/icon/dic-employee.png);
 }
-
+.m-icon-table {
+    background-image: url(../../assets/icon/table.png);
+}
+.m-icon-ingredient {
+    background-image: url(../../assets/icon/ingredient.png);
+}
 .m-icon-document {
     background-image: url(../../assets/icon/document-online.png);
 }
 .m-icon-food{
+    background-image: url(../../assets/icon/food.png);
+}
+.m-icon-revenue{
     background-image: url(../../assets/icon/report.png);
 }
-
+.m-icon-bill{
+    background-image: url(../../assets/icon/bill.png);
+}
+.m-icon-booktable{
+    background-image: url(../../assets/icon/booktable.png);
+}
+.m-icon-tableorder{
+    background-image: url(../../assets/icon/tableorder.png);
+}
+.m-icon-booktableonline{
+    background-image: url(../../assets/icon/booktableonline.png);
+}
+.m-icon-orderonline{
+    background-image: url(../../assets/icon/orderonline.png);
+}
 .m-icon-setting {
     background-image: url(../../assets/icon/setting.png);
 }
