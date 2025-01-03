@@ -1,1 +1,191 @@
+/* Phần CSS cho trang quản lý nguyên liệu */
 @import url(./employee.css);
+
+
+.ingredient-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+}
+
+#searchInput {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#filterCategory {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#addIngredientBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: #019160;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addIngredientBtn:hover {
+    background-color: #2fbe8e;
+}
+
+.ingredient-list {
+    overflow-x: auto;
+}
+
+#ingredientTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#ingredientTable thead {
+    background-color: #f3f4f6;
+}
+
+#ingredientTable th, 
+#ingredientTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+#ingredientTable tr:hover {
+    background-color: #f9fafb;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit, 
+.btn-delete {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #10b981;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #059669;
+}
+
+.btn-delete:hover {
+    background-color: #dc2626;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #1f2937;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #004999;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Trạng thái nguyên liệu */
+td:nth-child(7) {
+    font-weight: bold;
+}
+
+td:nth-child(7):contains('Hết Hạn') {
+    color: #ef4444;
+}
+
+td:nth-child(7):contains('Còn Hạn') {
+    color: #10b981;
+}

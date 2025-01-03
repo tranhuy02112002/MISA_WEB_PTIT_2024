@@ -1,26 +1,24 @@
 $(document).ready(function () {
-
     // Hàm tải danh sách món ăn từ API
     function loadFoodItems() {
         let dem = 0;
         $.ajax({
-            url: 'http://localhost:5014/api/v1/Foods', // Gọi API lấy danh sách món ăn
+            url: 'http://localhost:5014/api/v1/FoodDetails',
             type: 'GET',
             dataType: 'json',
             success: function (response) {
                 console.log(response);
                 var foodList = $("#foodList");
-                foodList.empty(); // Xóa danh sách món ăn hiện tại
+                foodList.empty();
 
                 if (response.length === 0) {
                     foodList.append("<p>Không có món ăn nào.</p>");
                     return;
                 }
 
-                // Duyệt qua danh sách món ăn và hiển thị
                 response.forEach(function (food) {
                     var foodItemHtml = `
-                        <div class="food-item" data-id="${food.FoodId}">
+                        <div class="food-item" data-id="${food.FoodID}">
                             <img class="food-image" src="../assets/img/imgfood/${food.ImageUrl}" alt="Món ăn">
                             <div class="food-details">
                                 <p class="food-name">${food.FoodName}</p>
@@ -33,11 +31,9 @@ $(document).ready(function () {
                         </div>
                     `;
                     dem++;
-                    foodList.append(foodItemHtml); // Thêm món ăn vào danh sách
+                    foodList.append(foodItemHtml);
                 });
-                //Cập nhật tổng số món ăn
                 $(".count-food").text("Tổng số món: " + dem);
-
             },
             error: function (error) {
                 console.error("Lỗi khi tải danh sách món ăn.", error);
@@ -51,54 +47,67 @@ $(document).ready(function () {
 
     // Xử lý form thêm món ăn
     $(".btn-add").on('click', function () {
-        $("#addFoodForm").show();  // Hiển thị form thêm món ăn
-        // Reset form và thay đổi hành động khi nhấn nút "Lưu" thành thêm món ăn
+        $("#addFoodForm").show();
         $("#foodName").val('');
         $("#foodPrice").val('');
-        $("#foodImage").val('');  // Nếu có ô input cho ảnh
-        $(".btn-save").text('Lưu');  // Đổi button save thành cập nhật
-        $(".btn-save").off('click').on('click', function () {
-            addFood();  // Gọi hàm addFood khi nhấn lưu
+        $("#foodImage").val('');
+        $("#ingredientList").empty(); // Reset danh sách nguyên liệu
+        $(".btn-save").text('Lưu').off('click').on('click', function () {
+            addFood();
         });
     });
-    
 
     // Hủy form
     $(".btn-cancel").on('click', function () {
-        $("#addFoodForm").toggle();  // Đóng form
+        $("#addFoodForm").hide();
     });
 
     // Hàm gửi yêu cầu thêm món ăn
     function addFood() {
-        const foodName = document.getElementById("foodName").value;
-        const foodPrice = document.getElementById("foodPrice").value;
-        const foodImageInput = document.getElementById("foodImage").files[0];
-        const foodUrl = foodImageInput.name;
-        console.log(foodUrl);
-    
+        const foodName = $("#foodName").val();
+        const foodPrice = $("#foodPrice").val();
+        const foodImageInput = $("#foodImage")[0].files[0];
+        const foodUrl = foodImageInput ? foodImageInput.name : '';
+
         // Kiểm tra dữ liệu đầu vào
         if (!foodName || !foodPrice || !foodUrl) {
             alert("Vui lòng điền đầy đủ thông tin.");
             return;
         }
-    
-        // Trích xuất đường dẫn tạm thời từ file đã chọn    
+
+        // Lấy danh sách nguyên liệu
+        const foodDetails = [];
+            $("#ingredientList .ingredient-item").each(function () {
+            const ingredientID = $(this).find(".ingredientID").val();
+            const quantity = $(this).find(".ingredientQuantity").val();
+            console.log(`Ingredient ID: ${ingredientID}, Quantity: ${quantity}`); // Kiểm tra giá trị
+            if (ingredientID && quantity) {
+                foodDetails.push({
+                    IngredientID: ingredientID,
+                    Quantity: parseFloat(quantity)
+                });
+            }
+        });
+
+
         const foodItem = {
             FoodName: foodName,
             FoodPrice: parseFloat(foodPrice),
-            ImageUrl: foodUrl, // Sử dụng đường dẫn tạm thời này
+            ImageUrl: foodUrl,
+            FoodDetails: foodDetails // Gửi danh sách nguyên liệu
         };
-    
+        console.log(foodItem);
+
         // Gửi yêu cầu thêm món ăn đến API
         $.ajax({
-            url: 'http://localhost:5014/api/v1/Foods',
+            url: 'http://localhost:5014/api/v1/FoodDetails',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(foodItem),
             success: function (response) {
                 alert("Món ăn đã được thêm thành công!");
-                $("#addFoodForm").toggle();
-                loadFoodItems(); // Tải lại danh sách món ăn
+                $("#addFoodForm").hide();
+                loadFoodItems();
             },
             error: function (error) {
                 alert("Lỗi khi thêm món ăn: " + error.responseJSON.message);
@@ -110,7 +119,6 @@ $(document).ready(function () {
     // Xử lý xóa món ăn
     $(document).on('click', '.btn-delete', function () {
         var foodId = $(this).data('id');
-        console.log(foodId);
         deleteFood(foodId);
     });
 
@@ -118,11 +126,11 @@ $(document).ready(function () {
     function deleteFood(foodId) {
         if (confirm("Bạn có chắc chắn muốn xóa món ăn này?")) {
             $.ajax({
-                url: 'http://localhost:5014/api/v1/Foods/' + foodId,  // Cập nhật URL đúng cho API xóa món ăn
+                url: 'http://localhost:5014/api/v1/FoodDetails/' + foodId,
                 type: 'DELETE',
                 success: function (response) {
                     alert("Món ăn đã được xóa.");
-                    loadFoodItems();  // Tải lại danh sách món ăn
+                    loadFoodItems();
                 },
                 error: function (error) {
                     alert("Lỗi khi xóa món ăn.");
@@ -135,26 +143,35 @@ $(document).ready(function () {
     // Xử lý sửa món ăn
     $(document).on('click', '.btn-edit', function () {
         var foodId = $(this).data('id');
-        editFood(foodId);  // Gọi hàm editFood khi nhấn nút Sửa
+        editFood(foodId);
     });
+
     // Hàm lấy thông tin món ăn và điền vào form sửa
     function editFood(foodId) {
-        // Lấy thông tin món ăn hiện tại
         $.ajax({
-            url: 'http://localhost:5014/api/v1/Foods/' + foodId,  // API lấy chi tiết món ăn
+            url: 'http://localhost:5014/api/v1/FoodDetails/' + foodId,
             type: 'GET',
             success: function (food) {
-                // Điền thông tin vào form sửa
-                $("#foodId").val(food.FoodID);
                 $("#foodName").val(food.FoodName);
                 $("#foodPrice").val(food.FoodPrice);
-                $("#foodImage").attr("src", "C:/Users/HUY TRAN/Desktop/MISA-TT/MISA_WEB_PTIT_2024/FE/assets/img/imgfood/" + food.ImageUrl);  // Hiển thị ảnh cũ
-                $("#addFoodForm").show();  // Hiển thị form để sửa
-                $(".btn-save").text('Cập nhật món ăn');  // Đổi button save thành cập nhật
+                $("#foodImage").attr("src", "../assets/img/imgfood/" + food.ImageUrl);
+                $("#addFoodForm").show();
+                // Cập nhật danh sách nguyên liệu
+                $("#ingredientList").empty();
+                food.FoodDetails.forEach(function (detail) {
+                    const ingredientHtml = `
+                        <div class="ingredient-item">
+                            <select class="ingredientID" required>
+                                <option value="${detail.IngredientId}">${detail.IngredientName}</option>
+                            </select>
+                            <input type="number" class="ingredientQuantity" value="${detail.Quantity}" placeholder="Số lượng" required>
+                        </div>
+                    `;
+                    $("#ingredientList").append(ingredientHtml);
+                });
 
-                // Thay đổi hành động khi nhấn nút lưu
-                $(".btn-save").off('click').on('click', function () {
-                    updateFood(food.FoodID);  // Gọi hàm updateFood khi nhấn lưu
+                $(".btn-save").text('Cập nhật món ăn').off('click').on('click', function () {
+                    updateFood(foodId);
                 });
             },
             error: function (error) {
@@ -168,31 +185,45 @@ $(document).ready(function () {
     function updateFood(foodId) {
         var foodName = $("#foodName").val();
         var foodPrice = $("#foodPrice").val();
-        var foodImage = $("#foodImage")[0].files[0];  // Lấy tệp hình ảnh mới (nếu có)
+        var foodImageInput = $("#foodImage")[0].files[0];
+        const foodUrl = foodImageInput ? foodImageInput.name : '';
 
         if (foodName === "" || foodPrice === "") {
             alert("Vui lòng điền đầy đủ thông tin.");
             return;
         }
 
-        // Tạo đối tượng món ăn mới với thông tin sửa
+    // Lấy danh sách nguyên liệu
+        const foodDetails = [];
+        $("#ingredientList .ingredient-item").each(function () {
+            const ingredientID = $(this).find(".ingredientID").val(); // Lấy giá trị ID nguyên liệu
+            const quantity = $(this).find(".ingredientQuantity").val(); // Lấy số lượng
+            if (ingredientID && quantity) {
+                foodDetails.push({
+                    IngredientID: ingredientID,
+                    Quantity: parseFloat(quantity) // Chuyển đổi số lượng sang số thực
+                });
+            }
+        });
+
+
         var foodItem = {
-            FoodId: foodId,
+            FoodID: foodId,
             FoodName: foodName,
             FoodPrice: parseFloat(foodPrice),
-            ImageUrl: foodImage.name
+            ImageUrl: foodUrl,
+            FoodDetails: foodDetails // Gửi danh sách nguyên liệu
         };
 
-        // Gửi yêu cầu cập nhật món ăn
         $.ajax({
-            url: 'http://localhost:5014/api/v1/Foods/' + foodId,  // API cập nhật món ăn
+            url: 'http://localhost:5014/api/v1/FoodDetails/' + foodId,
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(foodItem),
             success: function (response) {
                 alert("Món ăn đã được cập nhật.");
-                loadFoodItems(); // Tải lại danh sách món ăn
-                $("#addFoodForm").toggle();  // Đóng form
+                loadFoodItems();
+                $("#addFoodForm").hide();
             },
             error: function (error) {
                 alert("Lỗi khi cập nhật món ăn.");
@@ -201,4 +232,61 @@ $(document).ready(function () {
         });
     }
 
+    // Hàm tải danh sách nguyên liệu từ API
+    function loadIngredients() {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: 'http://localhost:5014/api/v1/Ingredients', // Đảm bảo URL đúng
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    var ingredientSelect = `
+                        <select class="ingredientID" required>
+                            <option value="">Chọn nguyên liệu</option>`;
+                    response.forEach(function (ingredient) {
+                        ingredientSelect += `
+                            <option value="${ingredient.IngredientId}" data-unit="${ingredient.IngredientUnit}">${ingredient.IngredientName}</option>`;
+                    });
+                    ingredientSelect += `
+                        </select>
+                    `;
+                    resolve(ingredientSelect); // Trả về danh sách nguyên liệu
+                },
+                error: function (error) {
+                    console.error("Lỗi khi tải danh sách nguyên liệu.", error);
+                    alert("Không thể tải danh sách nguyên liệu.");
+                    reject(error);
+                }
+            });
+        });
+    }
+    
+    
+    // Thêm nguyên liệu mớiêm nguyên liệu mới
+    $("#addIngredient").on('click', function () {
+        loadIngredients().then(function (ingredientSelect) {
+            const ingredientHtml = `
+                <div class="ingredient-item">
+                    ${ingredientSelect}
+                    <input type="number" class="ingredientQuantity" placeholder="Số lượng" required>
+                </div>
+            `;
+            $("#ingredientList").append(ingredientHtml);
+        }).catch(function (error) {
+            console.error("Lỗi khi thêm nguyên liệu:", error);
+        });
+    });
+
+
+    // Thay đổi placeholder cho số lượng khi chọn nguyên liệu
+    $(document).on('change', '.ingredientID', function () {
+        const selectedOption = $(this).find('option:selected');
+        const unit = selectedOption.data('unit');
+        const quantityInput = $(this).closest('.ingredient-item').find('.ingredientQuantity');
+        if (unit) {
+            quantityInput.attr('placeholder', `Số lượng (${unit})`);
+        } else {
+            quantityInput.attr('placeholder', 'Số lượng');
+        }
+    });
 });

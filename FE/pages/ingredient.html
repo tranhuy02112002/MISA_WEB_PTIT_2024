@@ -83,7 +83,84 @@
             </div>
             
             <div class="page-content-son">
+                <div class="ingredient-actions">
+                    <button id="addIngredientBtn" class="btn-primary">
+                        + Thêm Nguyên Liệu Mới
+                    </button>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm nguyên liệu...">
+                        <select id="filterCategory">
+                            <option value="">Tất cả danh mục</option>
+                            <option value="rau">Rau</option>
+                            <option value="thit">Thịt</option>
+                            <option value="hai-san">Hải Sản</option>
+                            <option value="gia-vi">Gia vị</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="m-table-all">
+                    <table id="ingredientTable">
+                        <thead>
+                            <tr class="tr_color">
+                                <th>Mã NL</th>
+                                <th>Tên Nguyên Liệu</th>
+                                <th>Danh Mục</th>
+                                <th>Số Lượng</th>
+                                <th>Đơn Vị</th>
+                                <th>Hạn Sử Dụng</th>
+                                <th>Trạng Thái</th>
+                                <th>Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ingredientTableBody">
+                            <!-- Dữ liệu sẽ được load động -->
+                        </tbody>
+                    </table>
+                </div>
+            
+                <!-- Modal Thêm/Sửa Nguyên Liệu -->
+                <div id="ingredientModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <span class="close-btn">&times;</span>
+                        <h2 id="modalTitle">Thêm Nguyên Liệu Mới</h2>
+                        <form id="ingredientForm">
+                            <input type="hidden" id="ingredientId">
+                            <div class="form-group">
+                                <label>Tên Nguyên Liệu</label>
+                                <input type="text" id="ingredientName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Danh Mục</label>
+                                <select id="ingredientCategory" required>
+                                    <option value="">Chọn Danh Mục</option>
+                                    <option value="Rau">Rau</option>
+                                    <option value="Thịt">Thịt</option>
+                                    <option value="Hải sản">Hải Sản</option>
+                                    <option value="Gia vị">Gia vị</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Số Lượng</label>
+                                <input type="number" id="ingredientQuantity" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Đơn Vị</label>
+                                <select id="ingredientUnit" required>
+                                    <option value="Kg">Kg</option>
+                                    <option value="Gram">Gram</option>
+                                    <option value="Cái">Cái</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Hạn Sử Dụng</label>
+                                <input type="date" id="ingredientExpiry" required>
+                            </div>
+                            <button type="submit" id="submitIngredientBtn" class="btn-submit">Lưu Nguyên Liệu</button>
+                        </form>
+                    </div>
+                </div>
             </div>
+            
         </div>
     </div>
 

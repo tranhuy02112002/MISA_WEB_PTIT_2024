@@ -1,5 +1,7 @@
-/* Tổng quan
-.m-page-header{
+@import url(./employee.css);
+
+/* Tổng quan */
+.m-page-header {
     margin-bottom: 10px;
     position: relative;
     display: flex;
@@ -7,11 +9,11 @@
     width: 100%;
 }
 
-.m-page-header .m-page-title{
+.m-page-header .m-page-title {
     font-size: 20px;
     font-weight: 700;
-} */
-@import url(./employee.css);
+}
+
 /* Button thêm món ăn */
 .page-header {
     display: flex;
@@ -20,16 +22,12 @@
     margin-bottom: 4px;  /* Khoảng cách dưới cùng */
 }
 
-
-
 .count-food {
     font-size: 16px;
     unicode-bidi: isolate;
-    /* font-weight: bold; */
 }
 
 .btn-add {
-    /* display: inline- ; */
     margin: 10px 8px 20px;
     background-color: #019160;
     color: white;
@@ -37,7 +35,6 @@
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    /* font-weight: bold; */
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -51,8 +48,8 @@
 /* Khu vực hiển thị danh sách món ăn */
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Hình vuông nhỏ hơn */
-    gap: 15px; /* Khoảng cách giữa các hình vuông */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
     max-height: 600px;
 }
 
@@ -63,12 +60,12 @@
     overflow: hidden;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 100%; /* Bảo đảm hình vuông */
-    padding: 8px; /* Giảm khoảng cách giữa các phần */
-    height: auto; /* Để chiều cao tự động thay đổi theo nội dung */
+    max-width: 100%;
+    padding: 8px;
+    height: auto;
     display: flex;
-    flex-direction: column; /* Sắp xếp các phần tử theo cột */
-    justify-content: space-between; /* Căn chỉnh các phần tử để có khoảng cách đều */
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .food-item:hover {
@@ -79,7 +76,7 @@
 /* Phần hình ảnh */
 .food-image {
     width: 100%;
-    height: 150px; /* Giữ chiều cao của hình ảnh */
+    height: 150px;
     background-size: contain;
 }
 
@@ -87,23 +84,23 @@
 .food-details {
     padding: 5px;
     text-align: center;
-    flex-shrink: 0; /* Giảm co lại */
+    flex-shrink: 0;
 }
 
 /* Tên món ăn */
 .food-name {
-    font-size: 13px; /* Giảm kích thước chữ */
+    font-size: 13px;
     font-weight: bold;
     color: #555;
-    margin-bottom: 5px; /* Giảm khoảng cách giữa tên và giá */
+    margin-bottom: 5px;
     text-transform: capitalize;
 }
 
 /* Giá món ăn */
 .food-price {
-    font-size: 12px; /* Giảm kích thước chữ */
+    font-size: 12px;
     color: #999;
-    margin-bottom: 8px; /* Giảm khoảng cách giữa giá và nút */
+    margin-bottom: 8px;
 }
 
 /* Các nút hành động */
@@ -151,10 +148,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    width: 350px;
+    width: 500px; /* Thay đổi kích thước */
     z-index: 1000;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px; /* Thêm padding cho form */
 }
 
 .form-container {
@@ -164,7 +162,7 @@
 .form-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 24px; /* Kích thước tiêu đề lớn hơn */
     color: #333;
 }
 
@@ -182,11 +180,12 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
-    font-size: 13px;
+    font-size: 14px; /* Tăng kích thước chữ */
+    transition: border-color 0.3s ease;
 }
 
 .form-container input:focus {
-    border-color: #28a745;
+    border-color: #019160;
     outline: none;
 }
 
@@ -197,18 +196,18 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px; /* Tăng kích thước chữ cho nút */
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 .btn-save {
-    background-color: #28a745;
+    background-color: #019160;
     color: white;
 }
 
 .btn-save:hover {
-    background-color: #218838;
+    background-color: #2fbe8e;
 }
 
 .btn-cancel {
@@ -220,11 +219,84 @@
     background-color: #a71d2a;
 }
 
-.form-popup.active {
-    display: block;
+/* CSS cho danh sách nguyên liệu */
+#ingredientsContainer {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
 }
 
-/* Làm mờ nền khi form mở */
-body.modal-open {
-    background-color: rgba(0, 0, 0, 0.1);
+.ingredient-input {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin-bottom: 15px;
+}
+
+.ingredientSelect {
+    flex: 2; /* Chiếm không gian lớn hơn cho dropdown */
+    margin-right: 10px; /* Khoảng cách giữa dropdown và ô nhập số lượng */
+}
+
+.ingredientQuantity {
+    flex: 1; /* Chiếm không gian nhỏ hơn cho ô nhập số lượng */
+    margin-right: 10px; /* Khoảng cách giữa số lượng và nút thêm */
+}
+
+.btn-add-ingredient {
+    flex: 0; /* Không chiếm không gian */
+    background-color: #007bff;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add-ingredient:hover {
+    background-color: #0056b3;
+}
+
+/* Danh sách nguyên liệu */
+#ingredientList {
+    margin-top: 10px;
+}
+
+.ingredient-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ingredient-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ingredient-item input {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#addIngredient {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#addIngredient:hover {
+    background-color: #218838;
 }

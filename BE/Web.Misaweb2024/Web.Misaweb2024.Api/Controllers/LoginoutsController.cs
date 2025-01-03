@@ -102,6 +102,10 @@ namespace Web.Misaweb2024.Api.Controllers
                     {
                         redirectUrl = "staffdashboard.html";
                     }
+                    else if (user.IsAdmin == 3)
+                    {
+                        redirectUrl = "staffdeliverydashboard.html";
+                    }
                     else
                     {
                         redirectUrl = "customerdashboard.html";

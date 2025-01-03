@@ -94,20 +94,28 @@
                         <div class="form-popup" id="addFoodForm">
                             <form class="form-container">
                                 <h2>Thêm món ăn</h2>
-        
+                        
                                 <label for="foodName"><b>Tên món ăn</b></label>
                                 <input type="text" id="foodName" placeholder="Nhập tên món ăn" required>
-        
+                        
                                 <label for="foodPrice"><b>Giá (VNĐ)</b></label>
                                 <input type="number" id="foodPrice" placeholder="Nhập giá món ăn" required>
-        
+                        
                                 <label for="foodImage"><b>Hình ảnh</b></label>
                                 <input type="file" id="foodImage" accept="image/*" required>
-        
+                        
+                                <div id="ingredientsContainer">
+                                    <h3>Nguyên liệu</h3>
+                                    <div id="ingredientList"></div>
+                                    <button type="button" id="addIngredient">Thêm nguyên liệu</button>
+                                </div>
+                                <div id="ingredientList"></div>
+                        
                                 <button type="button" class="btn btn-save" onclick="addFood()">Lưu</button>
                                 <button type="button" class="btn btn-cancel" onclick="toggleForm()">Hủy</button>
                             </form>
                         </div>
+                        
                         <!-- Khu vực hiển thị món ăn -->
                         <div class="container" id="foodList">
                         </div>
