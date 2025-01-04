@@ -18,54 +18,79 @@ namespace Web.Misaweb2024.Api.Controllers
             {
                 using (var connection = new MySqlConnection(_connectionString))
                 {
-                    // Lợi nhuận hôm nay
+                    // Lợi nhuận hôm nay từ cả 2 bảng
                     var todayProfitQuery = @"
                         SELECT SUM(TotalAmount) AS TodayProfit
-                        FROM `order`
-                        WHERE DATE(PaymentDate) = CURDATE() AND Status = 'Đã thanh toán'";
+                        FROM (
+                            SELECT TotalAmount FROM `order` WHERE DATE(PaymentDate) = CURDATE() AND Status = 'Đã thanh toán'
+                            UNION ALL
+                            SELECT Totalamout FROM onlineorder WHERE DATE(Orderdate) = CURDATE() AND Status = 'Đã thanh toán'
+                        ) AS combined_orders";
                     var todayProfit = connection.QueryFirstOrDefault<decimal?>(todayProfitQuery) ?? 0;
 
-                    // Tổng doanh thu
+                    // Tổng doanh thu từ cả 2 bảng
                     var totalRevenueQuery = @"
                     SELECT SUM(TotalAmount) AS TotalRevenue
-                    FROM `order`
-                    WHERE Status = 'Đã thanh toán'";
+                    FROM (
+                        SELECT TotalAmount FROM `order` WHERE Status = 'Đã thanh toán'
+                        UNION ALL
+                        SELECT Totalamout FROM onlineorder WHERE Status = 'Đã thanh toán'
+                    ) AS combined_orders";
                     var totalRevenue = connection.QueryFirstOrDefault<decimal?>(totalRevenueQuery) ?? 0;
 
-                    // Số đơn order hôm nay
-                    var todayOrdersQuery1 = @"
-                        SELECT COUNT(DISTINCT o.OrderID) AS TodayOrders
-                        FROM `order` o
-                        WHERE DATE(o.PaymentDate) = CURDATE() AND o.Status = 'Đã thanh toán'";
-                    var todayOrders = connection.QueryFirstOrDefault<int>(todayOrdersQuery1);
+                    // Số đơn order hôm nay từ cả 2 bảng
+                    var todayOrdersQuery = @"
+                        SELECT COUNT(DISTINCT OrderID) AS TodayOrders
+                        FROM (
+                            SELECT OrderID FROM `order` WHERE DATE(PaymentDate) = CURDATE() AND Status = 'Đã thanh toán'
+                            UNION ALL
+                            SELECT OrderonlineId AS OrderID FROM onlineorder WHERE DATE(Orderdate) = CURDATE() AND Status = 'Đã thanh toán'
+                        ) AS combined_orders";
+                    var todayOrders = connection.QueryFirstOrDefault<int>(todayOrdersQuery);
 
-
-                    // Số món order hôm nay
+                    // Số món order hôm nay từ cả 2 bảng
                     var todayOrdersFoodQuery = @"
                         SELECT COUNT(*) AS TodayOrders
-                        FROM orderdetails od
-                        JOIN `order` o ON od.OrderID = o.OrderID
-                        WHERE DATE(o.PaymentDate) = CURDATE() AND o.Status = 'Đã thanh toán'";
+                        FROM (
+                            SELECT od.FoodID FROM orderdetails od
+                            JOIN `order` o ON od.OrderID = o.OrderID
+                            WHERE DATE(o.PaymentDate) = CURDATE() AND o.Status = 'Đã thanh toán'
+                            UNION ALL
+                            SELECT od.FoodId AS FoodID FROM onlineorderdetail od
+                            JOIN onlineorder o ON od.OnlineorderId = o.OrderonlineId
+                            WHERE DATE(o.Orderdate) = CURDATE() AND o.Status = 'Đã thanh toán'
+                        ) AS combined_foods";
                     var todayOrdersFood = connection.QueryFirstOrDefault<int>(todayOrdersFoodQuery);
 
-                    // Top 3 món ăn doanh thu cao nhất
+                    // Top 3 món ăn doanh thu cao nhất từ cả 2 bảng
                     var topFoodsQuery = @"
-                        SELECT f.FoodName AS Name, SUM(od.TotalPrice) AS Revenue
-                        FROM orderdetails od
-                        JOIN food f ON od.FoodID = f.FoodID
-                        JOIN `order` o ON od.OrderID = o.OrderID
-                        WHERE o.Status = 'Đã thanh toán'
+                        SELECT f.FoodName AS Name, SUM(TotalPrice) AS Revenue
+                        FROM (
+                            SELECT od.TotalPrice, od.FoodID FROM orderdetails od
+                            JOIN `order` o ON od.OrderID = o.OrderID
+                            WHERE o.Status = 'Đã thanh toán'
+                            UNION ALL
+                            SELECT od.TotalPrice, od.FoodId AS FoodID FROM onlineorderdetail od
+                            JOIN onlineorder o ON od.OnlineorderId = o.OrderonlineId
+                            WHERE o.Status = 'Đã thanh toán'
+                        ) AS combined_details
+                        JOIN food f ON combined_details.FoodID = f.FoodID
                         GROUP BY f.FoodName
                         ORDER BY Revenue DESC
                         LIMIT 3";
                     var topFoods = connection.Query<dynamic>(topFoodsQuery);
 
-                    // Biểu đồ doanh thu
+                    // Biểu đồ doanh thu từ cả 2 bảng
                     var revenueChartQuery = @"
                         SELECT DATE(PaymentDate) AS Date, SUM(TotalAmount) AS Revenue
                         FROM `order`
                         WHERE PaymentDate >= CURDATE() - INTERVAL @Days DAY AND Status = 'Đã thanh toán'
                         GROUP BY DATE(PaymentDate)
+                        UNION ALL
+                        SELECT DATE(Orderdate) AS Date, SUM(Totalamout) AS Revenue
+                        FROM onlineorder
+                        WHERE Orderdate >= CURDATE() - INTERVAL @Days DAY AND Status = 'Đã thanh toán'
+                        GROUP BY DATE(Orderdate)
                         ORDER BY Date ASC";
                     var revenueChartData = connection.Query(revenueChartQuery, new { Days = days });
 

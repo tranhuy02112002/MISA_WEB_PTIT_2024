@@ -27,9 +27,11 @@ $(document).ready(function() {
 $(document).ready(function () {
     // Hiển thị tên người dùng khi đăng nhập
     const username = localStorage.getItem("username");
+    const email = localStorage.getItem("email");
     if (username) {
         $("#username-display").text(username); // Hiển thị tên người dùng
         $('#user-name-display').text(username);  // Cập nhật tên trong menu đăng xuất
+        $('#user-email-display').text(email);  // Cập nhật tên trong menu đăng xuất
     } else {
         $("#username-display").text("Guest"); // Trường hợp chưa đăng nhập
         $('#user-name-display').text("Guest");  // Cập nhật tên trong menu đăng xuất
@@ -45,6 +47,7 @@ $(document).ready(function () {
     $("#btn-logout").on("click", function () {
         localStorage.removeItem("username");
         localStorage.removeItem("isAdmin");
+        localStorage.removeItem("email");
         alert("Bạn đã đăng xuất thành công!");
         window.location.href = "loginout.html"; // Điều hướng về trang đăng nhập
     });

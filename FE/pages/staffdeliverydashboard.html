@@ -74,21 +74,28 @@
                             <i class="stat-icon bi bi-cart-check"></i>
                             <div class="stat-content">
                                 <h3>Tổng Đơn Hàng</h3>
-                                <div class="number">45</div>
+                                <div class="number total">45</div>
                             </div>
                         </div>
                         <div class="stat-card">
                             <i class="stat-icon bi bi-clock"></i>
                             <div class="stat-content">
                                 <h3>Đơn Chờ Giao</h3>
-                                <div class="number">12</div>
+                                <div class="number waiting">12</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="stat-icon bi bi-clock"></i>
+                            <div class="stat-content">
+                                <h3>Đơn Đang Giao</h3>
+                                <div class="number delivering">12</div>
                             </div>
                         </div>
                         <div class="stat-card">
                             <i class="stat-icon bi bi-check2-circle"></i>
                             <div class="stat-content">
                                 <h3>Đơn Đã Giao</h3>
-                                <div class="number">33</div>
+                                <div class="number compelete">33</div>
                             </div>
                         </div>
                     </div>
@@ -151,8 +158,24 @@
             
         </div>
     </div>
-    <div class="m-loading">
-        <div class="m-loading-icon"></div>
+    <div id="orderDetailsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Chi tiết đơn hàng</h2>
+    
+        <!-- Thông tin khách hàng -->
+        <h4>Thông tin khách hàng</h4>
+        <p id="customerInfo"></p>
+    
+        <!-- Danh sách món ăn -->
+        <h4>Danh sách món ăn</h4>
+        <table class="order-table">
+            <tbody id="orderDetails"></tbody>
+        </table>
+    
+        <!-- Tổng tiền -->
+        <h4 class="total-amount">Tổng tiền: <span id="totalAmount"></span> đ</h4>
+        </div>
     </div>
     <!-- Thư viện js -->
     <script src="../js/jquery-3.7.1.min.js"></script>
@@ -163,7 +186,5 @@
 
     <!-- js dành riêng cho Page -->
     <script src="../js/staffdeliverydashboard/staffdeliverydashboard.js"></script>
-
-
 </body>
 </html>

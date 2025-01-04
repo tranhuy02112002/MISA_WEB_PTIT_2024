@@ -132,17 +132,31 @@ body{
 
 /* Nút đăng xuất */
 #btn-logout {
-    background-color: #eeeeee;
-    color: #333;
-    padding: 10px;
+    margin-top: 10px;
+    background-color: #f44336; /* Màu đỏ */
+    color: #fff; /* Màu chữ trắng */
+    padding: 12px 20px; /* Điều chỉnh padding để nút nhìn to hơn */
     border: none;
-    border-radius: 5px;
+    border-radius: 10px; /* Bo góc mềm mại */
     cursor: pointer;
     width: 100%;
-    font-size: 14px;
+    font-size: 16px; /* Phóng to chữ để dễ đọc */
     text-align: center;
-    transition: background-color 0.3s ease;
+    font-weight: bold; /* Chữ đậm hơn */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng bóng đổ nhẹ */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Thêm hiệu ứng cho background và biến đổi */
 }
+
+#btn-logout:hover {
+    background-color: #e53935; /* Đổi màu khi hover (đỏ đậm hơn) */
+    transform: translateY(-2px); /* Di chuyển nút lên một chút khi hover */
+}
+
+#btn-logout:active {
+    background-color: #d32f2f; /* Màu khi click (đỏ nhạt hơn) */
+    transform: translateY(1px); /* Di chuyển xuống khi click */
+}
+
 
 #btn-logout:hover {
     background-color: #ddd; /* Màu nền khi hover */

@@ -83,7 +83,7 @@ namespace Web.Misaweb2024.Api.Controllers
                     }
 
                     // Tìm người dùng theo tên tài khoản
-                    var query = "SELECT UserId, Username, Password, IsAdmin FROM user WHERE Username = @Username";
+                    var query = "SELECT UserId, Username, Password, IsAdmin, Email FROM user WHERE Username = @Username";
                     var user = sqlConnection.QuerySingleOrDefault<User>(query, new { loginRequest.Username });
 
                     if (user == null || loginRequest.Username != user.Username || loginRequest.Password != user.Password)
@@ -117,6 +117,7 @@ namespace Web.Misaweb2024.Api.Controllers
                         UserId = user.UserId,
                         Username = user.Username,
                         IsAdmin = user.IsAdmin,
+                        Email = user.Email,
                         RedirectUrl = redirectUrl
                     });
 

@@ -105,6 +105,8 @@ class EmployeePage {
                     $("#txtPositionName").val("daubep");
                 } else if (employee.PositionName === "Quản lý kho") {
                     $("#txtPositionName").val("quanlykho");
+                } else if (employee.PositionName === "Giao hàng") {
+                        $("#txtPositionName").val("giaohang");
                 } else {
                     $("#txtPositionName").val("");
                 } 
@@ -488,6 +490,15 @@ class EmployeePage {
                 dataType: 'json',
                 success: function(data) {
                     console.log(data);
+                    data.sort((a, b) => {
+                        // Chuẩn hóa mã nhân viên: chuyển tất cả sang chữ thường
+                        const codeA = a.EmployeeCode.toLowerCase();
+                        const codeB = b.EmployeeCode.toLowerCase();
+                    
+                        // So sánh bằng localeCompare với tùy chọn numeric để sắp xếp theo số học tự nhiên
+                        return codeA.localeCompare(codeB, undefined, { numeric: false });
+                    });
+                    
                     // Lấy ra table
                     var $table = $("#tblEmployees tbody");
                     $table.empty(); // Xóa các hàng cũ nếu có

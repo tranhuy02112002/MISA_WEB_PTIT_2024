@@ -1,1 +1,263 @@
 @import url(./employee.css);
+
+.order-container {
+    display: flex;
+    height: 100%;
+}
+
+.menu-section {
+    width: 45%; /* Chiếm 60% chiều rộng */
+    padding: 20px;
+    background-color: #f4f4f4;
+    overflow-y: auto;
+    border-right: 1px solid #ddd; /* Thêm đường viền bên phải để phân cách */
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.menu-item-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    text-align: left; /* Căn trái nội dung */
+}
+
+.menu-item-image {
+    max-width: 80px; /* Chiều rộng tối đa của hình ảnh */
+    max-height: 80px; /* Chiều cao tối đa của hình ảnh */
+    margin-right: 15px; /* Khoảng cách bên phải hình ảnh */
+}
+
+.menu-item-details {
+    flex-grow: 1; /* Để tên và giá chiếm không gian còn lại */
+    display: flex;
+    flex-direction: column; /* Để sắp xếp tên và giá theo chiều dọc */
+}
+
+.menu-item-name {
+    font-size: 1.1em; /* Kích thước chữ cho tên món */
+    margin: 0; /* Bỏ khoảng cách mặc định */
+}
+
+.menu-item-price {
+    color: #004999; /* Màu sắc cho giá tiền */
+    font-weight: bold; /* Làm đậm giá tiền */
+    margin: 5px 0; /* Khoảng cách trên và dưới */
+}
+
+.add-to-cart {
+    background-color: #004999; /* Màu nền cho nút thêm vào giỏ hàng */
+    color: white; /* Màu chữ cho nút */
+    border: none; /* Bỏ viền */
+    border-radius: 4px; /* Bo tròn góc */
+    padding: 8px 12px; /* Khoảng cách bên trong nút */
+    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    align-self: flex-start; /* Để nút nằm ở bên phải */
+    margin-left: auto; /* Đẩy nút về bên phải */
+}
+
+.add-to-cart:hover {
+    background-color: #003366; /* Màu nền khi hover */
+}
+
+.customer-cart-section {
+    width: 50%; /* Chiếm 50% chiều rộng */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.selected-items {
+    margin-top: 20px;
+    overflow-y: auto;
+}
+
+.customer-info {
+    margin-bottom: 20px;
+}
+
+.customer-info input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.order-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #004999;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.order-button:hover {
+    background-color: #003366;
+}
+
+.selected-item {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.payment-details {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.payment-details th, .payment-details td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.payment-details th {
+    background-color: #f4f4f4;
+}
+thead{
+ position: relative;
+}
+
+
+.order-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.order-history-table th,
+.order-history-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.order-history-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.order-history-table .btn-action {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-view {
+    background-color: #004999;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.btn-cancel:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Nền mờ cho modal */
+.modal {
+    display: none; /* Ẩn modal theo mặc định */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+    display: flex; /* Sử dụng Flexbox để căn giữa */
+    align-items: center; /* Căn giữa theo trục dọc */
+    justify-content: center; /* Căn giữa theo trục ngang */
+}
+
+/* Nội dung modal */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 600px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s; /* Hiệu ứng hiện modal */
+}
+
+/* Nút đóng */
+.close-btn {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Bảng hiển thị món ăn */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.order-table th,
+.order-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.order-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.total-amount {
+    text-align: right;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h2,
+h4 {
+    margin-bottom: 10px;
+}
+
+/* Hiệu ứng fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

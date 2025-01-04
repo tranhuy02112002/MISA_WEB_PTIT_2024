@@ -21,36 +21,30 @@
             </div>
             <div class="header2">
                 <div class="m-img"></div>
-                <!-- Thêm chữ "Xin chào" ngay sau ảnh -->
                 <div class="greeting">
                     <span>Xin chào, </span><span id="username-display">Trần Quang Huy</span>
                 </div>
-                <!-- Icon đăng xuất -->
                 <div class="menu-icon m-icon2 m-icon-dot2" id="logout-icon"></div> 
-                
-                <!-- Menu đăng xuất -->
                 <div class="logout-menu" id="logout-menu" style="display: none;">
                     <p><strong>Người dùng:</strong> <span id="user-name-display">Trần Quang Huy</span></p>
-                    <p><strong>Email:</strong> <span id="user-email-display">huytran@example.com</span></p>
-                    <!-- Nút đăng xuất -->
+                    <p>Email:</strong> <span id="user-email-display">huytran@example.com</span></p>
                     <button id="btn-logout" class="btn-logout">Đăng Xuất</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="main">
     
+    <div class="main">
         <div id="navbar" class="navbar">
-            <div class="menu-item menu-item-focus" onclick="window.location.href='customerdashboard.html'" >
+            <div class="menu-item menu-item-focus" onclick="window.location.href='customerdashboard.html'">
                 <div class="menu-icon m-icon m-icon-dashboard"></div>
                 <div class="menu-text">Trang chủ</div>
             </div>
-        
-            <div class="menu-item" onclick="window.location.href='cus_booktableonline.html'" >
+            <div class="menu-item" onclick="window.location.href='cus_booktableonline.html'">
                 <div class="menu-icon m-icon m-icon-booktableonline"></div>
                 <div class="menu-text">Đặt bàn</div>
             </div>
-            <div class="menu-item" onclick="window.location.href='cus_orderonline.html'"style="background-color: #004999" >
+            <div class="menu-item" onclick="window.location.href='cus_orderonline.html'" style="background-color: #004999">
                 <div class="menu-icon m-icon m-icon-orderonline"></div>
                 <div class="menu-text">Đặt hàng</div>
             </div>
@@ -58,8 +52,8 @@
                 <div class="menu-icon m-icon m-icon-setting"></div>
                 <div class="menu-text">Cài đặt</div>
             </div>
-            <div  class="toggle-button" onclick="toggleNavbar()">
-                <span id="toggleNavbar" style="margin-left: 30px;" > 
+            <div class="toggle-button" onclick="toggleNavbar()">
+                <span id="toggleNavbar" style="margin-left: 30px;"> 
                     Thu gọn</span>
             </div>
         </div>
@@ -69,21 +63,80 @@
                 <div class="m-page-title">Đặt hàng online</div>
             </div>
             <div class="page-content-son">
+                <div class="order-container">
+                    <div class="menu-section">
+                        <div class="menu-list" id="menuList">
+                            <!-- Danh sách các món ăn sẽ được render ở đây -->
+                        </div>
+                    </div>
+                    <div class="customer-cart-section">
+                        <div class="order-history-section">
+                            <h3>Lịch Sử Đặt Hàng</h3>
+                            <table class="order-history-table" id="orderHistoryTable">
+                                <thead>
+                                    <tr>
+                                        <th>Mã Đơn Hàng</th>
+                                        <th>Ngày Đặt</th>
+                                        <th>Tổng Tiền</th>
+                                        <th>Trạng Thái</th>
+                                        <th>Hành Động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Dữ liệu sẽ được render bằng JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="customer-info">
+                            <h3>Thông Tin Đơn Hàng</h3>
+                            <input type="text" id="customerName" placeholder="Tên khách hàng" required>
+                            <input type="email" id="customerEmail" placeholder="Email" required>
+                            <input type="text" id="customerPhone" placeholder="Số điện thoại" required>
+                            <input type="text" id="customerAddress" placeholder="Địa chỉ" required>
+                        </div>
+                        <div class="cart-section">
+                            <h3>Giỏ Hàng <span id="cartCount">(0)</span></h3>
+                            <div class="selected-items" id="selectedItems">
+                                <!-- Các món ăn đã chọn sẽ hiển thị ở đây -->
+                            </div>
+                            <h3>Tổng Tiền</h3>
+                            <div id="totalAmount">0 đ</div>
+                            <button id="orderButton" class="order-button">Đặt hàng</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
         </div>
     </div>
+    <!-- Modal chi tiết đơn hàng -->
+    <div id="orderDetailsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Chi tiết đơn hàng</h2>
+    
+        <!-- Thông tin khách hàng -->
+        <h4>Thông tin khách hàng</h4>
+        <p id="customerInfo"></p>
+    
+        <!-- Danh sách món ăn -->
+        <h4>Danh sách món ăn</h4>
+        <table class="order-table">
+            <tbody id="orderDetails"></tbody>
+        </table>
+    
+        <!-- Tổng tiền -->
+        <h4 class="total-amount">Tổng tiền: <span id="totalAmount"></span> đ</h4>
+        </div>
+    </div>
+    
+    
     <div class="m-loading">
         <div class="m-loading-icon"></div>
     </div>
-    <!-- Thư viện js -->
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/customer/cus_orderonline.js"></script>
-
-    <!-- JaveScrip sử dụng chung -->
-     <script src="../js/main.js"></script>
-
-    <!-- js dành riêng cho Page -->
+    <script src="../js/main.js"></script>
 
 </body>
 </html>

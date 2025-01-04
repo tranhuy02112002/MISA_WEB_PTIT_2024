@@ -80,56 +80,71 @@
             <div class="m-page-header">
                 <div class="m-page-title">Quản lý đơn đặt hàng online</div>
             </div>
-            
-            
                 <div class="page-content-son">
-                    <div class="order-management">
-                        <div class="order-filters">
-                            <div class="filter-left">
-                                <select id="orderStatusFilter">
-                                    <option value="">Tất cả trạng thái</option>
-                                    <option value="pending">Chờ xác nhận</option>
-                                    <option value="processing">Đang chuẩn bị</option>
-                                    <option value="delivering">Đang giao</option>
-                                    <option value="completed">Hoàn thành</option>
-                                    <option value="cancelled">Đã hủy</option>
-                                </select>
-                                <input type="text" id="orderSearchInput" placeholder="Tìm kiếm đơn hàng...">
+                    <div class="m-table-all">
+                        <div class="order-management">
+                            <div class="order-filters">
+                                <div class="filter-left">
+                                    <select id="orderStatusFilter">
+                                        <option value="">Tất cả trạng thái</option>
+                                        <option value="pending">Chờ xác nhận</option>
+                                        <option value="processing">Đang chuẩn bị</option>
+                                        <option value="delivering">Đang giao</option>
+                                        <option value="completed">Hoàn thành</option>
+                                        <option value="cancelled">Đã hủy</option>
+                                    </select>
+                                    <input type="text" id="orderSearchInput" placeholder="Tìm kiếm đơn hàng...">
+                                </div>
+                                <div class="filter-right">
+                                    <button id="refreshOrdersBtn" class="btn-refresh">
+                                        <i class="icon-refresh"></i> Làm mới
+                                    </button>
+                                </div>
                             </div>
-                            <div class="filter-right">
-                                <button id="refreshOrdersBtn" class="btn-refresh">
-                                    <i class="icon-refresh"></i> Làm mới
-                                </button>
+                    
+                            <div class="order-list">
+                                <table id="orderTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã Đơn</th>
+                                            <th>Khách Hàng</th>
+                                            <th>Số Điện Thoại</th>
+                                            <th>Tổng Tiền</th>
+                                            <th>Ngày Đặt</th>
+                                            <th>Trạng Thái</th>
+                                            <th>Hành Động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="orderTableBody">
+                                        <!-- Dữ liệu đơn hàng sẽ được render ở đây -->
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                
-                        <div class="order-list">
-                            <table id="orderTable">
-                                <thead>
-                                    <tr>
-                                        <th>Mã Đơn</th>
-                                        <th>Khách Hàng</th>
-                                        <th>Số Điện Thoại</th>
-                                        <th>Tổng Tiền</th>
-                                        <th>Ngày Đặt</th>
-                                        <th>Trạng Thái</th>
-                                        <th>Hành Động</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="orderTableBody">
-                                    <!-- Dữ liệu đơn hàng sẽ được render ở đây -->
-                                </tbody>
-                            </table>
-                        </div>
-                
-                        <div class="order-pagination">
-                            <button id="prevPageBtn" class="pagination-btn">Trước</button>
-                            <span id="currentPage">Trang 1/10</span>
-                            <button id="nextPageBtn" class="pagination-btn">Sau</button>
+                    
                         </div>
                     </div>
+             
                 </div>
-      
+        </div>
+    </div>
+    <!-- Modal chi tiết đơn hàng -->
+    <div id="orderDetailsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Chi tiết đơn hàng</h2>
+    
+        <!-- Thông tin khách hàng -->
+        <h4>Thông tin khách hàng</h4>
+        <p id="customerInfo"></p>
+    
+        <!-- Danh sách món ăn -->
+        <h4>Danh sách món ăn</h4>
+        <table class="order-table">
+            <tbody id="orderDetails"></tbody>
+        </table>
+    
+        <!-- Tổng tiền -->
+        <h4 class="total-amount">Tổng tiền: <span id="totalAmount"></span> đ</h4>
         </div>
     </div>
 
