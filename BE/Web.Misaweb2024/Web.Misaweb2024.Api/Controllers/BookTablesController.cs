@@ -96,7 +96,7 @@ namespace Web.Misaweb2024.Api.Controllers
 
                     // Kiểm tra bàn đã được đặt chưa
                     var checkTableQuery = @"
-                   SELECT COUNT(*) 
+                    SELECT COUNT(*) 
                     FROM booktable 
                     WHERE TableId = @TableId 
                     AND Status = 1 
