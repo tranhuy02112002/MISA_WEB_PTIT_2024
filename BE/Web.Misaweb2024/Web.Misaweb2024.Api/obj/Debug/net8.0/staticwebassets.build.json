@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "GKtJXUgKiMn5SBcr+0l5MHmBSEFe+/xtZ0tCYLl+WCM=",
-  "Source": "Web.Misaweb2024.Api",
-  "BasePath": "_content/Web.Misaweb2024.Api",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"EQF1JSB7fT++Gqe4GQ9bfaYhBD5cFxopigZG4dCQCoU=","Source":"Web.Misaweb2024.Api","BasePath":"_content/Web.Misaweb2024.Api","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

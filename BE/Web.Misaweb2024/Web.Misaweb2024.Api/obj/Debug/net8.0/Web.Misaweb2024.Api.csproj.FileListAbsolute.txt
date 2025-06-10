@@ -19,11 +19,6 @@ C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misa
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\Web.Misaweb2024.Api.sourcelink.json
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets\msbuild.Web.Misaweb2024.Api.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets\msbuild.build.Web.Misaweb2024.Api.props
-C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Web.Misaweb2024.Api.props
-C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Web.Misaweb2024.Api.props
-C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\scopedcss\bundle\Web.Misaweb2024.Api.styles.css
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\Web.Misa.D2592FFC.Up2Date
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\Web.Misaweb2024.Api.dll
@@ -36,3 +31,7 @@ C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misa
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\Web.Misaweb2024.Api.Resources.ResourceEN.resources
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\Web.Misaweb2024.Api.Resources.ResourceVN.resources
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\Web.Misaweb2024.Api.csproj.GenerateResource.cache
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\bin\Debug\net8.0\Web.Misaweb2024.Api.staticwebassets.endpoints.json
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

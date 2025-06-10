@@ -1,0 +1,909 @@
+[
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "GetAllBooktables",
+    "RelativePath": "api/v1/Booktables",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "AddBooktable",
+    "RelativePath": "api/v1/Booktables",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "booktable",
+        "Type": "Web.Misaweb2024.Api.Model.Booktable",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "GetBooktableById",
+    "RelativePath": "api/v1/Booktables/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "UpdateBooktable",
+    "RelativePath": "api/v1/Booktables/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "booktable",
+        "Type": "Web.Misaweb2024.Api.Model.Booktable",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "DeleteBooktable",
+    "RelativePath": "api/v1/Booktables/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "ApproveBooktable",
+    "RelativePath": "api/v1/Booktables/{id}/approve",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "GetAvailableTables",
+    "RelativePath": "api/v1/Booktables/available",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "CancelBooktable",
+    "RelativePath": "api/v1/Booktables/cancel/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "CreateBooktable",
+    "RelativePath": "api/v1/Booktables/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookTableDto",
+        "Type": "Web.Misaweb2024.Api.Controllers.BooktablesController\u002BBooktableCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "GetBooktablesByCustomerId",
+    "RelativePath": "api/v1/Booktables/customer/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.BooktablesController",
+    "Method": "UpdateBooktable",
+    "RelativePath": "api/v1/Booktables/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "bookTableDto",
+        "Type": "Web.Misaweb2024.Api.Controllers.BooktablesController\u002BBooktableUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.CommentController",
+    "Method": "GetComments",
+    "RelativePath": "api/v1/Comment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.CommentController",
+    "Method": "AddComment",
+    "RelativePath": "api/v1/Comment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "comment",
+        "Type": "Web.Misaweb2024.Api.Model.Comment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.EmployeesController",
+    "Method": "GetAllEmployees",
+    "RelativePath": "api/v1/Employees",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.EmployeesController",
+    "Method": "Post",
+    "RelativePath": "api/v1/Employees",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employee",
+        "Type": "Web.Misaweb2024.Api.Model.Employee",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.EmployeesController",
+    "Method": "GetByID",
+    "RelativePath": "api/v1/Employees/{employeeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.EmployeesController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/Employees/{employeeId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.EmployeesController",
+    "Method": "Put",
+    "RelativePath": "api/v1/Employees/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "employee",
+        "Type": "Web.Misaweb2024.Api.Model.Employee",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.EmployeesController",
+    "Method": "GetBySearchTerm",
+    "RelativePath": "api/v1/Employees/search/{searchTerm}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodDetailsController",
+    "Method": "GetAllFoods",
+    "RelativePath": "api/v1/FoodDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodDetailsController",
+    "Method": "AddFood",
+    "RelativePath": "api/v1/FoodDetails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "food",
+        "Type": "Web.Misaweb2024.Api.Model.FoodDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodDetailsController",
+    "Method": "GetFoodById",
+    "RelativePath": "api/v1/FoodDetails/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodDetailsController",
+    "Method": "DeleteFood",
+    "RelativePath": "api/v1/FoodDetails/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodDetailsController",
+    "Method": "UpdateFood",
+    "RelativePath": "api/v1/FoodDetails/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "food",
+        "Type": "Web.Misaweb2024.Api.Model.FoodDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodsController",
+    "Method": "GetAllFoods",
+    "RelativePath": "api/v1/Foods",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodsController",
+    "Method": "AddFood",
+    "RelativePath": "api/v1/Foods",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "food",
+        "Type": "Web.Misaweb2024.Api.Model.Food",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodsController",
+    "Method": "DeleteFood",
+    "RelativePath": "api/v1/Foods/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodsController",
+    "Method": "GetFoodById",
+    "RelativePath": "api/v1/Foods/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.FoodsController",
+    "Method": "UpdateFood",
+    "RelativePath": "api/v1/Foods/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "food",
+        "Type": "Web.Misaweb2024.Api.Model.Food",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.IngredientsController",
+    "Method": "GetAllIngredients",
+    "RelativePath": "api/v1/Ingredients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.IngredientsController",
+    "Method": "AddIngredient",
+    "RelativePath": "api/v1/Ingredients",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ingredient",
+        "Type": "Web.Misaweb2024.Api.Model.Ingredient",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.IngredientsController",
+    "Method": "GetIngredientById",
+    "RelativePath": "api/v1/Ingredients/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.IngredientsController",
+    "Method": "UpdateIngredient",
+    "RelativePath": "api/v1/Ingredients/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "ingredient",
+        "Type": "Web.Misaweb2024.Api.Model.Ingredient",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.IngredientsController",
+    "Method": "DeleteIngredient",
+    "RelativePath": "api/v1/Ingredients/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.IngredientsController",
+    "Method": "SearchIngredients",
+    "RelativePath": "api/v1/Ingredients/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.LoginoutsController",
+    "Method": "Login",
+    "RelativePath": "api/v1/Loginouts/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "Web.Misaweb2024.Api.Model.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.LoginoutsController",
+    "Method": "Register",
+    "RelativePath": "api/v1/Loginouts/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "Web.Misaweb2024.Api.Model.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrderOnlinesController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/v1/OrderOnlines",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderDto",
+        "Type": "Web.Misaweb2024.Api.Controllers.OrderOnlineCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrderOnlinesController",
+    "Method": "GetOrderHistory",
+    "RelativePath": "api/v1/OrderOnlines",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrderOnlinesController",
+    "Method": "GetOrderDetails",
+    "RelativePath": "api/v1/OrderOnlines/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrderOnlinesController",
+    "Method": "ApproveOrder",
+    "RelativePath": "api/v1/OrderOnlines/{orderId}/approve",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrderOnlinesController",
+    "Method": "CancelOrder",
+    "RelativePath": "api/v1/OrderOnlines/{orderId}/cancel",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrderOnlinesController",
+    "Method": "CompleteOrder",
+    "RelativePath": "api/v1/OrderOnlines/{orderId}/complete",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrderOnlinesController",
+    "Method": "DeliverOrder",
+    "RelativePath": "api/v1/OrderOnlines/{orderId}/deliver",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrderOnlinesController",
+    "Method": "GetFilteredOrders",
+    "RelativePath": "api/v1/OrderOnlines/filter",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrderOnlinesController",
+    "Method": "GetOrderHistory",
+    "RelativePath": "api/v1/OrderOnlines/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrdersController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/v1/Orders",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderDto",
+        "Type": "Web.Misaweb2024.Api.Model.OrderCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrdersController",
+    "Method": "GetOrderDetails",
+    "RelativePath": "api/v1/Orders/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrdersController",
+    "Method": "GetAllOrders",
+    "RelativePath": "api/v1/Orders/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrdersController",
+    "Method": "ProcessPayment",
+    "RelativePath": "api/v1/Orders/payment/{tableId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tableId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrdersController",
+    "Method": "GetOrderByTableId",
+    "RelativePath": "api/v1/Orders/table/{tableId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tableId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.OrdersController",
+    "Method": "UpdateOrder",
+    "RelativePath": "api/v1/Orders/update/{orderId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "orderDto",
+        "Type": "Web.Misaweb2024.Api.Model.OrderCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.RevenueController",
+    "Method": "GetRevenue",
+    "RelativePath": "api/v1/Revenue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "days",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.TablesController",
+    "Method": "GetAllTables",
+    "RelativePath": "api/v1/Tables",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.TablesController",
+    "Method": "AddTable",
+    "RelativePath": "api/v1/Tables",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "table",
+        "Type": "Web.Misaweb2024.Api.Model.Table",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.TablesController",
+    "Method": "GetTableById",
+    "RelativePath": "api/v1/Tables/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.TablesController",
+    "Method": "UpdateTable",
+    "RelativePath": "api/v1/Tables/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "table",
+        "Type": "Web.Misaweb2024.Api.Model.Table",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web.Misaweb2024.Api.Controllers.TablesController",
+    "Method": "DeleteTable",
+    "RelativePath": "api/v1/Tables/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
