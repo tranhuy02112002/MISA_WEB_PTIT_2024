@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Web.Misaweb2024.Api.props" />
-</Project>
