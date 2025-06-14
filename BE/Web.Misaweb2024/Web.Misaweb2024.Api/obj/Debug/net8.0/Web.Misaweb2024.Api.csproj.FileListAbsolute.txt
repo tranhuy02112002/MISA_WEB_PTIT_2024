@@ -35,3 +35,7 @@ C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misa
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\HUY TRAN\Desktop\MISA-TT\MISA_WEB_PTIT_2024\BE\Web.Misaweb2024\Web.Misaweb2024.Api\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
